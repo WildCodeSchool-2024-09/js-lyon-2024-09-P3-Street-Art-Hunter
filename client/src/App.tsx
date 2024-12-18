@@ -1,11 +1,11 @@
 import "./App.css";
-import Map from "./components/Map"
+import WorldMap from "./components/WorldMap";
 
 function App() {
   return (
     <>
       <h1>Hello World</h1>
-      <Map/>
+      <WorldMap />
     </>
   );
 }
