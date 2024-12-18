@@ -4,12 +4,12 @@ import Leadboard from "../../assets/images/lead_ash.png";
 
 export default function Navbar() {
   return (
-    <div className="navbar-icon">
-      <hr />
+    <div className="navbar-icon box-divider">
+      <hr className="vertical-divider" />
       <img src={Leadboard} alt="leadboard" />
       <hr />
       <img src={Connection} alt="connection" />
-      <hr />
+      <hr className="vertical-divider" />
     </div>
   );
 }

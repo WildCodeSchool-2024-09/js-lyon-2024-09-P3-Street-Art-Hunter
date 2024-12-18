@@ -1,6 +1,7 @@
 import "./App.css";
 import Logo from "./assets/images/cc_logo_spotless_mustard.png";
 import Navbar from "./components/Navbar/Navbar";
+import WorldMap from "./components/WorldMap";
 
 function App() {
   return (
@@ -10,8 +11,8 @@ function App() {
         <Navbar />
       </nav>
       <main>
-        <img src={Logo} alt="logoCC" className="logo" />
-        <h1>Hello World</h1>
+        <img src={Logo} alt="logoCC" className="narrow-logo" />
+        <WorldMap />
       </main>
       <div className="narrow-nav">
         <Navbar />

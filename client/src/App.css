@@ -49,8 +49,12 @@ nav {
   display: none;
 }
 
-.logo {
+.narrow-logo {
   height: 8vh;
+}
+
+.logo {
+  display: none;
 }
 
 main {
@@ -64,9 +68,9 @@ footer {
 }
 
 .narrow-nav {
-  display: block;
+  display: flex;
   width: 100%;
-  height: 10vh;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -79,7 +83,11 @@ footer {
     padding: 0 10%;
   }
   .logo {
+    display: block;
     height: 15vh;
+  }
+  .narrow-logo {
+    display: none;
   }
   .narrow-nav {
     display: none;
@@ -106,7 +114,11 @@ footer {
     padding: 0 10%;
   }
   .logo {
+    display: block;
     height: 15vh;
+  }
+  .narrow-logo {
+    display: none;
   }
   .narrow-nav {
     display: none;
