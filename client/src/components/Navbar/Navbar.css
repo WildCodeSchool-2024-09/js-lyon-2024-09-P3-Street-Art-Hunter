@@ -1,0 +1,17 @@
+.navbar-icon {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
+  width: 20%;
+  margin-top: 1vh;
+}
+
+.navbar-icon img {
+  height: 5vh;
+}
+
+hr {
+  border: 1px solid var(--mustard-color);
+  height: 6vh;
+}
