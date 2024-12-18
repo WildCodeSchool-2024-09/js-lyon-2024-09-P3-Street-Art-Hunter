@@ -1,0 +1,35 @@
+.search-sct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--mustard-color);
+  font-family: "Dark Grotesque", sans-serif;
+  font-size: .8em;
+}
+
+.searchBar {
+  display: flex;
+  gap: 2em;
+}
+.citySearch {
+  width: 40em;
+  height: 3em;
+  border: solid black 1px;
+  border-radius: 5px;
+}
+.btn-search {
+  width: 8em;
+  background-color: var(--mustard-color);
+  border: solid black 1px;
+  border-radius: 12px;
+  font-family: "Darker Grotesque", sans-serif;
+  font-weight: bold;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+form a {
+  text-align: center;
+  margin: .5em 0;
+}
