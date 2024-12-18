@@ -4,12 +4,7 @@
   align-items: center;
   color: var(--mustard-color);
   font-family: "Dark Grotesque", sans-serif;
-  font-size: .8em;
-}
-
-.searchBar {
-  display: flex;
-  gap: 2em;
+  font-size: 1em;
 }
 .citySearch {
   width: 40em;
@@ -17,10 +12,17 @@
   border: solid black 1px;
   border-radius: 5px;
 }
+.searchBar {
+  display: flex;
+  gap: 2em;
+}
 .btn-search {
+  margin: 0;
   width: 8em;
+  height: 3em;
   background-color: var(--mustard-color);
-  border: solid black 1px;
+  color: var(--jet-color);
+  border: solid var(--jet-color) 1px;
   border-radius: 12px;
   font-family: "Darker Grotesque", sans-serif;
   font-weight: bold;
@@ -29,7 +31,10 @@ form {
   display: flex;
   flex-direction: column;
 }
-form a {
+form button {
   text-align: center;
   margin: .5em 0;
+  border: transparent;
+  background-color: transparent;
+  color: var(--mustard-color);
 }

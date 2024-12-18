@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 
 function SearchBar() {
@@ -11,6 +11,7 @@ function SearchBar() {
     e.preventDefault();
     navigate("/accueil");
   };
+  console.info(search);
 
   return (
     <div className="search-sct">
@@ -33,7 +34,7 @@ function SearchBar() {
             Recherche
           </button>
         </div>
-        <a>Autoriser la géolocalisation</a>
+        <button type="button">Autoriser la géolocalisation</button>
       </form>
     </div>
   );
