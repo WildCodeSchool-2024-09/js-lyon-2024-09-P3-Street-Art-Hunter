@@ -17,24 +17,28 @@ function SearchBar() {
     <div className="search-sct">
       <form>
         <div className="searchBar">
-          <input
-            className="citySearch"
-            type="search"
-            name="searchBar"
-            placeholder="Recherchez une ville..."
-            required
-            onChange={(e) => setSearch(e.target.value)} //Stocker le texte saisie dans la variable search
-          />
-          {/* // Au click, je redirige vers la page accueil // */}
+          <section className="searchGeo">
+            <input
+              className="citySearch"
+              type="search"
+              name="searchBar"
+              placeholder="Recherchez une ville..."
+              required
+              onChange={(e) => setSearch(e.target.value)} //Stocker le texte saisie dans la variable search
+            />
+            {/* // Au click, je redirige vers la page accueil // */}
+            <button className="geo-btn" type="button">
+              Autoriser la géolocalisation
+            </button>
+          </section>
           <button
-            className="btn-search"
+            className="search-btn"
             type="submit"
             onClick={handleSearchSubmit}
           >
             Recherche
           </button>
         </div>
-        <button type="button">Autoriser la géolocalisation</button>
       </form>
     </div>
   );
