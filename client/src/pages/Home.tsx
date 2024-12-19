@@ -1,5 +1,8 @@
-import Logo from "../assets/images/cc_log_jet.png";
+import Logo from "../assets/images/cc_logo_spotless.png";
+
+import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/SearchBar/SearchBar";
+import "../App.css";
 
 function Home() {
   return (
@@ -7,7 +10,12 @@ function Home() {
       <nav>
         <img src={Logo} alt="logoCC" className="logo" />
       </nav>
-      <SearchBar />
+      <section className="home-sct">
+        <SearchBar />
+      </section>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

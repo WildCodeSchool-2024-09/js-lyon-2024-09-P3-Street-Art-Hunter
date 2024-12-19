@@ -7,7 +7,6 @@ import "./pages/Home";
 /* ************************************************************************* */
 
 // Import the main app component
-import App from "./App";
 import Home from "./pages/Home";
 
 // Import additional components for new routes
@@ -23,9 +22,10 @@ import Home from "./pages/Home";
 const router = createBrowserRouter([
   {
     path: "/", // The root path
-    element: <App />, // Renders the App component for the home page
+    element: <Home />, // Renders the App component for the home page
   },
   {
+    index: true,
     path: "/home", // The root path
     element: <Home />, // Renders the App component for the home page
   },
