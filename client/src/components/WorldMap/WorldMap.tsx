@@ -1,8 +1,8 @@
-import "../components/WorldMap.css";
+import "./WorldMap.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
-import mustardIcon from "../assets/icones/pin_mustard.png";
+import mustardIcon from "../../assets/icones/pin_mustard.png";
 
 function WorldMap() {
   const mustardPin = new Icon({

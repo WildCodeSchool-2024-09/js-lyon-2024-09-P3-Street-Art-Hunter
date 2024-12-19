@@ -1,8 +1,9 @@
 import "./App.css";
 import Logo from "./assets/images/cc_logo_spotless_mustard.png";
+import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import SearchBar from "./components/SearchBar/SearchBar";
-import WorldMap from "./components/WorldMap";
+import WorldMap from "./components/WorldMap/WorldMap";
 
 function App() {
   return (
@@ -20,9 +21,7 @@ function App() {
         <Navbar />
       </div>
       <footer>
-        <p>Créé avec </p>
-        <h3>passion</h3>
-        <p> par la Team City Canvas</p>
+        <Footer />
       </footer>
     </>
   );
