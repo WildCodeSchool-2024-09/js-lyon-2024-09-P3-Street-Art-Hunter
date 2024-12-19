@@ -63,10 +63,6 @@ main {
   padding: 0;
 }
 
-footer {
-  display: none;
-}
-
 .narrow-nav {
   display: flex;
   width: 100%;
@@ -99,8 +95,6 @@ footer {
   footer {
     height: 5vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 }
 
@@ -130,7 +124,5 @@ footer {
   footer {
     height: 5vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 }

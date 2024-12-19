@@ -1,0 +1,31 @@
+.footer {
+  display: none;
+  gap: 5em;
+}
+
+.github {
+  color: var(--mustard-color);
+  text-decoration: none;
+}
+
+.logoGitHub {
+  height: 2em;
+  margin-left: 1em;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 2em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  }
+}
