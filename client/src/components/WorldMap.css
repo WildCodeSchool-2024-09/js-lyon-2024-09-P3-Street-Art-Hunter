@@ -1,4 +1,4 @@
-#map {
-  height: 500px;
-  width: 100%;
+.leaflet-container {
+  height: 70vh;
+  width: 100vw;
 }
