@@ -1,5 +1,5 @@
-import SearchBar from "../components/SearchBar/SearchBar";
 import Logo from "../assets/images/cc_log_jet.png";
+import SearchBar from "../components/SearchBar/SearchBar";
 
 function Home() {
   return (
