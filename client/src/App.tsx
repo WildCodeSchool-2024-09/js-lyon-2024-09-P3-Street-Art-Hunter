@@ -5,7 +5,7 @@ import WorldMap from "./components/WorldMap";
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <h1>City Canvas</h1>
       <SearchBar />
       <WorldMap />
     </>

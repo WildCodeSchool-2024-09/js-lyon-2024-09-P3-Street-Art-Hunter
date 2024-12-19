@@ -8,12 +8,17 @@ form {
 .searchBar {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
 }
 .citySearch {
   width: 20em;
   height: 2.5em;
   border-radius: 8px;
   border: transparent;
+}
+.searchGeo {
+  display: flex;
+  flex-direction: column;
 }
 .geo-btn {
   border: transparent;
@@ -36,37 +41,22 @@ form {
   border: solid 1px var(--mustard-color);
   border-radius: 12px;
 }
-@media screen and (min-width: 433px) and (max-width: 767px) {
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .searchBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
+/* @media screen and (min-width: 433px) and (max-width: 767px) {
+
   .search-btn {
     background-color: var(--mustard-color);
     color: var(--jet-color);
     align-self: baseline;
     margin: 0 2em;
   }
-  .searchGeo {
-    display: flex;
-    flex-direction: column;
-  }
+
   .citySearch {
     width: 15em;
     height: 2.5em;
     border-radius: 8px;
     border: transparent;
   }
-}
+} */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   form {
     display: flex;
