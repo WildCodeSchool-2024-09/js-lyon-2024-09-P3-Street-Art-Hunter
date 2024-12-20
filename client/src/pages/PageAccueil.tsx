@@ -1,7 +1,8 @@
-import "./App.css";
+import "../App.css";
+import Logo from "../assets/images/cc_logo_spotless_mustard.png";
+import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
-import WorldMap from "../components/WorldMap";
-import Logo from "./assets/images/cc_logo_spotless_mustard.png";
+import WorldMap from "../components/WorldMap/WorldMap";
 
 function PageAccueil() {
   return (
@@ -18,9 +19,8 @@ function PageAccueil() {
         <Navbar />
       </div>
       <footer>
-        <p>Créé avec </p>
-        <h3>passion</h3>
-        <p> par la Team City Canvas</p>
+        {" "}
+        <Footer />{" "}
       </footer>
     </>
   );

@@ -1,5 +1,6 @@
 import "./App.css";
 import Logo from "./assets/images/cc_logo_spotless_mustard.png";
+import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
       <div className="narrow-nav">
         <Navbar />
       </div>
-      <footer>En attente</footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
