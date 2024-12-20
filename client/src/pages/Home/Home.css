@@ -1,0 +1,26 @@
+.home-sct {
+  display: flex;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.center-logo {
+  height: 6.5em;
+}
+
+.logo-sct {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .center-logo {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .center-logo {
+    display: none;
+  }
+}

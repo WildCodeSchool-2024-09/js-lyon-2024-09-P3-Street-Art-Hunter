@@ -2,7 +2,6 @@ import "./App.css";
 import Logo from "./assets/images/cc_logo_spotless_mustard.png";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import SearchBar from "./components/SearchBar/SearchBar";
 import WorldMap from "./components/WorldMap/WorldMap";
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
         <Navbar />
       </nav>
       <main>
-        <SearchBar />
         <img src={Logo} alt="logoCC" className="narrow-logo" />
         <WorldMap />
       </main>
