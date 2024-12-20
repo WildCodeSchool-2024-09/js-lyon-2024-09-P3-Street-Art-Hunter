@@ -9,7 +9,7 @@ function SearchBar() {
   //   Fonction pour gérer la saisie dans la zone de texte, et rediriger vers la bonne page
   const handleSearchSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    navigate("/worldmap");
+    navigate("/accueil");
   };
   console.info(search);
 
