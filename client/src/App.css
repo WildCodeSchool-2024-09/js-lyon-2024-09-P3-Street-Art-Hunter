@@ -46,8 +46,7 @@ h4 {
 }
 
 nav {
-  display: block;
-  padding: 2em;
+  display: none;
 }
 
 .narrow-logo {
@@ -55,20 +54,13 @@ nav {
 }
 
 .logo {
-  display: block;
-  justify-self: center;
-  height: 20vh;
+  display: none;
 }
 
 main {
   height: 90vh;
   width: 100%;
   padding: 0;
-}
-.home-sct {
-  display: flex;
-  justify-content: center;
-  min-height: 70vh;
 }
 
 .narrow-nav {
@@ -120,7 +112,7 @@ main {
     height: 15vh;
   }
   .narrow-logo {
-    display: block;
+    display: none;
   }
   .narrow-nav {
     display: none;
