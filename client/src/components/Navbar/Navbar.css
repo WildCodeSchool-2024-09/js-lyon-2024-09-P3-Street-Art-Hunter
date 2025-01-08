@@ -4,11 +4,11 @@
   align-items: center;
   height: 6vh;
   width: 92%;
-  margin: 1em 0;
+  margin-top: 0.5em;
 }
 
 .navbar-icon img {
-  height: 5vh;
+  height: 3.5vh;
 }
 
 .box-divider {
@@ -19,7 +19,7 @@
 hr {
   display: block;
   border: 1px solid var(--mustard-color);
-  height: 6vh;
+  height: 4vh;
 }
 
 .vertical-divider {
@@ -33,7 +33,7 @@ hr {
   .vertical-divider {
     display: block;
     border: 1px solid var(--mustard-color);
-    height: 6vh;
+    height: 4vh;
   }
   .box-divider {
     border: none;
@@ -46,7 +46,7 @@ hr {
   .vertical-divider {
     display: block;
     border: 1px solid var(--mustard-color);
-    height: 6vh;
+    height: 4vh;
   }
   .box-divider {
     border: none;
