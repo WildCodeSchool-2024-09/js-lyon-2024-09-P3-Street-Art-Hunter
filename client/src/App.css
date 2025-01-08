@@ -50,6 +50,10 @@ nav {
   display: none;
 }
 
+.link-logo {
+  z-index: 1;
+}
+
 .narrow-logo {
   height: 8vh;
 }
@@ -83,7 +87,6 @@ main {
   .logo {
     display: block;
     height: 13vh;
-    z-index: 1;
   }
   .narrow-logo {
     display: none;
@@ -114,7 +117,6 @@ main {
   .logo {
     display: block;
     height: 13vh;
-    z-index: 1;
     margin-top: 0.5em;
   }
   .narrow-logo {

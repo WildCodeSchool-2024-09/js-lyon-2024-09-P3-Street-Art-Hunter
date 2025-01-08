@@ -6,6 +6,7 @@ import "./pages/Home/Home";
 
 /* ************************************************************************* */
 
+import App from "./App";
 // Import the main app component
 import Home from "./pages/Home/Home";
 import PageAccueil from "./pages/PageAccueil/PageAccueil";
@@ -26,17 +27,14 @@ const router = createBrowserRouter([
     element: <Home />, // Renders the App component for the home page
   },
   {
-    path: "/", // The root path
-    element: <Home />, // Renders the App component for the home page
-  },
-  {
-    index: true,
-    path: "/home", // The root path
-    element: <Home />, // Renders the App component for the home page
-  },
-  {
     path: "/accueil", // The root path
-    element: <PageAccueil />, // Renders the App component for the home page
+    element: <App />, // Renders the App component for the home page
+    children: [
+      {
+        path: "/accueil", // The root path
+        element: <PageAccueil />, // Renders the App component for the home page
+      },
+    ],
   },
   // Try adding a new route! For example, "/about" with an About component
 ]);
