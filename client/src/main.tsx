@@ -8,7 +8,7 @@ import "./pages/Home/Home";
 
 // Import the main app component
 import Home from "./pages/Home/Home";
-import PageAccueil from "./pages/PageAccueil";
+import PageAccueil from "./pages/PageAccueil/PageAccueil";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder

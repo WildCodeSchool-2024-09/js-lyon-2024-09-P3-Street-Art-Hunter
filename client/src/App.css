@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Poiret+One&display=swap");
+/* mobile screen */
 @font-face {
   font-family: "Meaglez";
   src: local("Meaglez"), url(./assets/fonts/Meaglez-1G7e2.otf)
@@ -58,7 +59,7 @@ nav {
 }
 
 main {
-  height: 90vh;
+  height: 92vh;
   width: 100%;
   padding: 0;
 }
@@ -70,9 +71,10 @@ main {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* tablette screen */
   nav {
     width: 100%;
-    height: 20vh;
+    height: 8vh;
     display: flex;
     align-items: top;
     justify-content: space-between;
@@ -80,7 +82,8 @@ main {
   }
   .logo {
     display: block;
-    height: 15vh;
+    height: 13vh;
+    z-index: 1;
   }
   .narrow-logo {
     display: none;
@@ -89,8 +92,8 @@ main {
     display: none;
   }
   main {
-    padding: 0 15%;
-    height: 75vh;
+    /* padding: 0 15%; */
+    height: 87vh;
   }
   footer {
     height: 5vh;
@@ -99,9 +102,10 @@ main {
 }
 
 @media screen and (min-width: 1024px) {
+  /* desktop screen */
   nav {
     width: 100%;
-    height: 20vh;
+    height: 8vh;
     display: flex;
     align-items: top;
     justify-content: space-between;
@@ -109,7 +113,9 @@ main {
   }
   .logo {
     display: block;
-    height: 15vh;
+    height: 13vh;
+    z-index: 1;
+    margin-top: 0.5em;
   }
   .narrow-logo {
     display: none;
@@ -119,10 +125,11 @@ main {
   }
   main {
     padding: 0 30%;
-    height: 75vh;
+    height: 87vh;
   }
   footer {
     height: 5vh;
     width: 100%;
+    top: 10px;
   }
 }
