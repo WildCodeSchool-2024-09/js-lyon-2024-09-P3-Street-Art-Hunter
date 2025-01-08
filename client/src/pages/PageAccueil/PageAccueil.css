@@ -1,0 +1,23 @@
+/* mobile screen */
+.narrow-logo {
+  height: 10vh;
+  position: absolute;
+  z-index: 10;
+  right: 30px;
+  top: 13px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* tablette screen */
+  .narrow-logo {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* desktop screen */
+
+  .narrow-logo {
+    display: none;
+  }
+}

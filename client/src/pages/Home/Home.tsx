@@ -9,7 +9,7 @@ function Home() {
     <div>
       <section className="logo-sct">
         <img src={Logo} alt="logoCC" className="logo" />
-        <img src={Logo} alt="logoCC" className="center-logo " />
+        <img src={Logo} alt="logoCC" className="center-logo" />
       </section>
       <section className="home-sct">
         <SearchBar />
