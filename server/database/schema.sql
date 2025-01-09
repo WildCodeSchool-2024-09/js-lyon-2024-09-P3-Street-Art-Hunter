@@ -1,12 +1,12 @@
 CREATE TABLE artwork
-	( id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
+( id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100),
 	  address VARCHAR(250) NOT NULL,
       image VARCHAR(255) NOT NULL,
       picture_date date,
       type_of_art VARCHAR(100),
-      latitude INT NOT NULL,
-      longitude INT NOT NULL,
+      latitude FLOAT NOT NULL,
+      longitude FLOAT NOT NULL,
       picture_credit VARCHAR(100) NOT NULL
 	);
     
@@ -16,12 +16,11 @@ CREATE TABLE artwork
     
  CREATE TABLE artist
  (id INT AUTO_INCREMENT PRIMARY KEY,
- name VARCHAR(100)
+ name VARCHAR(100) DEFAULT 'inconnu'
  );
  
  INSERT INTO artist (id,name)
-	VALUES (1,'DEFAULT'),
-    (2,'Kalouf (Blast)');
+	VALUES (1, null),(2,'Kalouf (Blast)');
 
 CREATE TABLE creation
 (creation_date DATE,
