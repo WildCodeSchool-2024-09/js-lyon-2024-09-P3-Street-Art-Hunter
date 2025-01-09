@@ -2,7 +2,7 @@ CREATE TABLE artwork
 	( id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
 	  address VARCHAR(250) NOT NULL,
-      image VARCHAR(300) NOT NULL,
+      image VARCHAR(255) NOT NULL,
       picture_date date,
       type_of_art VARCHAR(100),
       latitude INT NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE artwork
  );
  
  INSERT INTO artist (id,name)
-	VALUES (1,'inconnu'),
+	VALUES (1,'DEFAULT'),
     (2,'Kalouf (Blast)');
 
 CREATE TABLE creation
