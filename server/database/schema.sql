@@ -5,8 +5,8 @@ CREATE TABLE artwork
       image VARCHAR(300) NOT NULL,
       picture_date date,
       type_of_art VARCHAR(100),
-      latitude INT NOT NULL,
-      longitude INT NOT NULL,
+      latitude FLOAT NOT NULL,
+      longitude FLOAT NOT NULL,
       picture_credit VARCHAR(100) NOT NULL
 	);
     
