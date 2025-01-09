@@ -1,5 +1,5 @@
 import "../../App.css";
-import "./PageAccueil.css";
+import "./HomePage.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 import WorldMap from "../../components/WorldMap/WorldMap";
