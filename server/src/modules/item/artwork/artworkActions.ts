@@ -4,15 +4,89 @@ import type { RequestHandler } from "express";
 import articleRepository from "./artworkRepository";
 
 // The B of BREAD - Browse (Read All) operation
+// const browse: RequestHandler = async (req, res, next) => {
+//   try {
+//     // Fetch all items
+//     const artworks = await articleRepository.readAll();
+
+//     let coordinate = [];
+//     let newArtworks = [];
+//     let maintab = [];
+//     let index = 0;
+
+//     while (Object.keys(artworks)[index]) {
+//       coordinate = Object.entries(artworks[index]);
+
+//       console.info(coordinate);
+//       newArtworks.push(coordinate[6][1], coordinate[7][1]);
+//       console.info(newArtworks);
+//       maintab.push(newArtworks);
+//       console.info(maintab);
+//       newArtworks = [];
+
+//       //console.info(coordinate);
+//       index++;
+//     }
+
+//     maintab = Object.assign({}, maintab);
+//     console.info(maintab);
+
+//     //coordinate.push(art.latitude, art.longitude);
+
+//     //newArtworks.push(Object.entries(art));
+//     /*
+//       newArtworks.push(
+//         art.id,
+//         art.name,
+//         art.address,
+//         art.image,
+//         art.picture_date,
+//         art.type_of_art,
+//         coordinate,
+//         art.picture_credit,
+//       );
+//       */
+
+//     // const newobject = artworks.map((art) => {
+//     //   coordinate.push(art.latitude, art.longitude);
+//     // });
+//     //console.log(newArtworks);
+
+//     //console.log(artworks);
+
+//     res.json(artworks);
+//   } catch (err) {
+//     // Pass any errors to the error-handling middleware
+//     next(err);
+//   }
+// };
 const browse: RequestHandler = async (req, res, next) => {
   try {
-    // Fetch all items
     const artworks = await articleRepository.readAll();
-
-    // Respond with the items in JSON format
-    res.json(artworks);
+    const newArtworks = [];
+    let newEnsemble = {};
+    let coordinate = [];
+    let i = 0;
+    while (Object.keys(artworks)[i]) {
+      coordinate.push(artworks[i].latitude, artworks[i].longitude);
+      newEnsemble = {
+        id: artworks[i].id,
+        name: artworks[i].name,
+        address: artworks[i].address,
+        image: artworks[i].image,
+        picture_date: artworks[i].picture_date,
+        type_of_art: artworks[i].type_of_art,
+        coordinates: coordinate,
+        picture_credit: artworks[i].picture_credit,
+      };
+      newArtworks.push(newEnsemble);
+      newEnsemble = {};
+      coordinate = [];
+      i++;
+    }
+    console.info(newArtworks);
+    res.json(newArtworks);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };

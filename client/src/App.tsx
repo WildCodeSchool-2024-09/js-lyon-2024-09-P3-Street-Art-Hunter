@@ -1,3 +1,4 @@
+import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 import Logo from "./assets/images/cc_logo_spotless_mustard.png";
 import Footer from "./components/Footer/Footer";
@@ -7,11 +8,13 @@ function App() {
   return (
     <>
       <nav>
-        <img src={Logo} alt="logoCC" className="logo" />
+        <Link to="/" className="link-logo">
+          <img src={Logo} alt="logoCC" className="logo" />
+        </Link>
         <Navbar />
       </nav>
       <main>
-        <img src={Logo} alt="logoCC" className="narrow-logo" />
+        <Outlet />
       </main>
       <div className="narrow-nav">
         <Navbar />

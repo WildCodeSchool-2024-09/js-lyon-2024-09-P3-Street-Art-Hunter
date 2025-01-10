@@ -2,7 +2,7 @@ import databaseClient from "../../../../database/client";
 
 import type { Result, Rows } from "../../../../database/client";
 
-type artwork = {
+interface artwork {
   id: number;
   name: string;
   address: string;
@@ -12,7 +12,7 @@ type artwork = {
   latitude: number;
   longitude: number;
   picture_credit: string;
-};
+}
 
 class articleRepository {
   // The C of CRUD - Create operation
@@ -43,7 +43,7 @@ class articleRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await databaseClient.query<Rows>("select * from item");
+    const [rows] = await databaseClient.query<Rows>("select * from artwork");
 
     // Return the array of items
     return rows as artwork[];
