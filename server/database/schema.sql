@@ -10,8 +10,8 @@ CREATE TABLE artwork
       picture_credit VARCHAR(100) NOT NULL
 	);
     
-    INSERT INTO artwork (id,name,address,image,type_of_art,latitude,longitude,picture_credit)
-	VALUES (1,'Regards', '39 Rue Paul Chenavard, 69001 Lyon, France', 'https://www.street-artwork.com/uploads/document/5cd2897d5e44d570844651.jpg', 'tag',45.765236,4.833110,'Rabot'),
+INSERT INTO artwork (id,name,address,image,type_of_art,latitude,longitude,picture_credit)
+    VALUES (1,'Regards', '39 Rue Paul Chenavard, 69001 Lyon, France', 'https://www.street-artwork.com/uploads/document/5cd2897d5e44d570844651.jpg', 'tag',45.765236,4.833110,'Rabot'),
     (2,'Le Combattant', '4 Place des Tapis, 69004 Lyon, France', 'https://www.street-artwork.com/uploads/document/5ce1a3947064a105728305.jpg','wall painting',45.775196, 4.830133,'Rabot');
     
  CREATE TABLE artist
