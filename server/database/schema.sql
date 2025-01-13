@@ -33,3 +33,5 @@ FOREIGN KEY (id_artist) REFERENCES artist (id) ON DELETE NO ACTION ON UPDATE NO 
  INSERT INTO creation (creation_date,id_artwork,id_artist)
 	VALUES ('2025-01-02', 1, 1),
     ('2022-04-07', 2, 2);
+
+    
