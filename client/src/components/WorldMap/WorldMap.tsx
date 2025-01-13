@@ -70,7 +70,7 @@ function WorldMap() {
             icon={
               art.type_of_art === "sticker"
                 ? StickerPin
-                : art.type_of_art === "wall paint"
+                : art.type_of_art === "wall painting"
                   ? RollerPin
                   : art.type_of_art === "paint"
                     ? BrushPin
