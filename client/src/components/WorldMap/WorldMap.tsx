@@ -3,7 +3,11 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { useEffect, useState } from "react";
+import paintRollerIcon from "../../assets/icones/pin_brush_big.png";
+import paintBrushIcon from "../../assets/icones/pin_brush_small.png";
 import mustardIcon from "../../assets/icones/pin_mustard.png";
+import paintSprayIcon from "../../assets/icones/pin_spray.png";
+import paintStickerIcon from "../../assets/icones/pin_sticker.png";
 
 interface artwork {
   id: number;
@@ -19,7 +23,23 @@ interface artwork {
 function WorldMap() {
   const mustardPin = new Icon({
     iconUrl: `${mustardIcon}`,
-    iconSize: [38, 38],
+    iconSize: [34, 38],
+  });
+  const StickerPin = new Icon({
+    iconUrl: `${paintStickerIcon}`,
+    iconSize: [34, 44],
+  });
+  const RollerPin = new Icon({
+    iconUrl: `${paintRollerIcon}`,
+    iconSize: [34, 44],
+  });
+  const BrushPin = new Icon({
+    iconUrl: `${paintBrushIcon}`,
+    iconSize: [34, 44],
+  });
+  const SprayPin = new Icon({
+    iconUrl: `${paintSprayIcon}`,
+    iconSize: [34, 44],
   });
 
   const [artwork, setArtworks] = useState<artwork[]>([]);
@@ -45,7 +65,21 @@ function WorldMap() {
         </Marker>
       ) : (
         artwork.map((art) => (
-          <Marker position={art.coordinates} icon={mustardPin} key={art.id}>
+          <Marker
+            position={art.coordinates}
+            icon={
+              art.type_of_art === "sticker"
+                ? StickerPin
+                : art.type_of_art === "wall painting"
+                  ? RollerPin
+                  : art.type_of_art === "paint"
+                    ? BrushPin
+                    : art.type_of_art === "tag"
+                      ? SprayPin
+                      : mustardPin
+            }
+            key={art.id}
+          >
             <Popup>{art.name}</Popup>
           </Marker>
         ))
