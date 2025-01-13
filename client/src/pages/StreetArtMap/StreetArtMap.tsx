@@ -1,10 +1,10 @@
 import "../../App.css";
-import "./HomePage.css";
+import "./StreetArtMap.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 import WorldMap from "../../components/WorldMap/WorldMap";
 
-function PageAccueil() {
+function StreetArtMap() {
   return (
     <>
       <Link to="/" className="link-logo">
@@ -15,4 +15,4 @@ function PageAccueil() {
   );
 }
 
-export default PageAccueil;
+export default StreetArtMap;
