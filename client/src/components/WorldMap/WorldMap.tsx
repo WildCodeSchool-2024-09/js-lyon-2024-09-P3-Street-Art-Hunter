@@ -51,6 +51,7 @@ function WorldMap() {
         setArtworks(data);
       });
   }, []);
+  console.info(artwork);
 
   return (
     <MapContainer center={[45.76, 4.83]} zoom={13} scrollWheelZoom={true}>
