@@ -1,5 +1,5 @@
-import Carousel from "../../components/Carousel/Carousel";
 import Logo from "../../assets/images/cc_logo_spotless.png";
+import Carousel from "../../components/Carousel/Carousel";
 import Footer from "../../components/Footer/Footer";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import "../../App.css";
