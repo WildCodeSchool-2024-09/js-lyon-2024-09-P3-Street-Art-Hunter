@@ -34,6 +34,20 @@ const browse: RequestHandler = async (req, res, next) => {
   }
 };
 
+const read: RequestHandler = async (req, res, next) => {
+  try {
+    const artworkId = Number(req.params.id);
+    const artwork = await articleRepository.read(artworkId);
+    if (artwork == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(artwork);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 // The R of BREAD - Read operation
 // const read: RequestHandler = async (req, res, next) => {
 //   try {
@@ -51,4 +65,4 @@ const browse: RequestHandler = async (req, res, next) => {
 //   }
 // };
 
-export default { browse };
+export default { browse, read };

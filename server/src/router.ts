@@ -9,6 +9,7 @@ const router = express.Router();
 import artworkActions from "./modules/item/artwork/artworkActions";
 
 router.get("/api/artworks", artworkActions.browse);
+router.get("/api/artworks/:id", artworkActions.read);
 
 /* ************************************************************************* */
 
