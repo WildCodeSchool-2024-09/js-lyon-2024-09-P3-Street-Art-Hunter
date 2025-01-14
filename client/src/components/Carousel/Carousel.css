@@ -1,7 +1,6 @@
 .carousel-card {
   padding: 1em;
-  height: 250px;
-  width: 250px;
+  height: 300px;
   text-align: center;
 }
 .carousel-card img {
@@ -18,12 +17,14 @@
 .slick-slide img {
   display: initial !important;
 }
-
-.slick-dots li button:before {
-  color: white !important;
+h3 {
+  font-size: .8em;
+  text-align: center;
 }
 
-.slick-dots li.slick-active button:before {
-  color: white !important;
-  scale: 1.5;
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .carousel-card {
+    width: 15em;
+    height: 15em;
+  }
 }
