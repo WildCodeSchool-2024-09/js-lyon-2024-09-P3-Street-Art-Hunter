@@ -45,7 +45,10 @@ function WorldMap() {
       ) : (
         artwork.map((art) => (
           <Marker position={art.coordinates} icon={mustardPin} key={art.id}>
-            <Popup>{art.name}</Popup>
+            <Popup>
+              {art.name}
+              <img src={art.image} alt="" />
+            </Popup>
           </Marker>
         ))
       )}
