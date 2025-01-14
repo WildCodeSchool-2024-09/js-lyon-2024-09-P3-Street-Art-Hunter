@@ -1,3 +1,4 @@
+import Carousel from "../../components/Carousel/Carousel";
 import Logo from "../../assets/images/cc_logo_spotless.png";
 import Footer from "../../components/Footer/Footer";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -12,6 +13,7 @@ function Home() {
         <img src={Logo} alt="logoCC" className="center-logo" />
       </section>
       <section className="home-sct">
+        <Carousel />
         <SearchBar />
       </section>
       <footer>

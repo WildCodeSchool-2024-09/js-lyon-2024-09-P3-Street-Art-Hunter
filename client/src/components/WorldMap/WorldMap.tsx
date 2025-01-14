@@ -29,7 +29,6 @@ function WorldMap() {
       .then((response) => response.json())
       .then((data: artwork[]) => {
         setArtworks(data);
-        console.info(data);
       });
   }, []);
 
