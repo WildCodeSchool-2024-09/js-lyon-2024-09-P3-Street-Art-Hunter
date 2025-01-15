@@ -4,6 +4,24 @@
   z-index: 0;
 }
 
+.popup-image {
+  width: 80%;
+  height: 60%;
+  border-radius: 1em;
+}
+
+.popup-card {
+  width: 30rem;
+}
+
+h3 {
+  font-size: large;
+}
+
+.leaflet-popup-tip {
+  display: none;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   /* tablette screen */
   .leaflet-container {
@@ -19,5 +37,22 @@
     height: 98%;
     right: 72%;
     border-radius: 1vh;
+  }
+  .popup-image {
+    width: 37em;
+    height: 37em;
+    border-radius: 1em;
+  }
+
+  .popup-card {
+    width: 44em;
+  }
+
+  h3 {
+    font-size: large;
+  }
+
+  .leaflet-popup-tip {
+    display: none;
   }
 }

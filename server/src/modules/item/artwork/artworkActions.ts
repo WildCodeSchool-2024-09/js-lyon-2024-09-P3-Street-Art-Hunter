@@ -48,15 +48,6 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
-// The R of BREAD - Read operation
-// const read: RequestHandler = async (req, res, next) => {
-//   try {
-//     }
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-
 // // The A of BREAD - Add (Create) operation
 // const add: RequestHandler = async (req, res, next) => {
 //   try {

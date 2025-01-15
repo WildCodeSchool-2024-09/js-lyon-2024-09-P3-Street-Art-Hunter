@@ -43,6 +43,7 @@ function WorldMap() {
   });
 
   const [artwork, setArtworks] = useState<artwork[]>([]);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/artworks`)
@@ -51,6 +52,11 @@ function WorldMap() {
         setArtworks(data);
         console.info(data);
       });
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -80,7 +86,14 @@ function WorldMap() {
             }
             key={art.id}
           >
-            <Popup>{art.name}</Popup>
+            <Popup
+              offset={isLargeScreen ? [500, 400] : [0, 80]}
+              className="popup-card"
+            >
+              <h3>{art.name}</h3>
+              <img className="popup-image" src={art.image} alt="streetart" />
+              <h3>{art.address}</h3>
+            </Popup>
           </Marker>
         ))
       )}
