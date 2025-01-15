@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./pages/Home/Home";
 import App from "./App";
+import { GeocodingProvider } from "./contexts/GeocodingContext";
 import Home from "./pages/Home/Home";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 
@@ -31,7 +32,9 @@ if (rootElement == null) {
 }
 
 createRoot(rootElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <GeocodingProvider>
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  </GeocodingProvider>,
 );
