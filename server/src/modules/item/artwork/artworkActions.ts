@@ -28,7 +28,7 @@ const browse: RequestHandler = async (req, res, next) => {
       coordinate = [];
       i++;
     }
-    res.json(newArtworks);
+    res.json(newArtworks).sendStatus(200);
   } catch (err) {
     next(err);
   }
