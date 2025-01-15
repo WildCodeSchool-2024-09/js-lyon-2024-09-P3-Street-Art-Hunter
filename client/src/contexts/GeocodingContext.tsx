@@ -2,11 +2,15 @@ import { createContext, useEffect, useState } from "react";
 
 const GeocodingContext = createContext<valueProps>({
   setSubmitedAddress: () => {},
+  setSearchedLoc: () => {},
 });
 
 interface valueProps {
   setSubmitedAddress: React.Dispatch<React.SetStateAction<string | undefined>>;
   searchedLoc?: [number, number];
+  setSearchedLoc: React.Dispatch<
+    React.SetStateAction<[number, number] | undefined>
+  >;
 }
 
 export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -22,7 +26,6 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
       )
         .then((res) => res.json())
         .then((data) => {
-          console.info(data);
           const lat = Number(data[0].lat);
           const lon = Number(data[0].lon);
           const geoloc: [number, number] = [lat, lon];
@@ -32,7 +35,9 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [submitedAddress]);
 
   return (
-    <GeocodingContext.Provider value={{ setSubmitedAddress, searchedLoc }}>
+    <GeocodingContext.Provider
+      value={{ setSubmitedAddress, searchedLoc, setSearchedLoc }}
+    >
       {children}
     </GeocodingContext.Provider>
   );

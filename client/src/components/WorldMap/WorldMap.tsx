@@ -50,7 +50,6 @@ function WorldMap() {
       .then((response) => response.json())
       .then((data: artwork[]) => {
         setArtworks(data);
-        console.info(data);
       });
   }, []);
 
@@ -83,7 +82,10 @@ function WorldMap() {
             }
             key={art.id}
           >
-            <Popup>{art.name}</Popup>
+            <Popup>
+              {art.name}
+              <img src={art.image} alt="" />
+            </Popup>
           </Marker>
         ))
       )}
