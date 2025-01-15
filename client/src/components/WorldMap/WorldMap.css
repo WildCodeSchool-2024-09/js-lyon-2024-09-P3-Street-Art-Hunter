@@ -4,14 +4,14 @@
   z-index: 0;
 }
 
+.popup-card {
+  width: 30rem;
+}
+
 .popup-image {
   width: 80%;
   height: 60%;
   border-radius: 1em;
-}
-
-.popup-card {
-  width: 30rem;
 }
 
 h3 {
