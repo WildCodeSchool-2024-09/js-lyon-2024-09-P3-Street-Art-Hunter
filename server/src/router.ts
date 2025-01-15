@@ -7,8 +7,10 @@ const router = express.Router();
 /* ************************************************************************* */
 
 import artworkActions from "./modules/item/artwork/artworkActions";
+import nominatimActions from "./nominatimActions";
 
 router.get("/api/artworks", artworkActions.browse);
+router.get("/api/geolocalisation", nominatimActions.geocode);
 
 /* ************************************************************************* */
 
