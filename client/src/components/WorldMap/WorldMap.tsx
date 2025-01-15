@@ -49,9 +49,9 @@ function WorldMap() {
       .then((response) => response.json())
       .then((data: artwork[]) => {
         setArtworks(data);
-        console.info(data);
       });
   }, []);
+  console.info(artwork);
 
   return (
     <MapContainer center={[45.76, 4.83]} zoom={13} scrollWheelZoom={true}>
@@ -80,7 +80,10 @@ function WorldMap() {
             }
             key={art.id}
           >
-            <Popup>{art.name}</Popup>
+            <Popup>
+              {art.name}
+              <img src={art.image} alt="" />
+            </Popup>
           </Marker>
         ))
       )}
