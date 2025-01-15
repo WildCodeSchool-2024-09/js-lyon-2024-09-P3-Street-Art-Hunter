@@ -1,45 +1,46 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import GeocodingContext from "../../contexts/GeocodingContext";
+import Geocoding from "../Geocoding/Geocoding";
 
 function SearchBar() {
-  const [search, setSearch] = useState<string>(""); //Initialiser ma zone de texte en chaine de caractère vide //
-  const navigate = useNavigate(); //Navigate pour rediriger sur la page Accueil qui contient la map //
+  //Récupérer la position de l'utilisateur
+  const getLocation = () => {
+    const options = {
+      enableHighAccuracy: true,
+    };
 
-  //   Fonction pour gérer la saisie dans la zone de texte, et rediriger vers la bonne page
-  const handleSearchSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    navigate("/StreetArtMap");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          console.info("Latitude:", latitude, "Longitude:", longitude);
+          setSearchedLoc([latitude, longitude]);
+          if (searchedLoc !== undefined) {
+            return navigate("/StreetArtMap");
+          }
+        },
+        () => {
+          console.error("Autorisation de récupérer la position refusée");
+        },
+        options,
+      );
+    } else {
+      console.error("Impossible de récupérer la position");
+    }
   };
-  console.info(search);
+
+  const { setSearchedLoc, searchedLoc } = useContext(GeocodingContext);
+
+  const navigate = useNavigate();
 
   return (
     <div className="search-sct">
-      <form>
-        <div className="searchBar">
-          <section className="searchGeo">
-            <input
-              className="citySearch"
-              type="search"
-              name="searchBar"
-              placeholder="Recherchez une ville..."
-              required
-              onChange={(e) => setSearch(e.target.value)} //Stocker le texte saisie dans la variable search
-            />
-            {/* // Au click, je redirige vers la page accueil // */}
-            <button className="geo-btn" type="button">
-              Autoriser la géolocalisation
-            </button>
-          </section>
-          <button
-            className="search-btn"
-            type="submit"
-            onClick={handleSearchSubmit}
-          >
-            Recherche
-          </button>
-        </div>
-      </form>
+      <Geocoding />
+      <button onClick={getLocation} className="geo-btn" type="button">
+        Autoriser la géolocalisation
+      </button>
     </div>
   );
 }
