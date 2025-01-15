@@ -2,12 +2,13 @@ import "./WorldMap.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import paintRollerIcon from "../../assets/icones/pin_brush_big.png";
 import paintBrushIcon from "../../assets/icones/pin_brush_small.png";
 import mustardIcon from "../../assets/icones/pin_mustard.png";
 import paintSprayIcon from "../../assets/icones/pin_spray.png";
 import paintStickerIcon from "../../assets/icones/pin_sticker.png";
+import GeocodingContext from "../../contexts/GeocodingContext";
 
 interface artwork {
   id: number;
@@ -53,8 +54,10 @@ function WorldMap() {
       });
   }, []);
 
+  const { searchedLoc } = useContext(GeocodingContext);
+
   return (
-    <MapContainer center={[45.76, 4.83]} zoom={13} scrollWheelZoom={true}>
+    <MapContainer center={searchedLoc} zoom={13} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
