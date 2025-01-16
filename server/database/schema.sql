@@ -114,4 +114,15 @@ FOREIGN KEY (id_artist) REFERENCES artist (id) ON DELETE NO ACTION ON UPDATE NO 
 	VALUES ('2025-01-02', 1, 1),
     ('2022-04-07', 2, 2);
 
+CREATE TABLE user
+(id INT AUTO_INCREMENT PRIMARY KEY,
+pseudo VARCHAR(100) NOT NULL,
+mail VARCHAR(250) NOT NULL,
+password VARCHAR(100) NOT NULL,
+inscription_date DATE);
+
+INSERT INTO user(id,pseudo,mail,password,inscription_date)
+VALUES (1,"johnDoe","johndoe@example.com","jesuisunmotdepasse","2025-01-01"),
+(2,"Rabot","rabot@example.com","jesuisunmotdepasse","2025-01-01");
+
     
