@@ -63,44 +63,17 @@ CREATE TABLE artwork
     (1, null),
     (2,"Kalouf (Blast)"),
     (3,"Soly"),
-    (4,null),
-    (5,"C4pie"),
-    (6,null),
-    (7,null),
-    (8,null),
-    (9,"Gzup Oré"),
-    (10,null),
-    (11,null),
-    (12,"PunkMeTender"),
-    (13,"Max CHN"),
-    (14,"Swing WBC"),
-    (15,null),
-    (16,null),
-    (17,null),
-    (18,null),
-    (19,"La Coulure"),
-    (20,null),
-    (21,null),
-    (22,null),
-    (23,"La Coulure"),
-    (24,"Nalaz"),
-    (25,null),
-    (26,null),
-    (27,"Systm:D"),
-    (28,null),
-    (29,null),
-    (30,"La Coulure"),
-    (31,null),
-    (32,"Neerus"),
-    (33,"Soren Monsi"),
-    (34,null),
-    (35,null),
-    (36,null),
-    (37,null),
-    (38,null),
-    (39,null),
-    (40,"LGSHA"),
-    (41,null);
+    (4,"C4pie"),
+    (5,"Gzup Oré"),
+    (6,"PunkMeTender"),
+    (7,"Max CHN"),
+    (8,"Swing WBC"),
+    (9,"La Coulure"),
+    (10,"Nalaz"),
+    (11,"Systm:D"),
+    (12,"Neerus"),
+    (13,"Soren Monsi"),
+    (14,"LGSHA"),
 
 CREATE TABLE creation
 (creation_date DATE,
@@ -113,5 +86,16 @@ FOREIGN KEY (id_artist) REFERENCES artist (id) ON DELETE NO ACTION ON UPDATE NO 
  INSERT INTO creation (creation_date,id_artwork,id_artist)
 	VALUES ('2025-01-02', 1, 1),
     ('2022-04-07', 2, 2);
+
+CREATE TABLE user
+(id INT AUTO_INCREMENT PRIMARY KEY,
+pseudo VARCHAR(100) NOT NULL,
+mail VARCHAR(250) NOT NULL,
+password VARCHAR(100) NOT NULL,
+inscription_date DATE);
+
+INSERT INTO user(id,pseudo,mail,password,inscription_date)
+VALUES (1,"johnDoe","johndoe@example.com","jesuisunmotdepasse","2025-01-01"),
+(2,"Rabot","rabot@example.com","jesuisunmotdepasse","2025-01-01");
 
     
