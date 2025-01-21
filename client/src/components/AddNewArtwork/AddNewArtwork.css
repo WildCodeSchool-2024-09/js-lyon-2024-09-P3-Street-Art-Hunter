@@ -19,15 +19,16 @@
 }
 
 .addCity {
-  height: 2.5em;
+  height: 3em;
   font-family: var(--text-font);
-  font-size: 1em;
-  font-weight: 700;
-  border: 1px solid var(--mustard-color);
   border-radius: 12px;
-  background-color: var(--jet-color);
+  background-color: #202221;
   text-align: center;
   color: var(--mustard-color);
+}
+
+.addCity:focus {
+  border: 1px solid var(--mustard-color);
 }
 
 .addFile {

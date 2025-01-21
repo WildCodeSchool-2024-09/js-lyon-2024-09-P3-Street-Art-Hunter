@@ -4,12 +4,6 @@ import "./AddNewArtwork.css";
 // import { useState } from "react";
 
 export default function AddNewArtwork() {
-  //   const [enteredAddress, setEnteredAddress] = useState<string>("");
-
-  //   const handleImageUpload = (event) => {
-  //     event.preventDefault();
-  //   };
-
   const [selectedType, setSelectedType] = useState("");
 
   return (
@@ -23,7 +17,7 @@ export default function AddNewArtwork() {
           const formData = new FormData(event.currentTarget);
 
           const name = formData.get("name") as string;
-          const address = formData.get("adress") as string;
+          const address = formData.get("address") as string;
           const image = formData.get("image") as string;
           const picture_date = formData.get("picture_date") as string;
           const type_of_art = formData.get("type_of_art") as string;
@@ -53,34 +47,15 @@ export default function AddNewArtwork() {
       >
         <label>
           Nom de l'oeuvre trouvé :
-          <input
-            name="name"
-            type="text"
-            placeholder="Nom de l'oeuvre"
-            className="addCity"
-          />
+          <input name="name" type="text" className="addCity" />
         </label>
         <label>
           Adresse de l'oeuvre (approximativement):
-          <input
-            className="addCity"
-            type="search"
-            name="address"
-            placeholder="Recherchez l'adresse de l'oeuvre..."
-            required
-            // onChange={(e) => {
-            //   setEnteredAddress(e.target.value);
-            // }}
-          />
+          <input className="addCity" type="search" name="address" required />
         </label>
         <label>
           Photo de l'oeuvre :
-          <input
-            name="image"
-            type="text"
-            placeholder="Photo de l'oeuvre"
-            className="addCity"
-          />
+          <input name="image" type="text" className="addCity" />
         </label>
         {/* <label>
 //   Image de l'oeuvre :
@@ -95,12 +70,7 @@ export default function AddNewArtwork() {
 // </label> */}
         <label>
           Date de la prise :
-          <input
-            name="picture_date"
-            type="text"
-            placeholder="Date de la Photo"
-            className="addCity"
-          />
+          <input name="picture_date" type="text" className="addCity" />
         </label>
         <label>
           Type de Street Art :
@@ -124,28 +94,15 @@ export default function AddNewArtwork() {
         </label>
         <label>
           Localisation :
-          <input
-            name="latitude"
-            type="text"
-            placeholder="latitude"
-            className="addCity"
-          />
-          <input
-            name="longitude"
-            type="text"
-            placeholder="longitude"
-            className="addCity"
-          />
+          <div>
+            <input name="latitude" type="text" className="addCity" />
+            <input name="longitude" type="text" className="addCity" />
+          </div>
           {/* <Geolocalisation /> */}
         </label>
         <label>
           Auteur de la photo :
-          <input
-            name="picture_credit"
-            type="text"
-            placeholder="Votre id"
-            className="addCity"
-          />
+          <input name="picture_credit" type="text" className="addCity" />
         </label>
         <button type="submit" defaultValue="Ajout" className="add-btn">
           Ajouter

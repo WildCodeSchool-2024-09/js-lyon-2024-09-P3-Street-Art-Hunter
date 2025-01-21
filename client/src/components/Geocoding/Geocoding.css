@@ -1,7 +1,11 @@
-input[type="search"] {
+.citySearch {
+  height: 3em;
+  width: 20em;
   font-family: var(--text-font);
-  font-weight: 700;
-  padding: 0.8em 1em;
+  border-radius: 12px;
+  background-color: #202221;
+  text-align: center;
+  color: var(--mustard-color);
 }
 
 .search-form {
@@ -9,19 +13,16 @@ input[type="search"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5em 0;
+  padding-top: 5em;
 }
 
 .search-btn {
-  height: 2em;
+  height: 3em;
   width: 8em;
   align-self: center;
   font-family: var(--text-font);
-  font-size: 1em;
-  font-weight: 700;
-  background-color: var(--jet-color);
+  background-color: #202221;
   color: var(--mustard-color);
-  border: solid 1px var(--mustard-color);
   border-radius: 12px;
   cursor: pointer;
 }
@@ -34,12 +35,10 @@ input[type="search"] {
   display: flex;
   flex-direction: column;
 }
+
 .searchGeo {
   display: flex;
   flex-direction: column;
-}
-.citySearch {
-  width: 20em;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
