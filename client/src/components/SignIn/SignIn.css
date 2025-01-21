@@ -1,0 +1,99 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--jet-color);
+  font-family: "Raleway", "Montserrat", sans-serif;
+}
+
+/* Style du formulaire */
+.login-form {
+  background-color: var(--jet-color);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Groupe de champs */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Labels */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: dark;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Champs input */
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid dark;
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: dark;
+  color: var(--secondary-dark);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(183, 227, 204, 0.2);
+}
+
+/* Bouton d'envoi */
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: dark;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  background-color: dark;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}

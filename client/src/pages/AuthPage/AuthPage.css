@@ -1,0 +1,11 @@
+.authpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 150px;
+}
+btn-section {
+  display: flex;
+  margin: 1em;
+}
