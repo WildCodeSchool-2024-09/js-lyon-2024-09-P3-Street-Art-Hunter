@@ -23,10 +23,9 @@ input[type="search"] {
   color: var(--mustard-color);
   border: solid 1px var(--mustard-color);
   border-radius: 12px;
-}
-.search-btn {
   cursor: pointer;
 }
+
 .search-btn:hover {
   scale: calc(1.02);
 }

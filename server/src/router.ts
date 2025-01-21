@@ -11,7 +11,7 @@ import nominatimActions from "./nominatimActions";
 
 router.get("/api/artworks", artworkActions.browse);
 router.get("/api/artworks/:id", artworkActions.read);
-router.put("/api/artwork", artworkActions.add);
+router.post("/api/artwork", artworkActions.add);
 router.get("/api/geolocalisation", nominatimActions.geocode);
 
 /* ************************************************************************* */

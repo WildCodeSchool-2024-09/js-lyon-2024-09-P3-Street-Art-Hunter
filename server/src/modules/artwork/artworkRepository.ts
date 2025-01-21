@@ -7,7 +7,7 @@ interface artwork {
   name: string;
   address: string;
   image: string;
-  picture_date: string;
+  picture_date: number;
   type_of_art: string;
   latitude: number;
   longitude: number;
@@ -38,7 +38,7 @@ class articleRepository {
         artwork.name,
         artwork.address,
         artwork.image,
-        artwork.picture_credit,
+        artwork.picture_date,
         artwork.type_of_art,
         artwork.latitude,
         artwork.longitude,

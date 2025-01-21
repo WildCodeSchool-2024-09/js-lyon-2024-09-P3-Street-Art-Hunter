@@ -53,15 +53,15 @@ const read: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     const newArtworks = {
-      id: req.body.id,
-      name: req.body.name,
-      address: req.body.address,
-      image: req.body.image,
-      picture_date: req.body.picture_date,
-      type_of_art: req.body.type_of_art,
-      latitude: req.body.coordinate.latitude,
-      longitude: req.body.coordinate.longitude,
-      picture_credit: req.body.picture_credit,
+      id: String(req.body.id),
+      name: String(req.body.name),
+      address: String(req.body.address),
+      image: String(req.body.image),
+      picture_date: Number.parseInt(req.body.picture_date),
+      type_of_art: String(req.body.type_of_art),
+      latitude: Number.parseFloat(req.body.latitude),
+      longitude: Number.parseFloat(req.body.longitude),
+      picture_credit: String(req.body.picture_credit),
     };
 
     const insertArtwork = await artworkRepository.create(newArtworks);
