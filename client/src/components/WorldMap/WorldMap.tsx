@@ -9,6 +9,7 @@ import mustardIcon from "../../assets/icones/pin_mustard.png";
 import paintSprayIcon from "../../assets/icones/pin_spray.png";
 import paintStickerIcon from "../../assets/icones/pin_sticker.png";
 import GeocodingContext from "../../contexts/GeocodingContext";
+import PopupArtwork from "../PopupArtwork/PopupArtwork";
 
 interface artwork {
   id: number;
@@ -43,7 +44,7 @@ function WorldMap() {
     iconSize: [34, 44],
   });
 
-  const [artwork, setArtworks] = useState<artwork[]>([]);
+  const [artworks, setArtworks] = useState<artwork[]>([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/artworks`)
@@ -55,38 +56,56 @@ function WorldMap() {
 
   const { searchedLoc } = useContext(GeocodingContext);
 
+  const [popup, setPopup] = useState(false);
+  const [selectedId, setSelectedId] = useState<number>(-1);
+  const handleClick = (chosenId: number) => {
+    setPopup(true);
+    setSelectedId(chosenId);
+  };
+
   return (
     <MapContainer center={searchedLoc} zoom={13} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
       />
-      {artwork.length === 0 || artwork === null || artwork === undefined ? (
+      {artworks.length === 0 || artworks === null || artworks === undefined ? (
         <Marker position={[45.76, 4.83]} icon={mustardPin}>
           <Popup>Ici réside City Canvas !</Popup>
         </Marker>
       ) : (
-        artwork.map((art) => (
-          <Marker
-            position={art.coordinates}
-            icon={
-              art.type_of_art === "sticker"
-                ? StickerPin
-                : art.type_of_art === "wall painting"
-                  ? RollerPin
-                  : art.type_of_art === "paint"
-                    ? BrushPin
-                    : art.type_of_art === "tag"
-                      ? SprayPin
-                      : mustardPin
-            }
+        artworks.map((art) => (
+          <button
+            className="btn_art"
+            type="button"
+            onClick={() => {
+              handleClick(art.id);
+            }}
             key={art.id}
           >
-            <Popup>
-              {art.name}
-              <img src={art.image} alt="" />
-            </Popup>
-          </Marker>
+            <Marker
+              position={art.coordinates}
+              icon={
+                art.type_of_art === "sticker"
+                  ? StickerPin
+                  : art.type_of_art === "wall painting"
+                    ? RollerPin
+                    : art.type_of_art === "paint"
+                      ? BrushPin
+                      : art.type_of_art === "tag"
+                        ? SprayPin
+                        : mustardPin
+              }
+            >
+              {popup === true && (
+                <PopupArtwork
+                  triggerPopup={popup}
+                  setTriggerPopup={setPopup}
+                  id={selectedId}
+                />
+              )}
+            </Marker>
+          </button>
         ))
       )}
     </MapContainer>

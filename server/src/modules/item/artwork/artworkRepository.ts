@@ -17,7 +17,7 @@ interface artwork {
 class articleRepository {
   async read(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT aw.name, aw.adress, aw.image, aw.picture_date, aw.type_of_art, aw.latitude, aw.longitude, aw.picture_credit, at.name, cr.creation_date FROM artwork AS aw JOIN creation AS cr ON aw.id=cr.id_artwork JOIN artist AS at ON at.id=cr.id_artist WHERE aw.id=?",
+      "SELECT aw.name, aw.adress, aw.image, aw.picture_date, aw.type_of_art, aw.latitude, aw.longitude, aw.picture_credit, at.name as artist, cr.creation_date as creation_date FROM artwork AS aw JOIN creation AS cr ON aw.id=cr.id_artwork JOIN artist AS at ON at.id=cr.id_artist WHERE aw.id=?",
       [id],
     );
     return rows[0] as artwork;
