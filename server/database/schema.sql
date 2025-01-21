@@ -73,7 +73,7 @@ CREATE TABLE artwork
     (11,"Systm:D"),
     (12,"Neerus"),
     (13,"Soren Monsi"),
-    (14,"LGSHA"),
+    (14,"LGSHA");
 
 CREATE TABLE creation
 (creation_date DATE,
@@ -90,11 +90,11 @@ FOREIGN KEY (id_artist) REFERENCES artist (id) ON DELETE NO ACTION ON UPDATE NO 
 CREATE TABLE user
 (id INT AUTO_INCREMENT PRIMARY KEY,
 pseudo VARCHAR(100) NOT NULL,
-mail VARCHAR(250) NOT NULL,
-password VARCHAR(100) NOT NULL,
+email VARCHAR(255) NOT NULL,
+password VARCHAR(255) NOT NULL,
 inscription_date DATE);
 
-INSERT INTO user(id,pseudo,mail,password,inscription_date)
+INSERT INTO user(id,pseudo,email,password,inscription_date)
 VALUES (1,"johnDoe","johndoe@example.com","jesuisunmotdepasse","2025-01-01"),
 (2,"Rabot","rabot@example.com","jesuisunmotdepasse","2025-01-01");
 
