@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../SearchBar/SearchBar.css";
+import "./Geocoding.css";
 import GeocodingContext from "../../contexts/GeocodingContext";
 
 export default function Geocoding() {
