@@ -66,7 +66,7 @@ export default function AddNewArtwork() {
             className="addCity"
             type="search"
             name="address"
-            placeholder="Recherchez l'addre de l'oeuvre..."
+            placeholder="Recherchez l'adresse de l'oeuvre..."
             required
             // onChange={(e) => {
             //   setEnteredAddress(e.target.value);
