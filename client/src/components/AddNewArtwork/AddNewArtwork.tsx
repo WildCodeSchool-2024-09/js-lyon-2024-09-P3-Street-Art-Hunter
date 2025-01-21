@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./AddNewArtwork.css";
 // import Geolocalisation from "../Geolocalisation/Geolocalisation";
 // import { useState } from "react";
@@ -8,6 +9,8 @@ export default function AddNewArtwork() {
   //   const handleImageUpload = (event) => {
   //     event.preventDefault();
   //   };
+
+  const [selectedType, setSelectedType] = useState("");
 
   return (
     <section className="sct_add_form">
@@ -101,12 +104,23 @@ export default function AddNewArtwork() {
         </label>
         <label>
           Type de Street Art :
-          <input
+          <select
             name="type_of_art"
-            type="text"
-            placeholder="Tag, wall painting, sticker ..."
+            onChange={(event) => {
+              setSelectedType(event.target.value);
+            }}
             className="addCity"
-          />
+            value={selectedType}
+          >
+            <option value="" key="option">
+              Choisissez le type de l'oeuvre
+            </option>
+            <option value="sticker">Sticker ou affiche</option>
+            <option value="wall painting">Wall painting</option>
+            <option value="paint">Peinture à la bomb</option>
+            <option value="tag">Tag</option>
+            <option value="other">Autre</option>
+          </select>
         </label>
         <label>
           Localisation :
@@ -133,7 +147,7 @@ export default function AddNewArtwork() {
             className="addCity"
           />
         </label>
-        <button type="submit" defaultValue="Ajout" className="search-btn">
+        <button type="submit" defaultValue="Ajout" className="add-btn">
           Ajouter
         </button>
       </form>
