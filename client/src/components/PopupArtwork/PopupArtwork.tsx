@@ -23,10 +23,12 @@ const PopupArtwork = ({ setTriggerPopup, triggerPopup, id }: PopupProps) => {
   const [artwork, setArtwork] = useState<ArtworkProps | null>(null);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/artwork/${id}`)
-      .then((res) => res.json())
-      .then((data) => setArtwork(data))
-      .catch((err) => console.error(err));
+    if (id !== -1) {
+      fetch(`${import.meta.env.VITE_API_URL}/api/artwork/${id}`)
+        .then((res) => res.json())
+        .then((data) => setArtwork(data))
+        .catch((err) => console.error(err));
+    }
   }, [id]);
 
   return triggerPopup ? (
