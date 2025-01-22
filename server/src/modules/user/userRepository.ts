@@ -1,5 +1,5 @@
 import databaseClient from "../../../database/client";
-import type { Rows } from "../../../database/client";
+import type { Result, Rows } from "../../../database/client";
 
 interface user {
   id: number;
@@ -16,6 +16,15 @@ class UserRepository {
       [id],
     );
     return rows[0] as user;
+  }
+
+  async create(user: Omit<user, "id">) {
+    const [result] = await databaseClient.query<Result>(
+      "insert into user (email, password, pseudo, inscription_date) values (?, ?, ?, ?)",
+      [user.email, user.password, user.pseudo, user.inscription_date],
+    );
+
+    return result.insertId;
   }
 
   async verify(pseudo: string) {
