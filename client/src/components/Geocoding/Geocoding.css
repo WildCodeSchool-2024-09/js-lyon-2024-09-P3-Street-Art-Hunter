@@ -1,7 +1,8 @@
-input[type="search"] {
+input[type="search"]:focus {
   font-family: var(--text-font);
   font-weight: 700;
   padding: 0.8em 1em;
+  border: solid 2px green;
 }
 
 .search-form {
@@ -40,6 +41,10 @@ input[type="search"] {
 }
 .citySearch {
   width: 20em;
+}
+.citySearch:focus {
+  border: solid 1px black;
+  border-color: green;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
