@@ -18,8 +18,12 @@ router.get("/api/geolocalisation", nominatimActions.geocode);
 import userActions from "./modules/user/userActions";
 
 router.use(userActions.validate);
-
 router.get("/api/users/:id", userActions.read);
+
+// Define auth-related routes
+import authActions from "./modules/auth/authActions";
+
+router.post("/api/login", authActions.login);
 
 /* ************************************************************************* */
 
