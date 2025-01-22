@@ -28,39 +28,39 @@ describe("GET /api/artworks", () => {
   });
 });
 
-// // Test suite for the GET /api/items/:id route
-// describe("GET /api/items/:id", () => {
-//     it("should fetch a single item successfully", async () => {
-//       // Mock rows returned from the database
-//       const rows = [{}] as Rows;
+// Test suite for the GET /api/artwork/:id route
+describe("GET /api/artwork/:id", () => {
+  it("should fetch a single artwork successfully", async () => {
+    // Mock rows returned from the database
+    const rows = [{}] as Rows;
 
-//       // Mock the implementation of the database query method
-//       jest
-//         .spyOn(databaseClient, "query")
-//         .mockImplementation(async () => [rows, []]);
+    // Mock the implementation of the database query method
+    jest
+      .spyOn(databaseClient, "query")
+      .mockImplementation(async () => [rows, []]);
 
-//       // Send a GET request to the /api/items/:id endpoint
-//       const response = await supertest(app).get("/api/items/1");
+    // Send a GET request to the /api/items/:id endpoint
+    const response = await supertest(app).get("/api/artwork/1");
 
-//       // Assertions
-//       expect(response.status).toBe(200);
-//       expect(response.body).toStrictEqual(rows[0]);
-//     });
+    // Assertions
+    expect(response.status).toBe(200);
+    expect(response.body).toStrictEqual(rows[0]);
+  });
 
-//     it("should fail on invalid id", async () => {
-//       // Mock empty rows returned from the database
-//       const rows = [] as Rows;
+  it("should fail on invalid id", async () => {
+    // Mock empty rows returned from the database
+    const rows = [] as Rows;
 
-//       // Mock the implementation of the database query method
-//       jest
-//         .spyOn(databaseClient, "query")
-//         .mockImplementation(async () => [rows, []]);
+    // Mock the implementation of the database query method
+    jest
+      .spyOn(databaseClient, "query")
+      .mockImplementation(async () => [rows, []]);
 
-//       // Send a GET request to the /api/items/:id endpoint with an invalid ID
-//       const response = await supertest(app).get("/api/items/0");
+    // Send a GET request to the /api/artwork/:id endpoint with an invalid ID
+    const response = await supertest(app).get("/api/artwork/0");
 
-//       // Assertions
-//       expect(response.status).toBe(404);
-//       expect(response.body).toEqual({});
-//     });
-//   });
+    // Assertions
+    expect(response.status).toBe(404);
+    expect(response.body).toEqual({});
+  });
+});

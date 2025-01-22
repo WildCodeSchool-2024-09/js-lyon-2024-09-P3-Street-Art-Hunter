@@ -31,4 +31,22 @@ const validate: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { read, validate };
+const add: RequestHandler = async (req, res, next) => {
+  const currentDate = new Date().toISOString().split("T")[0];
+  console.info(currentDate);
+  try {
+    const newUser = {
+      email: req.body.email,
+      password: req.body.password,
+      pseudo: req.body.pseudo,
+      inscription_date: currentDate,
+    };
+
+    const insertId = await userRepository.create(newUser);
+    res.status(201).json({ insertId });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { read, validate, add };

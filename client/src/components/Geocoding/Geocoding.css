@@ -9,6 +9,11 @@
   margin-bottom: 1em;
 }
 
+.citySearch:focus {
+  border: solid 1px black;
+  border-color: var(--mustard-color);
+}
+
 .search-btn {
   height: 3em;
   width: 8em;
