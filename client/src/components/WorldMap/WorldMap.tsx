@@ -54,6 +54,7 @@ function WorldMap() {
   }, []);
 
   const { searchedLoc } = useContext(GeocodingContext);
+  console.info(searchedLoc);
 
   return (
     <MapContainer center={searchedLoc} zoom={13} scrollWheelZoom={true}>

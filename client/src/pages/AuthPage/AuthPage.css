@@ -3,9 +3,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 150px;
+  padding: 5em;
 }
-btn-section {
+.btn-section {
   display: flex;
-  margin: 1em;
+  margin: 1em 0;
+  gap: 2em;
+}
+
+.signup-btn,
+.signin-btn {
+  display: flex;
+  border: transparent;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
 }

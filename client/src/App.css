@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Poiret+One&display=swap");
-/* mobile screen */
 @font-face {
   font-family: "Meaglez";
   src: local("Meaglez"), url(./assets/fonts/Meaglez-1G7e2.otf)
     format("opentype");
 }
+
+/* mobile screen */
 * {
   margin: 0;
   padding: 0;
@@ -95,7 +96,6 @@ main {
     display: none;
   }
   main {
-    /* padding: 0 15%; */
     height: 87vh;
   }
   footer {

@@ -11,10 +11,18 @@ function AuthPage() {
       <div className="authpage">
         {isRegistered ? <SignUp /> : <SignIn />}
         <div className="btn-section">
-          <button type="button" onClick={() => setIsRegistered(true)}>
+          <button
+            type="button"
+            className="signup-btn"
+            onClick={() => setIsRegistered(true)}
+          >
             S'inscrire
           </button>
-          <button type="button" onClick={() => setIsRegistered(false)}>
+          <button
+            type="button"
+            className="signin-btn"
+            onClick={() => setIsRegistered(false)}
+          >
             J'ai déjà un compte
           </button>
         </div>

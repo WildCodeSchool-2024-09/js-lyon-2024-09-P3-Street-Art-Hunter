@@ -6,6 +6,7 @@ import App from "./App";
 import { GeocodingProvider } from "./contexts/GeocodingContext";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import Home from "./pages/Home/Home";
+import NewArtwork from "./pages/NewArtwork/NewArtwork";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 
 /* ************************************************************************* */
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/StreetArtMap/authentication",
         element: <AuthPage />,
+      },
+      {
+        path: "/StreetArtMap/NewArtwork",
+        element: <NewArtwork />,
       },
     ],
   },

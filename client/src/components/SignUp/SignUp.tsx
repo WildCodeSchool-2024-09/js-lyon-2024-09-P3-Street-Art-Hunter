@@ -3,6 +3,7 @@ import "./SignUp.css";
 function SignUp() {
   return (
     <form>
+      <h2>Inscription</h2>
       <div>
         <label htmlFor="email">email</label> <input type="email" id="email" />
       </div>

@@ -11,10 +11,13 @@ import nominatimActions from "./nominatimActions";
 
 router.get("/api/artworks", artworkActions.browse);
 router.get("/api/artworks/:id", artworkActions.read);
+router.post("/api/artwork", artworkActions.add);
 router.get("/api/geolocalisation", nominatimActions.geocode);
 
 // Define user-related routes
 import userActions from "./modules/user/userActions";
+
+router.use(userActions.validate);
 
 router.get("/api/users/:id", userActions.read);
 
