@@ -1,13 +1,14 @@
 .authpage {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5em;
+  gap: 2em;
+  padding: 20% 10%;
 }
 .btn-section {
   display: flex;
-  margin: 1em 0;
   gap: 2em;
 }
 
@@ -16,6 +17,16 @@
   display: flex;
   border: transparent;
   background-color: transparent;
-  color: white;
-  font-weight: bold;
+  color: var(--mustard-color);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .authpage {
+    padding: 7% 20% 3% 20%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .authpage {
+    padding: 0;
+  }
 }

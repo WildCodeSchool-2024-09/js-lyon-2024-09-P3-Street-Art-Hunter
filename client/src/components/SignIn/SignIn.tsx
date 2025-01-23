@@ -57,12 +57,11 @@ function SignIn() {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <h3 className="login-title">Connexion</h3>
-      <label htmlFor="email" className="form-group form-label">
+      <label htmlFor="email" className="form-label">
         Email
         <input ref={emailRef} type="email" id="email" className="form-input" />
       </label>
-      <label htmlFor="password" className="form-group form-label">
+      <label htmlFor="password" className="form-label">
         Password
         <input
           ref={passwordRef}

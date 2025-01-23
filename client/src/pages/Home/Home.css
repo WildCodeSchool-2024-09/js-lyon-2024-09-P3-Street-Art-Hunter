@@ -15,12 +15,21 @@
   justify-content: center;
 }
 
+.big_logo {
+  display: none;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .center-logo {
     display: none;
   }
   .home-sct {
-    min-height: 81vh;
+    min-height: 90vh;
+  }
+  .big_logo {
+    display: block;
+    height: 13vh;
+    position: absolute;
   }
 }
 
@@ -29,6 +38,11 @@
     display: none;
   }
   .home-sct {
-    min-height: 81vh;
+    min-height: 90vh;
+  }
+  .big_logo {
+    display: block;
+    height: 13vh;
+    position: absolute;
   }
 }
