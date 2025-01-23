@@ -7,6 +7,7 @@ const router = express.Router();
 /* ************************************************************************* */
 
 import artworkActions from "./modules/artwork/artworkActions";
+import authActions from "./modules/auth/authActions";
 import nominatimActions from "./nominatimActions";
 
 router.get("/api/artworks", artworkActions.browse);
@@ -17,11 +18,8 @@ router.get("/api/geolocalisation", nominatimActions.geocode);
 // Define user-related routes
 import userActions from "./modules/user/userActions";
 
-router.post("/api/users/", userActions.add);
-
-router.use(userActions.validate);
-
 router.get("/api/users/:id", userActions.read);
+router.post("/api/users", authActions.hashPassword, userActions.add);
 
 /* ************************************************************************* */
 
