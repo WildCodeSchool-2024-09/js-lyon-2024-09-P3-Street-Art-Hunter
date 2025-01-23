@@ -91,11 +91,11 @@ CREATE TABLE user
 (id INT AUTO_INCREMENT PRIMARY KEY,
 pseudo VARCHAR(100) NOT NULL,
 email VARCHAR(255) NOT NULL,
-password VARCHAR(255) NOT NULL,
+hashed_password varchar(255) not null,
 inscription_date DATE);
 
-INSERT INTO user(id,pseudo,email,password,inscription_date)
-VALUES (1,"johnDoe","johndoe@example.com","jesuisunmotdepasse","2025-01-01"),
-(2,"Rabot","rabot@example.com","jesuisunmotdepasse","2025-01-01");
+INSERT INTO user(id,pseudo,email,hashed_password,inscription_date)
+VALUES (1,"johnDoe","johndoe@example.com","$argon2id$v=19$m=19456,t=2,p=1$nz6t40CzCcijUhj3Ntpz9A$4DW+9sqLdKvj27E3JYbImIIfZAadyDGXHFiwpBHli4s","2025-01-01"),
+(2,"Rabot","rabot@example.com","$argon2id$v=19$m=19456,t=2,p=1$nz6t40CzCcijUhj3Ntpz9A$4DW+9sqLdKvj27E3JYbImIIfZAadyDGXHFiwpBHli4s","2025-01-01");
 
     

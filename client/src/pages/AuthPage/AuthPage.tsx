@@ -2,15 +2,21 @@ import { useState } from "react";
 import SignIn from "../../components/SignIn/SignIn";
 import SignUp from "../../components/SignUp/SignUp";
 import "./AuthPage.css";
+import { Link } from "react-router-dom";
+import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 
 function AuthPage() {
   const [isRegistered, setIsRegistered] = useState(false);
 
   return (
     <>
-      <div className="authpage">
+      <Link to="/" className="link-logo">
+        <img src={Logo} alt="logoCC" className="narrow-logo" />
+      </Link>
+      <section className="authpage">
+        <h1>{isRegistered ? "Inscription" : "Connexion"}</h1>
         {isRegistered ? <SignUp /> : <SignIn />}
-        <div className="btn-section">
+        <article className="btn-section">
           <button
             type="button"
             className="signup-btn"
@@ -25,8 +31,8 @@ function AuthPage() {
           >
             J'ai déjà un compte
           </button>
-        </div>
-      </div>
+        </article>
+      </section>
     </>
   );
 }
