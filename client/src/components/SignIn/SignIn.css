@@ -1,25 +1,12 @@
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--jet-color);
-  font-family: "Raleway", "Montserrat", sans-serif;
-}
-
 /* Style du formulaire */
 .login-form {
-  background-color: var(--jet-color);
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  max-width: 400px;
+  min-height: 30%;
+  min-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
   animation: fadeIn 0.5s ease-out;
-}
-.login-title {
-  font-family: var(--text-font);
-  color: var(--mustard-color);
-  font-size: 2em;
 }
 
 @keyframes fadeIn {
@@ -33,52 +20,42 @@
   }
 }
 
-/* Groupe de champs */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
 /* Labels */
 .form-label {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 0.5rem;
-  color: dark;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  width: 100%;
 }
 
 /* Champs input */
 .form-input {
-  padding: 0.75rem;
-  border-radius: 6px;
-  font-family: "Darker Grotesque", sans-serif;
-  font-size: 1rem;
+  height: 3em;
+  border-radius: 12px;
+  font-family: var(--text-font);
+  background-color: #202221;
+  text-align: left;
+  color: var(--mustard-color);
   transition: all 0.3s ease;
-  color: var(--jet-color);
 }
 
 .form-input:focus {
   outline: none;
-  border-color: red;
+  border-color: var(--mustard-color);
   box-shadow: 0 0 0 3px rgba(183, 227, 204, 0.2);
 }
 
 /* Bouton d'envoi */
 .submit-button {
-  width: 100%;
-  padding: 1rem;
-  background-color: white;
-  color: var(--jet-color);
-  border: none;
-  border-radius: 6px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
+  height: 2.5em;
+  width: 8em;
+  align-self: center;
+  font-family: var(--text-font);
+  font-size: 1em;
+  background-color: var(--mustard-color);
+  border-radius: 12px;
   transition: all 0.3s ease;
-  margin-top: 1rem;
+  cursor: pointer;
 }
 
 .submit-button:hover {
@@ -93,9 +70,9 @@
 }
 
 /* Media queries pour la responsivité */
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .login-form {
     padding: 1.5rem;
     margin: 1rem;
   }
-}
+} */

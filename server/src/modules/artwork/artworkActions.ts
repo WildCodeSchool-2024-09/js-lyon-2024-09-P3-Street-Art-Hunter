@@ -66,7 +66,7 @@ const add: RequestHandler = async (req, res, next) => {
 
     const insertArtwork = await artworkRepository.create(newArtworks);
 
-    res.sendStatus(201).json({ insertArtwork });
+    res.status(200).json({ insertArtwork });
   } catch (err) {
     next(err);
   }

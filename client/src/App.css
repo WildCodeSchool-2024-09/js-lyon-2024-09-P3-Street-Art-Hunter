@@ -20,7 +20,7 @@
   --little_title-font: "Poiret One", sans-serif;
   --big_title-font: "Meaglez", sans-serif;
   --color: white;
-  --main-text-size: 16px;
+  --main-text-size: 1em;
 }
 
 body {
@@ -45,6 +45,14 @@ h2 {
 h3,
 h4 {
   font-family: var(--little_title-font);
+}
+
+h1 {
+  font-size: 3em;
+}
+
+p {
+  font-weight: 500;
 }
 
 nav {
@@ -73,6 +81,10 @@ main {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.logout-btn {
+  color: white;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

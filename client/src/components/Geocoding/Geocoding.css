@@ -1,30 +1,40 @@
-input[type="search"]:focus {
+.citySearch {
+  height: 3em;
+  min-width: 20em;
   font-family: var(--text-font);
-  font-weight: 700;
-  padding: 0.8em 1em;
-  border: solid 2px green;
+  border-radius: 12px;
+  background-color: #202221;
+  text-align: center;
+  color: var(--mustard-color);
+  margin-bottom: 1em;
 }
 
-.search-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5em 0;
+.citySearch:focus {
+  outline: none;
+  border-color: var(--mustard-color);
+  box-shadow: 0 0 0 3px rgba(183, 227, 204, 0.2);
 }
 
 .search-btn {
-  height: 2em;
+  height: 2.5em;
   width: 8em;
   align-self: center;
   font-family: var(--text-font);
   font-size: 1em;
-  font-weight: 700;
-  background-color: var(--jet-color);
-  color: var(--mustard-color);
-  border: solid 1px var(--mustard-color);
+  background-color: var(--mustard-color);
   border-radius: 12px;
   cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: dark;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .search-btn:hover {
@@ -35,26 +45,13 @@ input[type="search"]:focus {
   display: flex;
   flex-direction: column;
 }
+
 .searchGeo {
   display: flex;
   flex-direction: column;
 }
-.citySearch {
-  width: 20em;
-}
-.citySearch:focus {
-  border: solid 1px black;
-  border-color: green;
-}
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
   .searchBar {
     display: flex;
     flex-direction: row;
@@ -65,7 +62,7 @@ input[type="search"]:focus {
     background-color: var(--mustard-color);
     color: var(--jet-color);
     align-self: baseline;
-    margin: 0 2em;
+    margin-left: 2em;
   }
   .searchGeo {
     display: flex;
