@@ -1,7 +1,9 @@
 .home-sct {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  min-height: 70vh;
+  align-items: center;
+  min-height: 75vh;
 }
 
 .center-logo {
@@ -13,14 +15,34 @@
   justify-content: center;
 }
 
+.big_logo {
+  display: none;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .center-logo {
     display: none;
+  }
+  .home-sct {
+    min-height: 90vh;
+  }
+  .big_logo {
+    display: block;
+    height: 13vh;
+    position: absolute;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .center-logo {
     display: none;
+  }
+  .home-sct {
+    min-height: 90vh;
+  }
+  .big_logo {
+    display: block;
+    height: 13vh;
+    position: absolute;
   }
 }

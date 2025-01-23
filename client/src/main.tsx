@@ -3,8 +3,12 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./pages/Home/Home";
 import App from "./App";
+import { GeocodingProvider } from "./contexts/GeocodingContext";
+import { LoginProvider } from "./contexts/LoginContext";
+import AuthPage from "./pages/AuthPage/AuthPage";
 import Home from "./pages/Home/Home";
-import PageAccueil from "./pages/PageAccueil/HomePage";
+import NewArtwork from "./pages/NewArtwork/NewArtwork";
+import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([
@@ -13,12 +17,20 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/accueil",
+    path: "/StreetArtMap",
     element: <App />,
     children: [
       {
-        path: "/accueil",
-        element: <PageAccueil />,
+        path: "/StreetArtMap",
+        element: <StreetArtMap />,
+      },
+      {
+        path: "/StreetArtMap/authentication",
+        element: <AuthPage />,
+      },
+      {
+        path: "/StreetArtMap/NewArtwork",
+        element: <NewArtwork />,
       },
     ],
   },
@@ -31,7 +43,11 @@ if (rootElement == null) {
 }
 
 createRoot(rootElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <LoginProvider>
+    <GeocodingProvider>
+      <StrictMode>
+        <RouterProvider router={router} />
+      </StrictMode>
+    </GeocodingProvider>
+  </LoginProvider>,
 );
