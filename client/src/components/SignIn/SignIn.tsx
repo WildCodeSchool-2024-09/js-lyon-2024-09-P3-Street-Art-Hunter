@@ -1,23 +1,14 @@
 import "./SignIn.css";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import type { FormEventHandler } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
-
-interface user {
-  id: number;
-  pseudo: string;
-  email: string;
-  password: string;
-  inscription_date: string;
-}
+import { useNavigate } from "react-router-dom";
+import "../../contexts/LoginContext";
+import LoginContext from "../../contexts/LoginContext";
 
 function SignIn() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-
-  const { setUser } = useOutletContext() as {
-    setUser: (user: user | null) => void;
-  };
+  const { user, setUser } = useContext(LoginContext);
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -46,12 +37,14 @@ function SignIn() {
 
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 200) {
-        const user = await response.json();
+        const loggedUser = await response.json();
 
-        setUser(user);
+        setUser(loggedUser);
+
         console.info("hello hello");
+        console.info(user);
 
-        navigate("/");
+        navigate("/StreetArtMap");
       } else {
         // Log des détails de la réponse en cas d'échec
         console.info(response);
@@ -65,26 +58,20 @@ function SignIn() {
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <h3 className="login-title">Connexion</h3>
-      <div className="form-group">
-        <label htmlFor="email" className="form-label">
-          Email
-        </label>
+      <label htmlFor="email" className="form-group form-label">
+        Email
         <input ref={emailRef} type="email" id="email" className="form-input" />
-      </div>
-      <div className="form-group">
-        <label htmlFor="password" className="form-label">
-          Password
-        </label>
+      </label>
+      <label htmlFor="password" className="form-group form-label">
+        Password
         <input
           ref={passwordRef}
           type="password"
           id="password"
           className="form-input"
         />
-      </div>
-      <button type="submit" className="submit-button">
-        Send
-      </button>
+      </label>
+      <input type="submit" className="submit-button" name="Send" />
     </form>
   );
 }
