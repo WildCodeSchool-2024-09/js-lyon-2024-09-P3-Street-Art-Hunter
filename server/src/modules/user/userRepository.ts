@@ -29,10 +29,19 @@ class UserRepository {
 
   async verify(pseudo: string) {
     const [rows] = await databaseClient.query<Rows>(
-      "select pseudo from user where pseudo=?",
+      "select pseudo from user where pseudo = ?",
       [pseudo],
     );
     return rows as user[];
   }
+
+  async readByEmail(email: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      "select * from user where email = ?",
+      [email],
+    );
+    return rows[0] as user;
+  }
 }
+
 export default new UserRepository();
