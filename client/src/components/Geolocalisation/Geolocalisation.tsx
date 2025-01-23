@@ -1,9 +1,15 @@
 import "./Geolocalisation.css";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import GeocodingContext from "../../contexts/GeocodingContext";
 
 function Geolocalisation() {
+  //Récupérer la position de la page (= le path)
+  const location = useLocation();
+
+  //Récupérer les informations contenus dans le context
+  const { setSearchedLoc } = useContext(GeocodingContext);
+
   //Récupérer la position de l'utilisateur
   const getLocation = () => {
     const options = {
@@ -16,7 +22,7 @@ function Geolocalisation() {
           const { latitude, longitude } = position.coords;
           console.info("Latitude:", latitude, "Longitude:", longitude);
           setSearchedLoc([latitude, longitude]);
-          if (searchedLoc !== undefined) {
+          if (location.pathname === "/") {
             return navigate("/StreetArtMap");
           }
         },
@@ -29,8 +35,6 @@ function Geolocalisation() {
       console.error("Impossible de récupérer la position");
     }
   };
-
-  const { setSearchedLoc, searchedLoc } = useContext(GeocodingContext);
 
   const navigate = useNavigate();
   return (

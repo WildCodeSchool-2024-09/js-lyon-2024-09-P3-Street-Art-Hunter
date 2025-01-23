@@ -2,13 +2,12 @@ import "./WorldMap.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import paintRollerIcon from "../../assets/icones/pin_brush_big.png";
 import paintBrushIcon from "../../assets/icones/pin_brush_small.png";
 import mustardIcon from "../../assets/icones/pin_mustard.png";
 import paintSprayIcon from "../../assets/icones/pin_spray.png";
 import paintStickerIcon from "../../assets/icones/pin_sticker.png";
-import GeocodingContext from "../../contexts/GeocodingContext";
 
 interface artwork {
   id: number;
@@ -21,7 +20,11 @@ interface artwork {
   picture_credit: string;
 }
 
-function WorldMap() {
+interface LocProps {
+  searchedLoc?: [number, number];
+}
+
+function WorldMap({ searchedLoc }: LocProps) {
   const mustardPin = new Icon({
     iconUrl: `${mustardIcon}`,
     iconSize: [34, 38],
@@ -52,9 +55,6 @@ function WorldMap() {
         setArtworks(data);
       });
   }, []);
-
-  const { searchedLoc } = useContext(GeocodingContext);
-  console.info(searchedLoc);
 
   return (
     <MapContainer center={searchedLoc} zoom={13} scrollWheelZoom={true}>

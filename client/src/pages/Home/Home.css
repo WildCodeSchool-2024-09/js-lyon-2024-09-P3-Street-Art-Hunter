@@ -19,10 +19,16 @@
   .center-logo {
     display: none;
   }
+  .home-sct {
+    min-height: 81vh;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .center-logo {
     display: none;
+  }
+  .home-sct {
+    min-height: 81vh;
   }
 }
