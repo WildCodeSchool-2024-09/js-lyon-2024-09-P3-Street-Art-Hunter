@@ -38,7 +38,7 @@ hr {
 .dropdown a {
   list-style: none;
   text-decoration: none;
-  color: #d9d9d9;
+  color: var(--ash-grey-color);
   font-family: var(--text-font);
   font-size: 1.5em;
   font-weight: 400;

@@ -42,10 +42,10 @@ export default function Navbar() {
                 <Link to="/profile">
                   <li>Profil</li>
                 </Link>
-                <Link to="/StreetMapPage">
+                <Link to="/StreetArtMap">
                   <li>Worldmap</li>
                 </Link>
-                <Link to="/authentication">
+                <Link to="/StreetArtMap/authentication">
                   <li
                     onClick={() => setUser(undefined)}
                     onKeyUp={() => setUser(undefined)}
