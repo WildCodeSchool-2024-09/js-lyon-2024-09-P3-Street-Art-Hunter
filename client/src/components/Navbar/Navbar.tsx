@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AjoutArt from "../../assets/images/add_picture.png";
 import Connection from "../../assets/images/connec_ash.png";
+import ConnectionSmall from "../../assets/images/connec_ash.png";
 import Leadboard from "../../assets/images/lead_ash.png";
 import LoginContext from "../../contexts/LoginContext";
 
@@ -25,30 +26,55 @@ export default function Navbar() {
         </Link>
       ) : (
         <>
+          <hr className="vertical-divider" />
           <Link to="/StreetArtMap/NewArtwork">
             <img src={AjoutArt} alt="ajout d'une oeuvre" />
           </Link>
-          <hr className="vertical-divider" />
+          <hr />
           <button
             type="button"
             className="menu-button"
             onClick={handleOpeningMenu}
           >
-            <img src={Connection} alt="connection" />
+            <img src={ConnectionSmall} alt="connection" />
           </button>
           {isOpenMenu && (
             <div className="dropdown">
               <ul>
-                <Link to="/profile">
-                  <li>Profil</li>
+                <Link to="/StreetArtMap/Profile">
+                  <li
+                    onClick={() => {
+                      setIsOpenMenu(false);
+                    }}
+                    onKeyUp={() => {
+                      setIsOpenMenu(false);
+                    }}
+                  >
+                    Profil
+                  </li>
                 </Link>
                 <Link to="/StreetArtMap">
-                  <li>Worldmap</li>
+                  <li
+                    onClick={() => {
+                      setIsOpenMenu(false);
+                    }}
+                    onKeyUp={() => {
+                      setIsOpenMenu(false);
+                    }}
+                  >
+                    Worldmap
+                  </li>
                 </Link>
                 <Link to="/StreetArtMap/authentication">
                   <li
-                    onClick={() => setUser(undefined)}
-                    onKeyUp={() => setUser(undefined)}
+                    onClick={() => {
+                      setUser(undefined); //logout
+                      setIsOpenMenu(false); //fermer le menu au changement de page
+                    }}
+                    onKeyUp={() => {
+                      setUser(undefined);
+                      setIsOpenMenu(false);
+                    }}
                   >
                     Logout
                   </li>
@@ -58,7 +84,6 @@ export default function Navbar() {
           )}
         </>
       )}
-      <hr className="vertical-divider" />
     </div>
   );
 }

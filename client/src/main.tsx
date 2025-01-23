@@ -8,6 +8,7 @@ import { LoginProvider } from "./contexts/LoginContext";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import Home from "./pages/Home/Home";
 import NewArtwork from "./pages/NewArtwork/NewArtwork";
+import Profile from "./pages/Profile/Profile";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 
 /* ************************************************************************* */
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/StreetArtMap/authentication",
         element: <AuthPage />,
+      },
+      {
+        path: "/StreetArtMap/Profile",
+        element: <Profile />,
       },
       {
         path: "/StreetArtMap/NewArtwork",
