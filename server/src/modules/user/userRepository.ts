@@ -1,5 +1,5 @@
 import databaseClient from "../../../database/client";
-import type { Rows } from "../../../database/client";
+import type { Result, Rows } from "../../../database/client";
 
 interface user {
   id: number;
@@ -18,17 +18,15 @@ class UserRepository {
     return rows[0] as user;
   }
 
-  // Verifier l'existence de l'email dans la BDD
-  async readByEmail(email: string) {
-    // Execute the SQL SELECT query to retrieve a specific user by its email
-    const [rows] = await databaseClient.query<Rows>(
-      "select * from user where email = ?",
-      [email],
+  async create(user: Omit<user, "id">) {
+    const [result] = await databaseClient.query<Result>(
+      "insert into user (email, password, pseudo, inscription_date) values (?, ?, ?, ?)",
+      [user.email, user.password, user.pseudo, user.inscription_date],
     );
-    return rows[0] as user;
+
+    return result.insertId;
   }
 
-  // Vérifier l'éxistence du pseudo dans la BDD
   async verify(pseudo: string) {
     const [rows] = await databaseClient.query<Rows>(
       "select pseudo from user where pseudo = ?",
@@ -36,5 +34,14 @@ class UserRepository {
     );
     return rows as user[];
   }
+
+  async readByEmail(email: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      "select * from user where email = ?",
+      [email],
+    );
+    return rows[0] as user;
+  }
 }
+
 export default new UserRepository();
