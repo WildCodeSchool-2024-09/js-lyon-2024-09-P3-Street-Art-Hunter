@@ -7,9 +7,9 @@ import Carousel from "../../components/Carousel/Carousel";
 
 function Home() {
   return (
-    <div>
+    <article>
       <section className="logo-sct">
-        <img src={Logo} alt="logoCC" className="logo" />
+        <img src={Logo} alt="logoCC" className="big_logo" />
         <img src={Logo} alt="logoCC" className="center-logo" />
       </section>
       <section className="home-sct">
@@ -19,7 +19,7 @@ function Home() {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </article>
   );
 }
 

@@ -10,18 +10,31 @@
 }
 
 .citySearch:focus {
-  border: solid 1px black;
+  outline: none;
   border-color: var(--mustard-color);
+  box-shadow: 0 0 0 3px rgba(183, 227, 204, 0.2);
 }
 
 .search-btn {
-  height: 3em;
+  height: 2.5em;
   width: 8em;
   align-self: center;
   font-family: var(--text-font);
+  font-size: 1em;
   background-color: var(--mustard-color);
   border-radius: 12px;
   cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: dark;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .search-btn:hover {
