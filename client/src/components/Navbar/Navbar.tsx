@@ -1,20 +1,16 @@
 import "./Navbar.css";
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AjoutArt from "../../assets/images/add_picture.png";
 import Connection from "../../assets/images/connec_ash.png";
 import Leadboard from "../../assets/images/lead_ash.png";
-
-interface user {
-  id: number;
-  pseudo: string;
-  email: string;
-  password: string;
-  inscription_date: string;
-}
+import Deconnexion from "../../assets/images/log_out.png";
+import LoginContext from "../../contexts/LoginContext";
 
 export default function Navbar() {
-  const [user, setUser] = useState(null as user | null);
+  const { user, setUser } = useContext(LoginContext);
 
+  console.info(user);
   return (
     <>
       {user == null ? (
@@ -29,24 +25,22 @@ export default function Navbar() {
         </div>
       ) : (
         <div className="navbar-icon box-divider">
-          user && <p>Hello {user?.email}</p>
           <hr className="vertical-divider" />
           <img src={Leadboard} alt="leadboard" />
           <hr />
-          <Link to="/StreetArtMap/authentication">
-            <img src={Connection} alt="connection" />
+          <Link to="/StreetArtMap/NewArtwork">
+            <img src={AjoutArt} alt="ajout d'une oeuvre" />
           </Link>
-          <hr className="vertical-divider" />
-          <button
-            type="button"
+          <hr />
+          <Link
+            to="/"
             className="logout-btn"
             onClick={() => {
-              setUser(null);
-              console.info(user);
+              setUser(undefined);
             }}
           >
-            Logout
-          </button>
+            <img src={Deconnexion} alt="deconnexion" />
+          </Link>
           <hr className="vertical-divider" />
         </div>
       )}

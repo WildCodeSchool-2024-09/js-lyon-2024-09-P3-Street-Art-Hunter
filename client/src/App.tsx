@@ -3,7 +3,6 @@ import "./App.css";
 import Logo from "./assets/images/cc_logo_spotless_mustard.png";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import { LoginProvider } from "./contexts/LoginContext";
 
 function App() {
   return (
@@ -15,9 +14,7 @@ function App() {
         <Navbar />
       </nav>
       <main>
-        <LoginProvider>
-          <Outlet />
-        </LoginProvider>
+        <Outlet />
       </main>
       <div className="narrow-nav">
         <Navbar />
