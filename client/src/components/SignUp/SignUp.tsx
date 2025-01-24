@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import type { ChangeEventHandler, FormEventHandler } from "react";
 import { useNavigate } from "react-router-dom";
-import "./SignUp.css";
 
 function SignUp() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -42,7 +41,7 @@ function SignUp() {
       );
 
       if (response.status === 201) {
-        navigate("/");
+        navigate("/StreetArtMap/Profile");
       } else {
         console.info(response);
       }
@@ -52,43 +51,41 @@ function SignUp() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        {/* Champ pour le pseudo */}
-        <label htmlFor="pseudo">pseudo</label>
-        <input ref={pseudoRef} type="pseudo" id="pseudo" />
-      </div>
-      <div>
-        {/* Champ pour l'email */}
-        <label htmlFor="email">email</label>
-        <input ref={emailRef} type="email" id="email" />
-      </div>
-      <div>
-        {/* Champ pour le mot de passe */}
-        <label htmlFor="password">password</label>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <label htmlFor="pseudo" className="form-label">
+        Pseudo :
         <input
+          className="form-input"
+          ref={pseudoRef}
+          type="pseudo"
+          id="pseudo"
+        />
+      </label>
+      <label htmlFor="email" className="form-label">
+        Email :
+        <input className="form-input" ref={emailRef} type="email" id="email" />
+      </label>
+      <label htmlFor="password" className="form-label">
+        Mot de passe :
+        <input
+          className="form-input"
           type="password"
           id="password"
           value={password}
           onChange={handlePasswordChange}
         />
-        {/* Indicateur de force du mot de passe */}
-        {password.length >= 8 ? "✅" : "❌"} {`length: ${password.length} >= 8`}
-      </div>
-      <div>
-        {/* Champ pour la confirmation du mot de passe */}
-        <label htmlFor="confirm-password">confirm password</label>
+      </label>
+      <label htmlFor="confirm-password" className="form-label">
+        Confirmez votre mot de passe :
         <input
+          className="form-input"
           type="password"
           id="confirm-password"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
-        />{" "}
-        {/* Indicateur de correspondance avec le mot de passe */}
-        {password === confirmPassword ? "✅" : "❌"}
-      </div>
-      {/* Bouton de soumission du formulaire */}
-      <button type="submit">Send</button>
+        />
+      </label>
+      <input className="submit-button" type="submit" name="Send" />
     </form>
   );
 }
