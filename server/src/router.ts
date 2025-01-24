@@ -20,8 +20,8 @@ router.post("/api/login", authActions.login);
 // Define user-related routes
 import userActions from "./modules/user/userActions";
 
-router.get("/api/users/:id", userActions.read);
 router.post("/api/users", authActions.hashPassword, userActions.add);
+router.get("/api/users/:id", userActions.read);
 
 /* ************************************************************************* */
 

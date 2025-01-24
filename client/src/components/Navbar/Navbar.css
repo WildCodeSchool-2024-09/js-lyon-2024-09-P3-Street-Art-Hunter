@@ -9,6 +9,7 @@
 
 .navbar-icon img {
   height: 3.5vh;
+  display: block; /* Pour centrer verticalement */
 }
 
 .box-divider {
@@ -26,6 +27,32 @@ hr {
   display: none;
 }
 
+.dropdown {
+  position: absolute;
+  z-index: 1000; /* Pour s'afficher par dessus la map */
+  bottom: 50px;
+  background-color: #2b2727; /*Remplacer par les couleurs de variables !!!!!*/
+  border-radius: 5px;
+  padding: 10px;
+  width: 90%;
+}
+.dropdown a {
+  list-style: none;
+  text-decoration: none;
+  color: var(--ash-grey-color);
+  font-family: var(--text-font);
+  font-size: 1.5em;
+  font-weight: 400;
+}
+.dropdown a:hover {
+  color: var(--mustard-color);
+  scale: 1.1;
+}
+#password,
+#email {
+  padding-left: 1em; /* Car sinon le texte tapé dans le champ est trop à gauche, utilisation de l'ID car le input modifie aussi les boutons !!! */
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .navbar-icon {
     width: 25%;
@@ -37,6 +64,16 @@ hr {
   }
   .box-divider {
     border: none;
+  }
+  .dropdown {
+    position: absolute;
+    z-index: 1000; /* Pour s'afficher par dessus la map */
+    top: 50px;
+    bottom: auto;
+    background-color: #2b2727; /*Remplacer par les couleurs de variables !!!!!*/
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -50,5 +87,15 @@ hr {
   }
   .box-divider {
     border: none;
+  }
+  .dropdown {
+    position: absolute;
+    z-index: 1000; /* Pour s'afficher par dessus la map */
+    top: 50px;
+    bottom: auto;
+    background-color: #2b2727; /*Remplacer par les couleurs de variables !!!!!*/
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
   }
 }

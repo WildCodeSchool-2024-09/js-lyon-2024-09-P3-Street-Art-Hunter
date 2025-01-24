@@ -52,43 +52,49 @@ function SignUp() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <div>
-        {/* Champ pour le pseudo */}
-        <label htmlFor="pseudo">pseudo</label>{" "}
-        <input ref={pseudoRef} type="pseudo" id="pseudo" />
-      </div>
-      <div>
-        {/* Champ pour l'email */}
-        <label htmlFor="email">email</label>{" "}
-        <input ref={emailRef} type="email" id="email" />
-      </div>
-      <div>
-        {/* Champ pour le mot de passe */}
-        <label htmlFor="password">password</label>{" "}
+        <label htmlFor="pseudo" className="form-label">
+          pseudo
+        </label>{" "}
         <input
+          className="form-input"
+          ref={pseudoRef}
+          type="pseudo"
+          id="pseudo"
+        />
+      </div>
+      <div>
+        <label htmlFor="email" className="form-label">
+          email
+        </label>{" "}
+        <input className="form-input" ref={emailRef} type="email" id="email" />
+      </div>
+      <div>
+        <label htmlFor="password" className="form-label">
+          password
+        </label>{" "}
+        <input
+          className="form-input"
           type="password"
           id="password"
           value={password}
           onChange={handlePasswordChange}
         />{" "}
-        {/* Indicateur de force du mot de passe */}
-        {password.length >= 8 ? "✅" : "❌"} {`length: ${password.length} >= 8`}
       </div>
       <div>
-        {/* Champ pour la confirmation du mot de passe */}
-        <label htmlFor="confirm-password">confirm password</label>{" "}
+        <label htmlFor="confirm-password" className="form-label">
+          confirm password
+        </label>{" "}
         <input
+          className="form-input"
           type="password"
           id="confirm-password"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
         />{" "}
-        {/* Indicateur de correspondance avec le mot de passe */}
-        {password === confirmPassword ? "✅" : "❌"}
       </div>
-      {/* Bouton de soumission du formulaire */}
-      <button type="submit">Send</button>
+      <input className="submit-button" type="submit" name="Send" />
     </form>
   );
 }

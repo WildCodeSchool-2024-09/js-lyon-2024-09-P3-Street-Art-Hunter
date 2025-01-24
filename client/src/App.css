@@ -32,7 +32,7 @@ body {
 }
 
 #root {
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--jet-color);
 }
 
@@ -108,7 +108,7 @@ main {
     display: none;
   }
   main {
-    height: 87vh;
+    min-height: 87vh;
   }
   footer {
     height: 5vh;
