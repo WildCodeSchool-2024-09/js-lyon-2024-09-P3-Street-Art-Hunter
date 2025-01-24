@@ -37,6 +37,7 @@ const geocode: RequestHandler = async (req, res, next) => {
 
     // transmition via Express des infos recueilli par Axios.
     res.json(geocodedData);
+    console.info(geocodedData); //sécurité de visualisation 21/01/2025
   } catch (err) {
     next(err);
   }

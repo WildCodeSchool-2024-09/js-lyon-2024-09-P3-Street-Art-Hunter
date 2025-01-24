@@ -20,7 +20,7 @@ const read: RequestHandler = async (req, res, next) => {
 
 const add: RequestHandler = async (req, res, next) => {
   const currentDate = new Date().toISOString().split("T")[0];
-  console.info(currentDate);
+
   try {
     const newUser = {
       email: req.body.email,
