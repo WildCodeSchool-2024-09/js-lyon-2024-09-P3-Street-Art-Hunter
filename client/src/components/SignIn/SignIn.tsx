@@ -8,7 +8,7 @@ import LoginContext from "../../contexts/LoginContext";
 function SignIn() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const { user, setUser } = useContext(LoginContext);
+  const { setUser } = useContext(LoginContext);
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -40,9 +40,6 @@ function SignIn() {
         const loggedUser = await response.json();
 
         setUser(loggedUser);
-
-        console.info("hello hello");
-        console.info(user);
 
         navigate("/StreetArtMap");
       } else {

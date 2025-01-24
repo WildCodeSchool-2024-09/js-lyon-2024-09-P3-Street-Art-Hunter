@@ -5,7 +5,6 @@ import userRepository from "./userRepository";
 const read: RequestHandler = async (req, res, next) => {
   try {
     const userId = Number(req.params.id);
-
     const user = await userRepository.read(userId);
 
     if (user == null) {
@@ -20,13 +19,13 @@ const read: RequestHandler = async (req, res, next) => {
 
 const add: RequestHandler = async (req, res, next) => {
   const currentDate = new Date().toISOString().split("T")[0];
-  console.info(currentDate);
+
   try {
     const newUser = {
       email: req.body.email,
       pseudo: req.body.pseudo,
-      inscription_date: currentDate,
       hashed_password: req.body.hashed_password,
+      inscription_date: currentDate,
     };
 
     const insertId = await userRepository.create(newUser);

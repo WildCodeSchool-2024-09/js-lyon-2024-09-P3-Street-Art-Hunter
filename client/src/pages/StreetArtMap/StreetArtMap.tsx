@@ -9,7 +9,6 @@ import GeocodingContext from "../../contexts/GeocodingContext";
 
 function StreetArtMap() {
   const { searchedLoc } = useContext(GeocodingContext);
-  console.info(searchedLoc);
   return (
     <>
       <Link to="/" className="link-logo">
