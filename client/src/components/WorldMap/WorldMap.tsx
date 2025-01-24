@@ -2,13 +2,12 @@ import "./WorldMap.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import paintRollerIcon from "../../assets/icones/pin_brush_big.png";
 import paintBrushIcon from "../../assets/icones/pin_brush_small.png";
 import mustardIcon from "../../assets/icones/pin_mustard.png";
 import paintSprayIcon from "../../assets/icones/pin_spray.png";
 import paintStickerIcon from "../../assets/icones/pin_sticker.png";
-import GeocodingContext from "../../contexts/GeocodingContext";
 
 interface artwork {
   id: number;
@@ -21,7 +20,11 @@ interface artwork {
   picture_credit: string;
 }
 
-function WorldMap() {
+interface LocProps {
+  searchedLoc?: [number, number];
+}
+
+function WorldMap({ searchedLoc }: LocProps) {
   const mustardPin = new Icon({
     iconUrl: `${mustardIcon}`,
     iconSize: [34, 38],
@@ -44,7 +47,6 @@ function WorldMap() {
   });
 
   const [artwork, setArtworks] = useState<artwork[]>([]);
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/artworks`)
@@ -52,14 +54,7 @@ function WorldMap() {
       .then((data: artwork[]) => {
         setArtworks(data);
       });
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const { searchedLoc } = useContext(GeocodingContext);
 
   return (
     <MapContainer center={searchedLoc} zoom={13} scrollWheelZoom={true}>
@@ -89,10 +84,10 @@ function WorldMap() {
             key={art.id}
           >
             <Popup
-              offset={isLargeScreen ? [500, 400] : [0, 80]}
+              // offset={isLargeScreen ? [500, 400] : [0, 80]}
               className="popup-card"
             >
-              <h3>{art.name}</h3>
+              <h1>{art.name}</h1>
               <img className="popup-image" src={art.image} alt="streetart" />
               <h3>{art.address}</h3>
             </Popup>

@@ -2,6 +2,7 @@ import type { RequestHandler } from "express";
 
 // Import access to data
 import articleRepository from "./artworkRepository";
+import artworkRepository from "./artworkRepository";
 
 // The B of BREAD - Browse (Read All) operation
 const browse: RequestHandler = async (req, res, next) => {
@@ -28,7 +29,7 @@ const browse: RequestHandler = async (req, res, next) => {
       coordinate = [];
       i++;
     }
-    res.json(newArtworks);
+    res.json(newArtworks).sendStatus(200);
   } catch (err) {
     next(err);
   }
@@ -48,12 +49,26 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
-// // The A of BREAD - Add (Create) operation
-// const add: RequestHandler = async (req, res, next) => {
-//   try {
-//   } catch (err) {
-//     next(err);
-//   }
-// };
+const add: RequestHandler = async (req, res, next) => {
+  try {
+    const newArtworks = {
+      id: String(req.body.id),
+      name: String(req.body.name),
+      address: String(req.body.address),
+      image: String(req.body.image),
+      picture_date: Number.parseInt(req.body.picture_date),
+      type_of_art: String(req.body.type_of_art),
+      latitude: Number.parseFloat(req.body.latitude),
+      longitude: Number.parseFloat(req.body.longitude),
+      picture_credit: String(req.body.picture_credit),
+    };
 
-export default { browse, read };
+    const insertArtwork = await artworkRepository.create(newArtworks);
+
+    res.status(200).json({ insertArtwork });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add };

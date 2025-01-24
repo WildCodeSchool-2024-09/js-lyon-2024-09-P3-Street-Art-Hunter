@@ -1,13 +1,13 @@
-import databaseClient from "../../../../database/client";
+import databaseClient from "../../../database/client";
 
-import type { Result, Rows } from "../../../../database/client";
+import type { Result, Rows } from "../../../database/client";
 
 interface artwork {
   id: number;
   name: string;
   address: string;
   image: string;
-  picture_date: string;
+  picture_date: number;
   type_of_art: string;
   latitude: number;
   longitude: number;
@@ -15,6 +15,14 @@ interface artwork {
 }
 
 class articleRepository {
+  async readAll() {
+    // Execute the SQL SELECT query to retrieve all items from the "artwork" table
+    const [rows] = await databaseClient.query<Rows>("select * from artwork");
+
+    // Return the array of items
+    return rows as artwork[];
+  }
+
   async read(id: number) {
     const [rows] = await databaseClient.query<Rows>(
       "SELECT aw.name, aw.adress, aw.image, aw.picture_date, aw.type_of_art, aw.latitude, aw.longitude, aw.picture_credit, at.name, cr.creation_date FROM artwork AS aw JOIN creation AS cr ON aw.id=cr.id_artwork JOIN artist AS at ON at.id=cr.id_artist WHERE aw.id=?",
@@ -23,28 +31,24 @@ class articleRepository {
     return rows[0] as artwork;
   }
 
-  // The C of CRUD - Create operation
-
-  // async create(item: Omit<artwork, "id">) {
-  //   // Execute the SQL INSERT query to add a new item to the "item" table
-  //   const [result] = await databaseClient.query<Result>(
-  //     "insert into item (title, user_id) values (?, ?)",
-  //     [item.title, item.user_id],
-  //   );
-
-  // Return the ID of the newly inserted item
-  //   return result.insertId;
-  // }
+  async create(artwork: Omit<artwork, "id">) {
+    const [result] = await databaseClient.query<Result>(
+      "insert into artwork (name, address, image, picture_date, type_of_art, latitude, longitude, picture_credit) values (?,?,?,?,?,?,?,?)",
+      [
+        artwork.name,
+        artwork.address,
+        artwork.image,
+        artwork.picture_date,
+        artwork.type_of_art,
+        artwork.latitude,
+        artwork.longitude,
+        artwork.picture_credit,
+      ],
+    );
+    return result.insertId;
+  }
 
   // // The Rs of CRUD - Read operations
-
-  async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await databaseClient.query<Rows>("select * from artwork");
-
-    // Return the array of items
-    return rows as artwork[];
-  }
 
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item

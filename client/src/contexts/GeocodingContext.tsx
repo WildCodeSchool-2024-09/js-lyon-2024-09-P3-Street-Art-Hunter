@@ -1,25 +1,30 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 const GeocodingContext = createContext<valueProps>({
   setSubmitedAddress: () => {},
   setSearchedLoc: () => {},
+  getCoord: () => {},
 });
 
 interface valueProps {
   setSubmitedAddress: React.Dispatch<React.SetStateAction<string | undefined>>;
+  submitedAddress?: string;
   searchedLoc?: [number, number];
   setSearchedLoc: React.Dispatch<
     React.SetStateAction<[number, number] | undefined>
   >;
+  getCoord: () => void;
 }
 
 export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [submitedAddress, setSubmitedAddress] = useState<string>();
+  const [submitedAddress, setSubmitedAddress] = useState<string | undefined>(
+    undefined,
+  );
   const [searchedLoc, setSearchedLoc] = useState<[number, number]>();
 
-  useEffect(() => {
+  const getCoord = () => {
     if (submitedAddress !== undefined) {
       fetch(
         `${import.meta.env.VITE_API_URL}/api/geolocalisation?submitedAddress=${submitedAddress}`,
@@ -32,11 +37,19 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
           setSearchedLoc(geoloc);
         });
     }
-  }, [submitedAddress]);
+  };
+
+  console.info(searchedLoc);
 
   return (
     <GeocodingContext.Provider
-      value={{ setSubmitedAddress, searchedLoc, setSearchedLoc }}
+      value={{
+        setSubmitedAddress,
+        submitedAddress,
+        searchedLoc,
+        setSearchedLoc,
+        getCoord,
+      }}
     >
       {children}
     </GeocodingContext.Provider>
