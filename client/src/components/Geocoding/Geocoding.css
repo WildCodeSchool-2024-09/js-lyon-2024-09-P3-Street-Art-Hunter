@@ -3,7 +3,7 @@
   min-width: 20em;
   font-family: var(--text-font);
   border-radius: 12px;
-  background-color: #202221;
+  background-color: var(--underside-color);
   text-align: center;
   color: var(--mustard-color);
   margin-bottom: 1em;

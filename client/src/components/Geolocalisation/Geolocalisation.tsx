@@ -20,7 +20,6 @@ function Geolocalisation() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          console.info("Latitude:", latitude, "Longitude:", longitude);
           setSearchedLoc([latitude, longitude]);
           if (location.pathname === "/") {
             return navigate("/StreetArtMap");
