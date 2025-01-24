@@ -42,7 +42,7 @@ function SignUp() {
       );
 
       if (response.status === 201) {
-        navigate("/");
+        navigate("/StreetArtMap/");
       } else {
         console.info(response);
       }
@@ -71,7 +71,7 @@ function SignUp() {
           id="password"
           value={password}
           onChange={handlePasswordChange}
-        />{" "}
+        />
         {/* Indicateur de force du mot de passe */}
         {password.length >= 8 ? "✅" : "❌"} {`length: ${password.length} >= 8`}
       </div>
@@ -83,12 +83,12 @@ function SignUp() {
           id="confirm-password"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
-        />{" "}
+        />
         {/* Indicateur de correspondance avec le mot de passe */}
         {password === confirmPassword ? "✅" : "❌"}
       </div>
       {/* Bouton de soumission du formulaire */}
-      <button type="submit">Send</button>
+      <input type="submit" name="Send" />
     </form>
   );
 }
