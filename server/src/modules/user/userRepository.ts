@@ -5,7 +5,7 @@ interface user {
   id: number;
   pseudo: string;
   email: string;
-  password: string;
+  hashed_password: string;
   inscription_date: string;
 }
 
@@ -20,8 +20,8 @@ class UserRepository {
 
   async create(user: Omit<user, "id">) {
     const [result] = await databaseClient.query<Result>(
-      "insert into user (email, password, pseudo, inscription_date) values (?, ?, ?, ?)",
-      [user.email, user.password, user.pseudo, user.inscription_date],
+      "insert into user (email, hashed_password, pseudo) values (?, ?, ?)",
+      [user.email, user.hashed_password, user.pseudo],
     );
 
     return result.insertId;
@@ -32,13 +32,14 @@ class UserRepository {
       "select pseudo from user where pseudo = ?",
       [pseudo],
     );
+
     return rows as user[];
   }
 
-  async readByEmail(email: string) {
+  async readByEmailWithPassword(user: user) {
     const [rows] = await databaseClient.query<Rows>(
       "select * from user where email = ?",
-      [email],
+      [user.email],
     );
     return rows[0] as user;
   }
