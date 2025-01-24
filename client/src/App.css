@@ -16,11 +16,12 @@
   --jet-color: #313332;
   --mustard-color: #fdd648;
   --ash-grey-color: #d9d9d9;
+  --underside-color: #202221;
   --text-font: "Darker Grotesque", serif;
   --little_title-font: "Poiret One", sans-serif;
   --big_title-font: "Meaglez", sans-serif;
   --color: white;
-  --main-text-size: 1em;
+  --main-text-size: 0.8em;
 }
 
 body {
@@ -109,6 +110,7 @@ main {
   }
   main {
     min-height: 87vh;
+    padding-left: 0.6em;
   }
   footer {
     height: 5vh;

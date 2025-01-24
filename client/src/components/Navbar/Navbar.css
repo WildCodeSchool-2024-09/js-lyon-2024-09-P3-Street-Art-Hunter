@@ -27,15 +27,28 @@ hr {
   display: none;
 }
 
+.disconnected_user {
+  border-radius: 50%;
+  border: 0.5px solid var(--ash-grey-color);
+}
+
+.dropdown-btn {
+  border-radius: 50%;
+  border: 0.5px solid var(--ash-grey-color);
+  background-color: var(--jet-color);
+}
+
 .dropdown {
   position: absolute;
   z-index: 1000; /* Pour s'afficher par dessus la map */
   bottom: 50px;
-  background-color: #2b2727; /*Remplacer par les couleurs de variables !!!!!*/
+  background-color: var(--underside-color);
   border-radius: 5px;
   padding: 10px;
   width: 90%;
+  margin-bottom: 1.5em;
 }
+
 .dropdown a {
   list-style: none;
   text-decoration: none;
@@ -46,7 +59,6 @@ hr {
 }
 .dropdown a:hover {
   color: var(--mustard-color);
-  scale: 1.1;
 }
 #password,
 #email {
@@ -70,10 +82,11 @@ hr {
     z-index: 1000; /* Pour s'afficher par dessus la map */
     top: 50px;
     bottom: auto;
-    background-color: #2b2727; /*Remplacer par les couleurs de variables !!!!!*/
+    background-color: var(--underside-color); /*Remplacer par les couleurs de variables !!!!!*/
     border-radius: 5px;
     padding: 10px;
     width: 200px;
+    margin-top: 0.7em;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -93,9 +106,10 @@ hr {
     z-index: 1000; /* Pour s'afficher par dessus la map */
     top: 50px;
     bottom: auto;
-    background-color: #2b2727; /*Remplacer par les couleurs de variables !!!!!*/
+    background-color: var(--underside-color); /*Remplacer par les couleurs de variables !!!!!*/
     border-radius: 5px;
     padding: 10px;
     width: 200px;
+    margin-top: 0.7em;
   }
 }

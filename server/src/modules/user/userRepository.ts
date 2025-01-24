@@ -20,8 +20,8 @@ class UserRepository {
 
   async create(user: Omit<user, "id">) {
     const [result] = await databaseClient.query<Result>(
-      "insert into user (email, hashed_password, pseudo) values (?, ?, ?)",
-      [user.email, user.hashed_password, user.pseudo],
+      "insert into user (email, hashed_password, pseudo, inscription_date) values (?, ?, ?,?)",
+      [user.email, user.hashed_password, user.pseudo, user.inscription_date],
     );
 
     return result.insertId;

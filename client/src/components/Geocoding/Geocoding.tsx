@@ -10,7 +10,6 @@ export default function Geocoding() {
 
   //Récupérer la position de la page (= le path)
   const location = useLocation();
-  console.info(location);
 
   const handleSearchClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();

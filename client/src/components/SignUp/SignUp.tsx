@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import type { ChangeEventHandler, FormEventHandler } from "react";
 import { useNavigate } from "react-router-dom";
-import "./SignUp.css";
 
 function SignUp() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -42,7 +41,7 @@ function SignUp() {
       );
 
       if (response.status === 201) {
-        navigate("/");
+        navigate("/StreetArtMap/Profile");
       } else {
         console.info(response);
       }
@@ -53,47 +52,39 @@ function SignUp() {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="pseudo" className="form-label">
-          pseudo
-        </label>{" "}
+      <label htmlFor="pseudo" className="form-label">
+        Pseudo :
         <input
           className="form-input"
           ref={pseudoRef}
           type="pseudo"
           id="pseudo"
         />
-      </div>
-      <div>
-        <label htmlFor="email" className="form-label">
-          email
-        </label>{" "}
+      </label>
+      <label htmlFor="email" className="form-label">
+        Email :
         <input className="form-input" ref={emailRef} type="email" id="email" />
-      </div>
-      <div>
-        <label htmlFor="password" className="form-label">
-          password
-        </label>{" "}
+      </label>
+      <label htmlFor="password" className="form-label">
+        Mot de passe :
         <input
           className="form-input"
           type="password"
           id="password"
           value={password}
           onChange={handlePasswordChange}
-        />{" "}
-      </div>
-      <div>
-        <label htmlFor="confirm-password" className="form-label">
-          confirm password
-        </label>{" "}
+        />
+      </label>
+      <label htmlFor="confirm-password" className="form-label">
+        Confirmez votre mot de passe :
         <input
           className="form-input"
           type="password"
           id="confirm-password"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
-        />{" "}
-      </div>
+        />
+      </label>
       <input className="submit-button" type="submit" name="Send" />
     </form>
   );

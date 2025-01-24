@@ -3,7 +3,6 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AjoutArt from "../../assets/images/add_picture.png";
 import Connection from "../../assets/images/connec_ash.png";
-import ConnectionSmall from "../../assets/images/connec_ash.png";
 import Leadboard from "../../assets/images/lead_ash.png";
 import LoginContext from "../../contexts/LoginContext";
 
@@ -16,28 +15,38 @@ export default function Navbar() {
   };
 
   return (
-    <div className="navbar-icon box-divider">
-      <hr className="vertical-divider" />
-      <img src={Leadboard} alt="leadboard" />
-      <hr />
+    <>
       {user === undefined ? (
-        <Link to="/StreetArtMap/authentication">
-          <img src={Connection} alt="connection" />
-        </Link>
-      ) : (
-        <>
+        <div className="navbar-icon box-divider">
           <hr className="vertical-divider" />
+          <img src={Leadboard} alt="leadboard" />
+          <hr />
+          <Link to="/StreetArtMap/authentication">
+            <img
+              src={Connection}
+              alt="connection"
+              className="disconnected_user"
+            />
+          </Link>
+          <hr className="vertical-divider" />
+        </div>
+      ) : (
+        <div className="navbar-icon box-divider">
+          <hr className="vertical-divider" />
+          <img src={Leadboard} alt="leadboard" />
+          <hr />
           <Link to="/StreetArtMap/NewArtwork">
             <img src={AjoutArt} alt="ajout d'une oeuvre" />
           </Link>
           <hr />
           <button
             type="button"
-            className="menu-button"
+            className="dropdown-btn"
             onClick={handleOpeningMenu}
           >
-            <img src={ConnectionSmall} alt="connection" />
+            <img src={Connection} alt="connection" />
           </button>
+          <hr className="vertical-divider" />
           {isOpenMenu && (
             <div className="dropdown">
               <ul>
@@ -62,7 +71,7 @@ export default function Navbar() {
                       setIsOpenMenu(false);
                     }}
                   >
-                    Worldmap
+                    Carte Street Art
                   </li>
                 </Link>
                 <Link to="/StreetArtMap/authentication">
@@ -76,14 +85,14 @@ export default function Navbar() {
                       setIsOpenMenu(false);
                     }}
                   >
-                    Logout
+                    Déconnexion
                   </li>
                 </Link>
               </ul>
             </div>
           )}
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 }
