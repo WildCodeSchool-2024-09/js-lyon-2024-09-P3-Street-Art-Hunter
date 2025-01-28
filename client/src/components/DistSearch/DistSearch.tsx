@@ -4,7 +4,11 @@ import searchGlass from "../../assets/icones/glass_mustard.png";
 import Geocoding from "../Geocoding/Geocoding";
 import Geolocalisation from "../Geolocalisation/Geolocalisation";
 
-export default function DistSearch() {
+interface styleProps {
+  componentLoc: string;
+}
+
+export default function DistSearch({ componentLoc }: styleProps) {
   const [deploySearch, setDeploySearch] = useState(false);
 
   const handleClick = () => {
@@ -16,7 +20,7 @@ export default function DistSearch() {
   };
 
   return (
-    <section className="section_search">
+    <section className={componentLoc}>
       <button type="button" className="button_search" onClick={handleClick}>
         <img
           src={searchGlass}
@@ -24,6 +28,7 @@ export default function DistSearch() {
           className="image_search"
         />
       </button>
+      {/* clicking on the button change the state to make options appear and allow the search of a location */}
       {deploySearch && (
         <article className="search_tools">
           <Geocoding />
