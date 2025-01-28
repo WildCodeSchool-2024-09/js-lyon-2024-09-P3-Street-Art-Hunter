@@ -8,6 +8,7 @@ interface UserProps {
   email: string;
   hashed_password: string;
   inscription_date: string;
+  profile_picture: string;
 }
 
 interface UpdateUserProps extends Omit<UserProps, "id"> {
@@ -38,6 +39,7 @@ const add: RequestHandler = async (req, res, next) => {
       pseudo: req.body.pseudo,
       hashed_password: req.body.hashed_password,
       inscription_date: currentDate,
+      profile_picture: req.body.image,
     };
 
     const insertId = await userRepository.create(newUser);
@@ -63,6 +65,7 @@ const edit: RequestHandler = async (req, res, next) => {
       pseudo: req.body.pseudo,
       hashed_password: req.body.hashed_password,
       inscription_date: existingUser.inscription_date,
+      profile_picture: req.body.image,
     };
 
     const affectedRows = await userRepository.update(user);

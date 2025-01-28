@@ -1,7 +1,7 @@
 import "./Profile.css";
 import { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
-import avatar from "../../assets/images/girl_profile.png";
+// import avatar from "../../assets/images/girl_profile.png";
 import LoginContext from "../../contexts/LoginContext";
 
 interface UserProps {
@@ -10,6 +10,7 @@ interface UserProps {
   email: string;
   hashed_password: string;
   inscription_date: string;
+  profile_picture: string;
 }
 
 function Profile() {
@@ -26,6 +27,7 @@ function Profile() {
         .then((response) => response.json())
         .then((data: UserProps) => {
           setInfoUser(data);
+          console.info(data.profile_picture);
         });
     }
   }, [user?.id]);
@@ -49,7 +51,14 @@ function Profile() {
       {infoUser ? (
         <>
           <h1>Profil</h1>
-          <img src={avatar} alt="avatar d'une fille" />
+          <img
+            src={
+              infoUser.profile_picture !== null
+                ? infoUser.profile_picture
+                : "https://avatar.iran.liara.run/public"
+            }
+            alt="avatar d'une fille"
+          />
           <div className="profile-detail">
             <h3>Pseudo</h3>
             <input

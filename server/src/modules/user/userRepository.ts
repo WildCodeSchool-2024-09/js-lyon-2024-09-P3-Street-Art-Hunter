@@ -7,6 +7,7 @@ interface UserProps {
   email: string;
   hashed_password: string;
   inscription_date: string;
+  profile_picture: string;
 }
 
 class UserRepository {
@@ -20,8 +21,14 @@ class UserRepository {
 
   async create(user: Omit<UserProps, "id">) {
     const [result] = await databaseClient.query<Result>(
-      "insert into user (email, hashed_password, pseudo, inscription_date) values (?, ?, ?,?)",
-      [user.email, user.hashed_password, user.pseudo, user.inscription_date],
+      "insert into user (email, hashed_password, pseudo, inscription_date, profile_picture) values (?, ?, ?, ?, ?)",
+      [
+        user.email,
+        user.hashed_password,
+        user.pseudo,
+        user.inscription_date,
+        user.profile_picture,
+      ],
     );
 
     return result.insertId;
