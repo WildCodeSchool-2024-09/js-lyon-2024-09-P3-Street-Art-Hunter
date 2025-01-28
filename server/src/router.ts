@@ -23,6 +23,8 @@ router.put("/api/users/:id", userActions.edit);
 router.get("/api/artworks", artworkActions.browse);
 router.get("/api/artwork/:id", artworkActions.read);
 
+router.use(authActions.verifyToken);
+
 router.post("/api/artwork", artworkActions.add);
 
 /* ************************************************************************* */
