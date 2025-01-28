@@ -10,11 +10,13 @@
     "test": "jest --verbose"
   },
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.8",
     "argon2": "^0.41.1",
     "axios": "^1.7.9",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.3"
   },
   "devDependencies": {
