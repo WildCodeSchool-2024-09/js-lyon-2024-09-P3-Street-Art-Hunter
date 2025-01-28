@@ -17,6 +17,7 @@ function Profile() {
   const { user } = useContext(LoginContext);
 
   const pseudoRef = useRef<HTMLInputElement>(null);
+  const mailRef = useRef<HTMLInputElement>(null);
 
   // Fetch du profil en fonction de l'ID de l'utilisateur qui est connecté
   useEffect(() => {
@@ -62,7 +63,14 @@ function Profile() {
           </div>
           <div className="profile-detail">
             <h3>Mail</h3>
-            <p>{infoUser.email}</p>
+            <input
+              id="profile-edit-pseudo"
+              ref={mailRef}
+              value={infoUser.email}
+              onChange={(e) =>
+                setInfoUser({ ...infoUser, email: e.target.value })
+              }
+            />
           </div>
           <div className="profile-detail">
             <h3>Mot de passe</h3>
