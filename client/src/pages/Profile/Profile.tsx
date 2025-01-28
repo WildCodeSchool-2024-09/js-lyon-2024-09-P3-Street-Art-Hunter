@@ -11,6 +11,7 @@ interface UserProps {
   hashed_password: string;
   inscription_date: string;
   profile_picture: string;
+  token: string;
 }
 
 function Profile() {
@@ -27,7 +28,6 @@ function Profile() {
         .then((response) => response.json())
         .then((data: UserProps) => {
           setInfoUser(data);
-          console.info(data.profile_picture);
         });
     }
   }, [user?.id]);
@@ -37,7 +37,11 @@ function Profile() {
     if (infoUser) {
       fetch(`${import.meta.env.VITE_API_URL}/api/users/${infoUser.id}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user}.token
+          }`,
+        },
         body: JSON.stringify(infoUser),
       }).then((response) => {
         if (response.status === 204) {
