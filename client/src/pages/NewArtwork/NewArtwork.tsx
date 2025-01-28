@@ -1,10 +1,13 @@
 import AddNewArtwork from "../../components/AddNewArtwork/AddNewArtwork";
-import "../../App.css";
 import "./NewArtwork.css";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
+import LoginContext from "../../contexts/LoginContext";
 
 export default function NewArtwork() {
+  const { user } = useContext(LoginContext);
+
   return (
     <>
       <Link to="/" className="link-logo">
@@ -20,7 +23,11 @@ export default function NewArtwork() {
             profiter tous les autres curieux.
           </p>
         </article>
-        <AddNewArtwork />
+        {user ? (
+          <AddNewArtwork />
+        ) : (
+          <h2>Connectez vous pour pouvoir ajouter un Street Art !</h2>
+        )}
         <p className="thankyou">Merci pour votre contribution.</p>
       </section>
     </>

@@ -1,6 +1,10 @@
 import type { RequestHandler } from "express";
 
 import argon2 from "argon2";
+import jwt from "jsonwebtoken";
+import type { JwtPayload } from "jsonwebtoken";
+
+type MyPayload = JwtPayload & { id: string };
 
 // Import access to data
 import userRepository from "../user/userRepository";
@@ -25,8 +29,23 @@ const login: RequestHandler = async (req, res, next) => {
     if (verified) {
       // Suppression du mot de passe haché avant de renvoyer la réponse
       const { hashed_password, ...userWithoutHashedPassword } = user;
+      //ajout d'un token pour l'identification de l'utilisateur
+      const myPayload: MyPayload = {
+        id: user.id.toString(),
+      };
 
-      res.json(userWithoutHashedPassword);
+      const token = await jwt.sign(
+        myPayload,
+        process.env.APP_SECRET as string,
+        {
+          expiresIn: "1h",
+        },
+      );
+
+      res.json({
+        token,
+        user: userWithoutHashedPassword,
+      });
     } else {
       // Mot de passe incorrect
       res.sendStatus(422); // Unprocessable Entity
