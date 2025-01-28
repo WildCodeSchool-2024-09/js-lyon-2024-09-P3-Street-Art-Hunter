@@ -26,7 +26,7 @@ const login: RequestHandler = async (req, res, next) => {
       // Suppression du mot de passe haché avant de renvoyer la réponse
       const { hashed_password, ...userWithoutHashedPassword } = user;
 
-      res.json(userWithoutHashedPassword);
+      res.status(200).json(userWithoutHashedPassword);
     } else {
       // Mot de passe incorrect
       res.sendStatus(422); // Unprocessable Entity

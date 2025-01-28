@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import AjoutArt from "../../assets/images/add_picture.png";
 import Connection from "../../assets/images/connec_ash.png";
 import Leadboard from "../../assets/images/lead_ash.png";
@@ -13,6 +14,10 @@ export default function Navbar() {
   const handleOpeningMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
+  const notify = () =>
+    toast.success("Reviens vite !", {
+      className: "toast-message",
+    });
 
   return (
     <>
@@ -74,7 +79,7 @@ export default function Navbar() {
                     Carte Street Art
                   </li>
                 </Link>
-                <Link to="/StreetArtMap/authentication">
+                <Link onClick={notify} to="/StreetArtMap/authentication">
                   <li
                     onClick={() => {
                       setUser(undefined); //logout
