@@ -13,10 +13,9 @@
   margin-left: 1em;
   text-align: left;
 }
-.profile-sct p,
-.profile-sct input {
+.profile-sct p {
   height: 3em;
-  width: 20em;
+  width: 25em;
   padding: .5em;
   margin: .5em;
   border-radius: 12px;
@@ -24,6 +23,18 @@
   background-color: #202221;
   text-align: left;
   color: var(--mustard-color);
+}
+#profile-edit-pseudo {
+  height: 3em;
+  width: 320px;
+  padding: .5em;
+  margin: .5em;
+  border-radius: 12px;
+  font-family: var(--text-font);
+  background-color: #202221;
+  text-align: left;
+  color: var(--mustard-color);
+  border-width: 0;
 }
 .save-btn {
   height: 2.5em;
@@ -52,6 +63,9 @@
     text-align: left;
     color: var(--mustard-color);
   }
+  #profile-edit-pseudo {
+    width: 384px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -69,5 +83,8 @@
     background-color: #202221;
     text-align: left;
     color: var(--mustard-color);
+  }
+  #profile-edit-pseudo {
+    width: 384px;
   }
 }

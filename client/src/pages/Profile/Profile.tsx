@@ -52,7 +52,7 @@ function Profile() {
           <div className="profile-detail">
             <h3>Pseudo</h3>
             <input
-              className="profile-sct"
+              id="profile-edit-pseudo"
               ref={pseudoRef}
               value={infoUser.pseudo}
               onChange={(e) =>
