@@ -1,6 +1,8 @@
 import "./Profile.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useRef } from "react";
 import avatar from "../../assets/images/girl_profile.png";
+import LoginContext from "../../contexts/LoginContext";
 
 interface UserProps {
   id: number | null;
@@ -12,14 +14,34 @@ interface UserProps {
 
 function Profile() {
   const [infoUser, setInfoUser] = useState<UserProps | null>(null);
+  const { user } = useContext(LoginContext);
 
+  const pseudoRef = useRef<HTMLInputElement>(null);
+
+  // Fetch du profil en fonction de l'ID de l'utilisateur qui est connecté
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/users/3`)
-      .then((response) => response.json())
-      .then((data: UserProps) => {
-        setInfoUser(data);
+    if (user?.id) {
+      fetch(`${import.meta.env.VITE_API_URL}/api/users/${user.id}`)
+        .then((response) => response.json())
+        .then((data: UserProps) => {
+          setInfoUser(data);
+        });
+    }
+  }, [user?.id]);
+
+  // fetch pour l'edition de la page profil
+  const updateUserProfile = () => {
+    if (infoUser) {
+      fetch(`${import.meta.env.VITE_API_URL}/api/users/${infoUser.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(infoUser),
+      }).then((response) => {
+        if (response.status === 204) {
+        }
       });
-  }, []);
+    }
+  };
 
   return (
     <div className="profile-sct">
@@ -29,7 +51,14 @@ function Profile() {
           <img src={avatar} alt="avatar d'une fille" />
           <div className="profile-detail">
             <h3>Pseudo</h3>
-            <p>{infoUser.pseudo}</p>
+            <input
+              className="profile-sct"
+              ref={pseudoRef}
+              value={infoUser.pseudo}
+              onChange={(e) =>
+                setInfoUser({ ...infoUser, pseudo: e.target.value })
+              }
+            />
           </div>
           <div className="profile-detail">
             <h3>Mail</h3>
@@ -44,6 +73,13 @@ function Profile() {
             <p>{new Date(infoUser.inscription_date).toLocaleDateString()}</p>
             {/*Formatage de la date pour l'afficher correctement}*/}
           </div>
+          <button
+            className="save-btn"
+            type="button"
+            onClick={updateUserProfile}
+          >
+            Enregistrer
+          </button>
         </>
       ) : (
         <p>Chargement des données...</p>

@@ -41,7 +41,7 @@ function SignUp() {
       );
 
       if (response.status === 201) {
-        navigate("/StreetArtMap/Profile");
+        navigate("/StreetArtMap/authentication"); //redirection sur authentication car la redirection sur profile ne fonctionne pas tant qu'on ne s'est pas logués
       } else {
         console.info(response);
       }

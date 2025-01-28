@@ -13,7 +13,8 @@
   margin-left: 1em;
   text-align: left;
 }
-.profile-sct p {
+.profile-sct p,
+.profile-sct input {
   height: 3em;
   width: 20em;
   padding: .5em;
@@ -23,6 +24,16 @@
   background-color: #202221;
   text-align: left;
   color: var(--mustard-color);
+}
+.save-btn {
+  height: 2.5em;
+  width: 8em;
+  align-self: center;
+  font-family: var(--text-font);
+  font-size: 1em;
+  background-color: var(--mustard-color);
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
