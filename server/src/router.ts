@@ -22,6 +22,8 @@ router.get("/api/users/:id", userActions.read);
 router.get("/api/artworks", artworkActions.browse);
 router.get("/api/artwork/:id", artworkActions.read);
 
+router.use(authActions.verifyToken);
+
 router.post("/api/artwork", artworkActions.add);
 
 /* ************************************************************************* */

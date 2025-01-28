@@ -1,14 +1,19 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AddNewArtwork.css";
 import GeocodingContext from "../../contexts/GeocodingContext";
+import LoginContext from "../../contexts/LoginContext";
 import Geocoding from "../Geocoding/Geocoding";
 import Geolocalisation from "../Geolocalisation/Geolocalisation";
 
 export default function AddNewArtwork() {
   const [selectedType, setSelectedType] = useState("");
 
-  //Récupérer les informations contenus dans le context
+  //Récupérer les informations contenus dans les contexts = geo et user
   const { submitedAddress, searchedLoc } = useContext(GeocodingContext);
+  const { user } = useContext(LoginContext);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event: {
     preventDefault: () => void;
@@ -31,6 +36,7 @@ export default function AddNewArtwork() {
       method: "post",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user?.token}`,
       },
       body: JSON.stringify({
         name,
@@ -45,6 +51,7 @@ export default function AddNewArtwork() {
     })
       .then((res) => res.json())
       .then((data) => console.info(data));
+    navigate("/StreetArtMap");
   };
 
   return (

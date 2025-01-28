@@ -26,7 +26,10 @@ export default function NewArtwork() {
         {user ? (
           <AddNewArtwork />
         ) : (
-          <h2>Connectez vous pour pouvoir ajouter un Street Art !</h2>
+          <article className="error_add">
+            <h2>Oups ...</h2>
+            <h3>Connectez vous pour pouvoir ajouter un Street Art !</h3>
+          </article>
         )}
         <p className="thankyou">Merci pour votre contribution.</p>
       </section>

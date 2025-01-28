@@ -8,6 +8,7 @@ interface userProps {
   email: string;
   password: string;
   inscription_date: string;
+  token: string;
 }
 
 interface LogginProps {
