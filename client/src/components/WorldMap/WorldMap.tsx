@@ -9,7 +9,6 @@ import mustardIcon from "../../assets/icones/pin_mustard.png";
 import paintSprayIcon from "../../assets/icones/pin_spray.png";
 import paintStickerIcon from "../../assets/icones/pin_sticker.png";
 import GeocodingContext from "../../contexts/GeocodingContext";
-import PopupArtwork from "../PopupArtwork/PopupArtwork";
 
 interface artwork {
   id: number;
@@ -56,13 +55,6 @@ function WorldMap() {
 
   const { searchedLoc } = useContext(GeocodingContext);
 
-  const [popup, setPopup] = useState(false);
-  const [selectedId, setSelectedId] = useState<number>(-1);
-  const handleClick = (chosenId: number) => {
-    setPopup(true);
-    setSelectedId(chosenId);
-  };
-
   return (
     <MapContainer center={searchedLoc} zoom={13} scrollWheelZoom={true}>
       <TileLayer
@@ -75,37 +67,23 @@ function WorldMap() {
         </Marker>
       ) : (
         artworks.map((art) => (
-          <button
-            className="btn_art"
-            type="button"
-            onClick={() => {
-              handleClick(art.id);
-            }}
+          <Marker
             key={art.id}
+            position={art.coordinates}
+            icon={
+              art.type_of_art === "sticker"
+                ? StickerPin
+                : art.type_of_art === "wall painting"
+                  ? RollerPin
+                  : art.type_of_art === "paint"
+                    ? BrushPin
+                    : art.type_of_art === "tag"
+                      ? SprayPin
+                      : mustardPin
+            }
           >
-            <Marker
-              position={art.coordinates}
-              icon={
-                art.type_of_art === "sticker"
-                  ? StickerPin
-                  : art.type_of_art === "wall painting"
-                    ? RollerPin
-                    : art.type_of_art === "paint"
-                      ? BrushPin
-                      : art.type_of_art === "tag"
-                        ? SprayPin
-                        : mustardPin
-              }
-            >
-              {popup === true && (
-                <PopupArtwork
-                  triggerPopup={popup}
-                  setTriggerPopup={setPopup}
-                  id={selectedId}
-                />
-              )}
-            </Marker>
-          </button>
+            <Popup>{art.name}</Popup>
+          </Marker>
         ))
       )}
     </MapContainer>
