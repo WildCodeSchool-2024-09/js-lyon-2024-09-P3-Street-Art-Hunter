@@ -53,7 +53,6 @@ const read: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     const newArtworks = {
-      id: String(req.body.id),
       name: String(req.body.name),
       address: String(req.body.address),
       image: String(req.body.image),
@@ -65,8 +64,11 @@ const add: RequestHandler = async (req, res, next) => {
     };
 
     const insertArtwork = await artworkRepository.create(newArtworks);
-
-    res.status(200).json({ insertArtwork });
+    if (insertArtwork !== null) {
+      res.status(200).json({ insertArtwork });
+    } else {
+      res.status(404);
+    }
   } catch (err) {
     next(err);
   }
