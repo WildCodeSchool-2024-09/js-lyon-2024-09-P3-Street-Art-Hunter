@@ -1,7 +1,6 @@
 import "./Profile.css";
 import { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
-// import avatar from "../../assets/images/girl_profile.png";
 import LoginContext from "../../contexts/LoginContext";
 
 interface UserProps {
@@ -18,8 +17,6 @@ function Profile() {
   const [infoUser, setInfoUser] = useState<UserProps | null>(null);
   const { user } = useContext(LoginContext);
 
-  console.info(user?.user);
-
   const pseudoRef = useRef<HTMLInputElement>(null);
   const mailRef = useRef<HTMLInputElement>(null);
 
@@ -30,7 +27,6 @@ function Profile() {
         .then((response) => response.json())
         .then((data: UserProps) => {
           setInfoUser(data);
-          console.info("Données utilisateur récupérées :", data);
         });
     }
   }, [user?.user.id]);
