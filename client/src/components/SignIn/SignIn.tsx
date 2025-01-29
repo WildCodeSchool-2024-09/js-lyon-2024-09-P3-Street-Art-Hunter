@@ -41,15 +41,18 @@ function SignIn() {
         const loggedUser = await response.json();
         setUser(loggedUser);
         toast.success(
-          `Hello ${loggedUser.pseudo}, bienvenue à City Canvas ! 😊`,
+          `Hello ${loggedUser.user.pseudo}, bienvenue à City Canvas ! 😊`,
           {
             className: "toast-message",
+            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
           },
         );
 
         navigate("/StreetArtMap");
       } else {
-        toast.error("Une erreur s'est produite, veuillez réessayer");
+        toast.error("Une erreur s'est produite, veuillez réessayer", {
+          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
+        });
         // Log des détails de la réponse en cas d'échec
         console.info(response);
       }
