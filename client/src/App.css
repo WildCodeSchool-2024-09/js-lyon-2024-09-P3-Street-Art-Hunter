@@ -22,6 +22,9 @@
   --big_title-font: "Meaglez", sans-serif;
   --color: white;
   --main-text-size: 0.8em;
+  min-height: 100vh;
+  background-color: var(--jet-color);
+  /* Il existait :root deux fois */
 }
 
 body {
@@ -30,11 +33,6 @@ body {
   line-height: 1.7;
   color: white;
   margin: 0;
-}
-
-#root {
-  min-height: 100vh;
-  background-color: var(--jet-color);
 }
 
 h1,

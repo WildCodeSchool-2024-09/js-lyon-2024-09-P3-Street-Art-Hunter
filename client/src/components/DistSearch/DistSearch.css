@@ -5,10 +5,19 @@
   gap: 2em;
 }
 
+.section_search_worldMap {
+  position: absolute;
+  z-index: 999;
+  right: 2em;
+  top: 7.5em;
+  display: flex;
+  gap: 0.5em;
+}
+
 .button_search {
   border-radius: 50%;
-  width: 3.5em;
-  height: 3.5em;
+  width: 3em;
+  height: 3em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +25,7 @@
 }
 
 .image_search {
-  width: 3em;
+  width: 2.5em;
 }
 
 .search_tools {
