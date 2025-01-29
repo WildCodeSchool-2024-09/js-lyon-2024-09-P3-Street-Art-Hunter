@@ -13,15 +13,15 @@ import nominatimActions from "./nominatimActions";
 
 router.get("/api/geolocalisation", nominatimActions.geocode);
 
-// Define user-related routes
-router.post("/api/login", authActions.login);
+router.get("/api/artworks", artworkActions.browse);
+router.get("/api/artwork/:id", artworkActions.read);
 
+// Define user-related routes
+
+router.post("/api/login", authActions.login);
 router.post("/api/users", authActions.hashPassword, userActions.add);
 router.get("/api/users/:id", userActions.read);
 router.put("/api/users/:id", userActions.edit);
-
-router.get("/api/artworks", artworkActions.browse);
-router.get("/api/artwork/:id", artworkActions.read);
 
 router.use(authActions.verifyToken);
 

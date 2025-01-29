@@ -51,7 +51,7 @@ const add: RequestHandler = async (req, res, next) => {
 
 const edit: RequestHandler = async (req, res, next) => {
   try {
-    const userId = Number(req.params.id);
+    const userId = Number(req.body.auth.id);
     const existingUser = await userRepository.read(userId);
 
     if (!existingUser) {

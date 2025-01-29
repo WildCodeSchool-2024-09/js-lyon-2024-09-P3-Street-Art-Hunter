@@ -18,19 +18,22 @@ function Profile() {
   const [infoUser, setInfoUser] = useState<UserProps | null>(null);
   const { user } = useContext(LoginContext);
 
+  console.info(user?.user);
+
   const pseudoRef = useRef<HTMLInputElement>(null);
   const mailRef = useRef<HTMLInputElement>(null);
 
   // Fetch du profil en fonction de l'ID de l'utilisateur qui est connecté
   useEffect(() => {
-    if (user?.id) {
-      fetch(`${import.meta.env.VITE_API_URL}/api/users/${user.id}`)
+    if (user?.user.id) {
+      fetch(`${import.meta.env.VITE_API_URL}/api/users/${user.user.id}`)
         .then((response) => response.json())
         .then((data: UserProps) => {
           setInfoUser(data);
+          console.info("Données utilisateur récupérées :", data);
         });
     }
-  }, [user?.id]);
+  }, [user?.user.id]);
 
   // fetch pour l'edition de la page profil
   const updateUserProfile = () => {
@@ -39,8 +42,7 @@ function Profile() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${user}.token
-          }`,
+          Authorization: `Bearer ${user?.token}`,
         },
         body: JSON.stringify(infoUser),
       }).then((response) => {
@@ -57,9 +59,8 @@ function Profile() {
           <h1>Profil</h1>
           <img
             src={
-              infoUser.profile_picture !== null
-                ? infoUser.profile_picture
-                : "https://avatar.iran.liara.run/public"
+              infoUser?.profile_picture ||
+              "https://avatar.iran.liara.run/public"
             }
             alt="avatar d'une fille"
           />
