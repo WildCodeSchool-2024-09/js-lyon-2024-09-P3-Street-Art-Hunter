@@ -19,12 +19,18 @@
   color: var(--jet-color);
 }
 
+.leaflet-popup-content {
+  display: flex;
+  flex-direction: column;
+}
+
 .plus_btn {
   width: 2.5em;
   height: 2.5em;
   border-radius: 50%;
   background-color: black;
   margin-top: 5px;
+  align-self: flex-end;
 }
 
 .plus_btn img {
