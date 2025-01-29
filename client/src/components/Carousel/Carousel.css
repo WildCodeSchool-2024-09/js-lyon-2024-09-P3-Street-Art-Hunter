@@ -17,8 +17,10 @@
 .slick-slide img {
   display: initial !important;
 }
-h3 {
+
+.carousel-card p {
   font-size: .8em;
+  font-family: var(--little_title-font);
   text-align: center;
 }
 
