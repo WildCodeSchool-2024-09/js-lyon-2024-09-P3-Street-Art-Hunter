@@ -4,18 +4,32 @@
   z-index: 0;
 }
 
-.popup-card {
-  width: 30rem;
+.leaflet-popup-content-wrapper {
+  width: 25em;
+  display: flex;
 }
 
 .popup-image {
-  width: 80%;
-  height: 60%;
+  width: 15em;
+  height: 15em;
   border-radius: 1em;
 }
 
-.popup-card h1 {
+.leaflet-popup-content-wrapper h1 {
   color: var(--jet-color);
+}
+
+.plus_btn {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background-color: black;
+  margin-top: 5px;
+}
+
+.plus_btn img {
+  width: 2em;
+  height: 2em;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -25,9 +39,13 @@
     width: 98vw;
     border-radius: 1vh;
   }
-
-  .popup-card {
-    display: none;
+  .popup-image {
+    width: 25em;
+    height: 25em;
+    border-radius: 1em;
+  }
+  .leaflet-popup-content-wrapper {
+    width: 30em;
   }
 }
 
@@ -39,12 +57,11 @@
     border-radius: 1vh;
   }
   .popup-image {
-    width: 37em;
-    height: 37em;
+    width: 30em;
+    height: 30em;
     border-radius: 1em;
   }
-
-  .popup-card {
-    display: none;
+  .leaflet-popup-content-wrapper {
+    width: 35em;
   }
 }

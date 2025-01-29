@@ -12,6 +12,7 @@ import Profile from "./pages/Profile/Profile";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 // import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import StreetArt from "./pages/StreetArt/StreetArt";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
         path: "/StreetArtMap",
         element: <StreetArtMap />,
       },
+      { path: "/StreetArtMap/:id", element: <StreetArt /> },
       {
         path: "/StreetArtMap/authentication",
         element: <AuthPage />,
