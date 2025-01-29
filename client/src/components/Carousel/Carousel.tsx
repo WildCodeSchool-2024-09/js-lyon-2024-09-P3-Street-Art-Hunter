@@ -51,7 +51,7 @@ function Carousel() {
     <Slider {...settings}>
       {artwork.map((art) => (
         <div key={art.id} className="carousel-card">
-          <h3>{art.name}</h3>
+          <p>{art.name}</p>
           <img src={art.image} alt={art.name} />
         </div>
       ))}

@@ -9,6 +9,7 @@ import GeocodingContext from "../../contexts/GeocodingContext";
 
 function StreetArtMap() {
   const { searchedLoc } = useContext(GeocodingContext);
+
   return (
     <>
       <Link to="/" className="link-logo">
@@ -16,7 +17,9 @@ function StreetArtMap() {
       </Link>
       {searchedLoc !== undefined ? (
         // déclenche le navigate uniquement si on a les coordonnées géographique.
-        <WorldMap searchedLoc={searchedLoc} />
+        <>
+          <WorldMap searchedLoc={searchedLoc} />
+        </>
       ) : (
         <Loader />
       )}

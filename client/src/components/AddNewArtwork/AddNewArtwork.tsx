@@ -1,53 +1,61 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AddNewArtwork.css";
 import GeocodingContext from "../../contexts/GeocodingContext";
+import LoginContext from "../../contexts/LoginContext";
 import Geocoding from "../Geocoding/Geocoding";
 import Geolocalisation from "../Geolocalisation/Geolocalisation";
 
 export default function AddNewArtwork() {
   const [selectedType, setSelectedType] = useState("");
 
-  //Récupérer les informations contenus dans le context
+  //Récupérer les informations contenus dans les contexts = geo et user
   const { submitedAddress, searchedLoc } = useContext(GeocodingContext);
+  const { user } = useContext(LoginContext);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: {
+    preventDefault: () => void;
+    currentTarget: HTMLFormElement | undefined;
+  }) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+
+    const name = formData.get("name") as string;
+    const address = formData.get("add ress") as string;
+    const image = formData.get("image") as string;
+    const picture_date = formData.get("picture_date") as string;
+    const type_of_art = formData.get("type_of_art") as string;
+    const latitude = formData.get("latitude") as string;
+    const longitude = formData.get("longitude") as string;
+    const picture_credit = formData.get("picture_credit") as string;
+
+    fetch(`${import.meta.env.VITE_API_URL}/api/artwork`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user?.token}`,
+      },
+      body: JSON.stringify({
+        name,
+        address,
+        image,
+        picture_date,
+        type_of_art,
+        latitude,
+        longitude,
+        picture_credit,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.info(data));
+    navigate("/StreetArtMap");
+  };
 
   return (
-    <form
-      action="add"
-      className="artworkForm"
-      onSubmit={(event) => {
-        event.preventDefault();
-
-        const formData = new FormData(event.currentTarget);
-
-        const name = formData.get("name") as string;
-        const address = formData.get("add ress") as string;
-        const image = formData.get("image") as string;
-        const picture_date = formData.get("picture_date") as string;
-        const type_of_art = formData.get("type_of_art") as string;
-        const latitude = formData.get("latitude") as string;
-        const longitude = formData.get("longitude") as string;
-        const picture_credit = formData.get("picture_credit") as string;
-
-        fetch(`${import.meta.env.VITE_API_URL}/api/artwork`, {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            address,
-            image,
-            picture_date,
-            type_of_art,
-            latitude,
-            longitude,
-            picture_credit,
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => console.info(data));
-      }}
-    >
+    <form action="add" className="artworkForm" onSubmit={handleSubmit}>
       <label>
         Nom de l'oeuvre trouvé :
         <input name="name" type="text" className="addArt" />
