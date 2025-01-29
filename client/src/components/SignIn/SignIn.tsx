@@ -2,6 +2,8 @@ import "./SignIn.css";
 import { useContext, useRef } from "react";
 import type { FormEventHandler } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../contexts/LoginContext";
+import { toast } from "react-toastify";
 import LoginContext from "../../contexts/LoginContext";
 
 function SignIn() {
@@ -37,11 +39,20 @@ function SignIn() {
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 200) {
         const loggedUser = await response.json();
-
         setUser(loggedUser);
+        toast.success(
+          `Hello ${loggedUser.user.pseudo}, bienvenue à City Canvas ! 😊`,
+          {
+            className: "toast-message",
+            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
+          },
+        );
 
         navigate("/StreetArtMap");
       } else {
+        toast.error("Une erreur s'est produite, veuillez réessayer", {
+          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
+        });
         // Log des détails de la réponse en cas d'échec
         console.info(response);
       }
