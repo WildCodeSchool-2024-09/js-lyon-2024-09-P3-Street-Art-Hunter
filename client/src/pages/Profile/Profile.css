@@ -15,7 +15,7 @@
 }
 .profile-sct p {
   height: 3em;
-  width: 20em;
+  width: 25em;
   padding: .5em;
   margin: .5em;
   border-radius: 12px;
@@ -23,6 +23,28 @@
   background-color: #202221;
   text-align: left;
   color: var(--mustard-color);
+}
+#profile-edit-pseudo {
+  height: 3em;
+  width: 320px;
+  padding: .5em;
+  margin: .5em;
+  border-radius: 12px;
+  font-family: var(--text-font);
+  background-color: #202221;
+  text-align: left;
+  color: var(--mustard-color);
+  border-width: 0;
+}
+.save-btn {
+  height: 2.5em;
+  width: 8em;
+  align-self: center;
+  font-family: var(--text-font);
+  font-size: 1em;
+  background-color: var(--mustard-color);
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -41,6 +63,9 @@
     text-align: left;
     color: var(--mustard-color);
   }
+  #profile-edit-pseudo {
+    width: 384px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -58,5 +83,8 @@
     background-color: #202221;
     text-align: left;
     color: var(--mustard-color);
+  }
+  #profile-edit-pseudo {
+    width: 384px;
   }
 }

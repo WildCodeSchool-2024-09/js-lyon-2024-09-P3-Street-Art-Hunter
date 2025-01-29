@@ -13,6 +13,11 @@
   align-items: center;
 }
 
+.error_add {
+  text-align: center;
+  padding-bottom: 20em;
+}
+
 .thankyou {
   color: var(--mustard-color);
 }
