@@ -32,7 +32,7 @@ const PopupArtwork = ({ setTriggerPopup, triggerPopup, id }: PopupProps) => {
   }, [id]);
 
   return triggerPopup ? (
-    <div>
+    <aside>
       {artwork !== null ? (
         <article>
           <button type="button" onClick={() => setTriggerPopup(false)}>
@@ -75,7 +75,7 @@ const PopupArtwork = ({ setTriggerPopup, triggerPopup, id }: PopupProps) => {
       ) : (
         <p>pas de reponse </p>
       )}
-    </div>
+    </aside>
   ) : null;
 };
 export default PopupArtwork;
