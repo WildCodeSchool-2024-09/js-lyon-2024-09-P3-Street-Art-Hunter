@@ -16,7 +16,7 @@ function StreetArtMap() {
   return (
     <>
       <Link to="/" className="link-logo">
-        <img src={Logo} alt="logoCC" className="narrow-logo" />
+        <img src={Logo} alt="logo de citycanvas" className="narrow-logo" />
       </Link>
       {searchedLoc !== undefined ? (
         // déclenche le navigate uniquement si on a les coordonnées géographique.
