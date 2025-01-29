@@ -4,7 +4,8 @@ import "./Geocoding.css";
 import GeocodingContext from "../../contexts/GeocodingContext";
 
 export default function Geocoding() {
-  const { setSubmitedAddress, getCoord } = useContext(GeocodingContext);
+  const { setSubmitedAddress, getCoord, setSearchedLoc } =
+    useContext(GeocodingContext);
 
   const navigate = useNavigate();
 
@@ -13,10 +14,13 @@ export default function Geocoding() {
 
   const handleSearchClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    if (location.pathname === "/StreetArtMap") {
+      setSearchedLoc(undefined);
+    }
     // permet de récupérer les informations de localisation via le context qui utilise l'Api dans le serveur.
     getCoord();
-    // si le composant est sur la page Home alors navigate to, sinon, ne pas aller quelque part ?
-    if (location.pathname === "/") {
+    // si le composant est sur la page Home alors navigate to, sinon, aller nulle part ?
+    if (location.pathname !== "/StreetArtMap/NewArtwork") {
       navigate("/StreetArtMap");
     }
   };
