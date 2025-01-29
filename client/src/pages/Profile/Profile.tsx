@@ -1,6 +1,7 @@
 import "./Profile.css";
 import { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
+import { toast } from "react-toastify";
 import LoginContext from "../../contexts/LoginContext";
 
 interface UserProps {
@@ -45,6 +46,9 @@ function Profile() {
         if (response.status === 204) {
         }
       });
+      toast.success("Modifications enregistrées ! 🙂");
+    } else {
+      toast.error("Un problème est survenu");
     }
   };
 
