@@ -17,6 +17,7 @@ export default function Navbar() {
   const notify = () =>
     toast.success("Reviens vite !", {
       className: "toast-message",
+      position: window.innerWidth < 768 ? "top-left" : "bottom-right",
     });
 
   return (

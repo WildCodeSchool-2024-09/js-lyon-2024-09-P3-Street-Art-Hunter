@@ -16,7 +16,7 @@ function App() {
       </nav>
       <main>
         <Outlet />
-        <ToastContainer position="bottom-right" theme="light" />
+        <ToastContainer theme="light" />
       </main>
       <div className="narrow-nav">
         <Navbar />
