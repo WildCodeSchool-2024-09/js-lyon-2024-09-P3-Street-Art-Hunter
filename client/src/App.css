@@ -24,7 +24,6 @@
   --main-text-size: 0.8em;
   min-height: 100vh;
   background-color: var(--jet-color);
-  /* Il existait :root deux fois */
 }
 
 body {

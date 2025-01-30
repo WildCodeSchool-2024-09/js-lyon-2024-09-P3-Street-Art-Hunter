@@ -10,8 +10,12 @@ export default function NewArtwork() {
 
   return (
     <>
-      <Link to="/" className="link-logo">
-        <img src={Logo} alt="logoCC" className="narrow-logo" />
+      <Link
+        to="/"
+        className="link-logo"
+        aria-label="Retour à la page d'accueil"
+      >
+        <img src={Logo} alt="Logo Citycanvas" className="narrow-logo" />
       </Link>
       <section className="add_artwork">
         <article className="presentation_add">
