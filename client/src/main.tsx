@@ -8,7 +8,13 @@ import { LoginProvider } from "./contexts/LoginContext";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import Home from "./pages/Home/Home";
 import NewArtwork from "./pages/NewArtwork/NewArtwork";
+import Profile from "./pages/Profile/Profile";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
+// import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import StreetArt from "./pages/StreetArt/StreetArt";
+import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([
@@ -24,13 +30,26 @@ const router = createBrowserRouter([
         path: "/StreetArtMap",
         element: <StreetArtMap />,
       },
+      { path: "/StreetArtMap/:id", element: <StreetArt /> },
       {
         path: "/StreetArtMap/authentication",
         element: <AuthPage />,
       },
       {
+        path: "/StreetArtMap/Profile",
+        element: <Profile />,
+      },
+      {
         path: "/StreetArtMap/NewArtwork",
         element: <NewArtwork />,
+      },
+      {
+        path: "/StreetArtMap/TermsAndConditions",
+        element: <TermsAndConditions />,
+      },
+      {
+        path: "/StreetArtMap/PrivacyPolicy",
+        element: <PrivacyPolicy />,
       },
     ],
   },
@@ -47,6 +66,7 @@ createRoot(rootElement).render(
     <GeocodingProvider>
       <StrictMode>
         <RouterProvider router={router} />
+        {/* <ToastContainer position="bottom-right" theme="light" /> */}
       </StrictMode>
     </GeocodingProvider>
   </LoginProvider>,

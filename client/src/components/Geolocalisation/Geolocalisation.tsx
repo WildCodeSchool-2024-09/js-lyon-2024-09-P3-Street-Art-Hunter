@@ -15,14 +15,16 @@ function Geolocalisation() {
     const options = {
       enableHighAccuracy: true,
     };
+    if (location.pathname === "/StreetArtMap") {
+      setSearchedLoc(undefined);
+    }
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          console.info("Latitude:", latitude, "Longitude:", longitude);
           setSearchedLoc([latitude, longitude]);
-          if (location.pathname === "/") {
+          if (location.pathname !== "/StreetArtMap/NewArtwork") {
             return navigate("/StreetArtMap");
           }
         },

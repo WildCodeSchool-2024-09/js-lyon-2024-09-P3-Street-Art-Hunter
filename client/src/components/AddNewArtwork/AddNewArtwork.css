@@ -17,10 +17,10 @@
 
 /* Champs input */
 .addArt {
-  height: 3em;
+  height: 2.5em;
   border-radius: 12px;
   font-family: var(--text-font);
-  background-color: #202221;
+  background-color: var(--underside-color);
   text-align: left;
   color: var(--mustard-color);
 }
@@ -32,11 +32,11 @@
 }
 
 .artSearch {
-  height: 3em;
+  height: 2.5em;
   min-width: 100%;
   font-family: var(--text-font);
   border-radius: 12px;
-  background-color: #202221;
+  background-color: var(--underside-color);
   text-align: center;
   color: var(--mustard-color);
   margin-bottom: 0.5em;
@@ -49,7 +49,7 @@
 }
 
 .addType {
-  height: 3em;
+  height: 2.5em;
   font-family: var(--text-font);
   border-radius: 12px;
   background-color: var(--mustard-color);

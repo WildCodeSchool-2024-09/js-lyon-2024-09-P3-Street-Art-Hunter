@@ -1,5 +1,4 @@
-/* Style du formulaire */
-.login-form {
+/* Style du formulaire */ .login-form {
   min-height: 30%;
   min-width: 90%;
   display: flex;
@@ -33,7 +32,7 @@
   height: 3em;
   border-radius: 12px;
   font-family: var(--text-font);
-  background-color: #202221;
+  background-color: var(--underside-color);
   text-align: left;
   color: var(--mustard-color);
   transition: all 0.3s ease;
@@ -68,11 +67,3 @@
   transform: translateY(0);
   box-shadow: none;
 }
-
-/* Media queries pour la responsivité */
-/* @media (max-width: 480px) {
-  .login-form {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-} */

@@ -11,7 +11,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1em;
+}
+
+.error_add {
+  text-align: center;
+  padding-bottom: 20em;
 }
 
 .thankyou {
@@ -27,5 +31,9 @@
 @media screen and (min-width: 1024px) {
   .add_artwork {
     padding: 7% 0% 3% 0%;
+  }
+
+  .presentation_add p {
+    font-size: 1em;
   }
 }

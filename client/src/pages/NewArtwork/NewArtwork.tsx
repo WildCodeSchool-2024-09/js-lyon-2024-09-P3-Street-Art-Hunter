@@ -1,14 +1,21 @@
 import AddNewArtwork from "../../components/AddNewArtwork/AddNewArtwork";
-import "../../App.css";
 import "./NewArtwork.css";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
+import LoginContext from "../../contexts/LoginContext";
 
 export default function NewArtwork() {
+  const { user } = useContext(LoginContext);
+
   return (
     <>
-      <Link to="/" className="link-logo">
-        <img src={Logo} alt="logoCC" className="narrow-logo" />
+      <Link
+        to="/"
+        className="link-logo"
+        aria-label="Retour à la page d'accueil"
+      >
+        <img src={Logo} alt="Logo Citycanvas" className="narrow-logo" />
       </Link>
       <section className="add_artwork">
         <article className="presentation_add">
@@ -20,7 +27,14 @@ export default function NewArtwork() {
             profiter tous les autres curieux.
           </p>
         </article>
-        <AddNewArtwork />
+        {user ? (
+          <AddNewArtwork />
+        ) : (
+          <article className="error_add">
+            <h2>Oups ...</h2>
+            <h3>Connectez vous pour pouvoir ajouter un Street Art !</h3>
+          </article>
+        )}
         <p className="thankyou">Merci pour votre contribution.</p>
       </section>
     </>

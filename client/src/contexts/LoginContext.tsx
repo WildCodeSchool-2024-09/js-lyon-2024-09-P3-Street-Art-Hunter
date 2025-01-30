@@ -3,11 +3,15 @@ import { createContext, useState } from "react";
 const LoginContext = createContext<LogginProps>({ setUser: () => {} });
 
 interface userProps {
-  id: number;
-  pseudo: string;
-  email: string;
-  password: string;
-  inscription_date: string;
+  user: {
+    id: number | null;
+    pseudo: string;
+    email: string;
+    hashed_password: string;
+    inscription_date: string;
+    profile_picture: string;
+  };
+  token: string;
 }
 
 interface LogginProps {
@@ -19,7 +23,6 @@ export const LoginProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState();
-  console.info(user);
   return (
     <LoginContext.Provider value={{ user, setUser }}>
       {children}
