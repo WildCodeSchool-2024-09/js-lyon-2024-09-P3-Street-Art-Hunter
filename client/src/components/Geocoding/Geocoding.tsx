@@ -29,7 +29,7 @@ export default function Geocoding() {
     <div className="searchBar">
       <section className="searchGeo">
         <input
-          id="searchInput"
+          aria-label="recherche une ville"
           className={location.pathname === "/" ? "citySearch" : "artSearch"}
           type="search"
           name="searchBar"

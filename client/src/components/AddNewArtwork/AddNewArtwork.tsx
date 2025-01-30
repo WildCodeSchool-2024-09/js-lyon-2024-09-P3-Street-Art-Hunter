@@ -70,6 +70,7 @@ export default function AddNewArtwork() {
           required
           hidden
           defaultValue={submitedAddress}
+          aria-label="ajouter une nouvelle oeuvre"
         />
         <div>
           {searchedLoc !== undefined && (

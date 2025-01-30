@@ -85,7 +85,12 @@ function SignUp() {
           onChange={handleConfirmPasswordChange}
         />
       </label>
-      <input className="submit-button" type="submit" name="Send" />
+      <input
+        className="submit-button"
+        type="submit"
+        name="Send"
+        value="Envoyer"
+      />
     </form>
   );
 }
