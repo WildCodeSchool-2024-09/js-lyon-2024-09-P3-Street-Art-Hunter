@@ -7,7 +7,7 @@ interface artwork {
   name: string;
   address: string;
   image: string;
-  picture_date: number;
+  picture_date: string;
   type_of_art: string;
   latitude: number;
   longitude: number;
