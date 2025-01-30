@@ -23,6 +23,7 @@
   background-color: var(--underside-color);
   text-align: left;
   color: var(--mustard-color);
+  padding-left: 10px;
 }
 
 .addArt:focus {
