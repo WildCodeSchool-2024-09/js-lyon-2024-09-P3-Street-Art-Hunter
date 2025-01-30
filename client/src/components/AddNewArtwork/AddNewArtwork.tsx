@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./AddNewArtwork.css";
 import { toast } from "react-toastify";
 import GeocodingContext from "../../contexts/GeocodingContext";
@@ -11,10 +11,21 @@ export default function AddNewArtwork() {
   const [selectedType, setSelectedType] = useState("");
 
   //Récupérer les informations contenus dans les contexts = geo et user
-  const { submitedAddress, searchedLoc } = useContext(GeocodingContext);
+  const { submitedAddress, searchedLoc, setSearchedLoc } =
+    useContext(GeocodingContext);
   const { user } = useContext(LoginContext);
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    return () => {
+      if (location.pathname === "/StreetArtMap/NewArtwork") {
+        setSearchedLoc(undefined);
+      }
+    };
+  }, [location.pathname, setSearchedLoc]);
 
   const handleSubmit = async (event: {
     preventDefault: () => void;
@@ -26,13 +37,42 @@ export default function AddNewArtwork() {
       const formData = new FormData(event.currentTarget);
 
       const name = formData.get("name") as string;
-      const address = formData.get("add ress") as string;
+      const artist_name = formData.get("artist_name") as string;
+      const address = formData.get("address") as string;
       const image = formData.get("image") as string;
       const picture_date = formData.get("picture_date") as string;
       const type_of_art = formData.get("type_of_art") as string;
       const latitude = formData.get("latitude") as string;
       const longitude = formData.get("longitude") as string;
       const picture_credit = formData.get("picture_credit") as string;
+
+      //gestion des erreurs sur l'import d'une nouvelle oeuvre
+      if (
+        name.length < 5 ||
+        address.length < 5 ||
+        image.length < 10 ||
+        latitude === null ||
+        longitude === null ||
+        picture_credit === null
+      ) {
+        toast.error(
+          "Une erreur s'est produite, veuillez remplir tous les champs !",
+          {
+            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
+          },
+        );
+        return Error;
+      }
+
+      if (picture_date === null) {
+        toast.error(
+          "Veuillez remplir le champ avec une date au format AAAAMMJJ",
+          {
+            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
+          },
+        );
+        return Error;
+      }
 
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/artwork`,
@@ -51,6 +91,7 @@ export default function AddNewArtwork() {
             latitude,
             longitude,
             picture_credit,
+            artist_name,
           }),
         },
       );
@@ -75,6 +116,10 @@ export default function AddNewArtwork() {
       <label>
         Nom de l'oeuvre trouvé :
         <input name="name" type="text" className="addArt" />
+      </label>
+      <label>
+        Nom de l'artiste :
+        <input name="artiste_name" type="text" className="addArt" />
       </label>
       <label>
         Adresse de l'oeuvre (approximativement):
@@ -115,7 +160,12 @@ export default function AddNewArtwork() {
       </label>
       <label>
         Date de la prise :
-        <input name="picture_date" type="text" className="addArt" />
+        <input
+          name="picture_date"
+          type="number"
+          className="addArt"
+          defaultValue={20250130}
+        />
       </label>
       <label>
         Type de Street Art :
@@ -132,14 +182,19 @@ export default function AddNewArtwork() {
           </option>
           <option value="sticker">Sticker ou affiche</option>
           <option value="wall painting">Wall painting</option>
-          <option value="paint">Peinture à la bomb</option>
-          <option value="tag">Tag</option>
+          <option value="stencil">Pochoir</option>
+          <option value="tag">Tag/bombe à peinture</option>
           <option value="other">Autre</option>
         </select>
       </label>
       <label>
         Auteur de la photo :
-        <input name="picture_credit" type="text" className="addArt" />
+        <input
+          name="picture_credit"
+          type="text"
+          className="addArt"
+          defaultValue={user?.user.pseudo}
+        />
       </label>
       <button type="submit" defaultValue="Ajout" className="add-btn">
         Ajouter

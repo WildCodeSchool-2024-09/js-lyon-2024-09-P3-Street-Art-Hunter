@@ -83,7 +83,7 @@ function WorldMap({ searchedLoc }: LocProps) {
                 ? StickerPin
                 : art.type_of_art === "wall painting"
                   ? RollerPin
-                  : art.type_of_art === "paint"
+                  : art.type_of_art === "stencil"
                     ? BrushPin
                     : art.type_of_art === "tag"
                       ? SprayPin

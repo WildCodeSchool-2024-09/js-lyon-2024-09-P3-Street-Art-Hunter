@@ -12,9 +12,10 @@ interface artwork {
   latitude: number;
   longitude: number;
   picture_credit: string;
+  id_artist: number;
 }
 
-class articleRepository {
+class artworkRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "artwork" table
     const [rows] = await databaseClient.query<Rows>("select * from artwork");
@@ -25,7 +26,7 @@ class articleRepository {
 
   async read(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT aw.name, aw.adress, aw.image, aw.picture_date, aw.type_of_art, aw.latitude, aw.longitude, aw.picture_credit, at.name, cr.creation_date FROM artwork AS aw JOIN creation AS cr ON aw.id=cr.id_artwork JOIN artist AS at ON at.id=cr.id_artist WHERE aw.id=?",
+      "SELECT aw.name, aw.adress, aw.image, aw.picture_date, aw.type_of_art, aw.latitude, aw.longitude, aw.picture_credit, at.name, FROM artwork AS aw JOIN artist AS at ON at.id=aw.id_artist WHERE aw.id=?",
       [id],
     );
     return rows[0] as artwork;
@@ -33,7 +34,7 @@ class articleRepository {
 
   async create(artwork: Omit<artwork, "id">) {
     const [result] = await databaseClient.query<Result>(
-      "insert into artwork (name, address, image, picture_date, type_of_art, latitude, longitude, picture_credit) values (?,?,?,?,?,?,?,?)",
+      "insert into artwork (name, address, image, picture_date, type_of_art, latitude, longitude, picture_credit, id_artist) values (?,?,?,?,?,?,?,?,?)",
       [
         artwork.name,
         artwork.address,
@@ -43,6 +44,7 @@ class articleRepository {
         artwork.latitude,
         artwork.longitude,
         artwork.picture_credit,
+        artwork.id_artist,
       ],
     );
     return result.insertId;
@@ -65,4 +67,4 @@ class articleRepository {
   // }
 }
 
-export default new articleRepository();
+export default new artworkRepository();
