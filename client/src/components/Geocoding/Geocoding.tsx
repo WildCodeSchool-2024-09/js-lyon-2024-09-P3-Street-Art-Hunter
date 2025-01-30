@@ -29,7 +29,6 @@ export default function Geocoding() {
     <div className="searchBar">
       <section className="searchGeo">
         <input
-          id="searchInput"
           className={location.pathname === "/" ? "citySearch" : "artSearch"}
           type="search"
           name="searchBar"
