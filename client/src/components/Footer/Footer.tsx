@@ -9,7 +9,9 @@ export default function Footer() {
       <Link to="/StreetArtMap/TermsAndConditions">
         <p>Condition Générales Utilisation</p>
       </Link>
-      <p>Protection des Données</p>
+      <Link to="/StreetArtMap/PrivacyPolicy">
+        <p>Protection des Données</p>
+      </Link>
       <p>
         Retrouvez nous sur
         <a
