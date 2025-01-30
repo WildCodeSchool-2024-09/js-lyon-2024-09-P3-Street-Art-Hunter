@@ -3,11 +3,13 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import paintRollerIcon from "../../assets/icones/pin_brush_big.png";
 import paintBrushIcon from "../../assets/icones/pin_brush_small.png";
 import mustardIcon from "../../assets/icones/pin_mustard.png";
 import paintSprayIcon from "../../assets/icones/pin_spray.png";
 import paintStickerIcon from "../../assets/icones/pin_sticker.png";
+import plusIcon from "../../assets/icones/plus_icon_mustard.png";
 
 interface artwork {
   id: number;
@@ -56,6 +58,12 @@ function WorldMap({ searchedLoc }: LocProps) {
       });
   }, []);
 
+  const navigate = useNavigate();
+
+  const handleClickArt = () => {
+    navigate("/StreetArtMap/:id");
+  };
+
   return (
     <MapContainer center={searchedLoc} zoom={13} scrollWheelZoom={true}>
       <TileLayer
@@ -75,7 +83,7 @@ function WorldMap({ searchedLoc }: LocProps) {
                 ? StickerPin
                 : art.type_of_art === "wall painting"
                   ? RollerPin
-                  : art.type_of_art === "paint"
+                  : art.type_of_art === "stencil"
                     ? BrushPin
                     : art.type_of_art === "tag"
                       ? SprayPin
@@ -83,9 +91,17 @@ function WorldMap({ searchedLoc }: LocProps) {
             }
             key={art.id}
           >
-            <Popup>
-              {art.name}
-              <img src={art.image} alt="" />
+            <Popup className="popup-card">
+              <h1>{art.name}</h1>
+              <img className="popup-image" src={art.image} alt="streetart" />
+              <h3>{art.address}</h3>
+              <button
+                type="button"
+                onClick={handleClickArt}
+                className="plus_btn"
+              >
+                <img src={plusIcon} alt="plus d'information" />
+              </button>
             </Popup>
           </Marker>
         ))

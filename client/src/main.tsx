@@ -13,6 +13,7 @@ import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 // import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import StreetArt from "./pages/StreetArt/StreetArt";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 
 /* ************************************************************************* */
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
         path: "/StreetArtMap",
         element: <StreetArtMap />,
       },
+      { path: "/StreetArtMap/:id", element: <StreetArt /> },
       {
         path: "/StreetArtMap/authentication",
         element: <AuthPage />,

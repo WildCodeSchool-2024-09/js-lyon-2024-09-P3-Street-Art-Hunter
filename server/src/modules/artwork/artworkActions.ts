@@ -1,13 +1,12 @@
 import type { RequestHandler } from "express";
 
 // Import access to data
-import articleRepository from "./artworkRepository";
 import artworkRepository from "./artworkRepository";
 
 // The B of BREAD - Browse (Read All) operation
 const browse: RequestHandler = async (req, res, next) => {
   try {
-    const artworks = await articleRepository.readAll();
+    const artworks = await artworkRepository.readAll();
     const newArtworks = [];
     let newEnsemble = {};
     let coordinate = [];
@@ -23,6 +22,7 @@ const browse: RequestHandler = async (req, res, next) => {
         type_of_art: artworks[i].type_of_art,
         coordinates: coordinate,
         picture_credit: artworks[i].picture_credit,
+        id_artist: artworks[i].id_artist,
       };
       newArtworks.push(newEnsemble);
       newEnsemble = {};
@@ -38,7 +38,7 @@ const browse: RequestHandler = async (req, res, next) => {
 const read: RequestHandler = async (req, res, next) => {
   try {
     const artworkId = Number(req.params.id);
-    const artwork = await articleRepository.read(artworkId);
+    const artwork = await artworkRepository.read(artworkId);
     if (artwork == null) {
       res.sendStatus(404);
     } else {
@@ -49,11 +49,9 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
-// The A of BREAD - Add (Create) operation
 const add: RequestHandler = async (req, res, next) => {
   try {
     const newArtworks = {
-      id: String(req.body.id),
       name: String(req.body.name),
       address: String(req.body.address),
       image: String(req.body.image),
@@ -62,11 +60,25 @@ const add: RequestHandler = async (req, res, next) => {
       latitude: Number.parseFloat(req.body.latitude),
       longitude: Number.parseFloat(req.body.longitude),
       picture_credit: String(req.body.picture_credit),
+      id_artist: Number(req.body.id_artist),
     };
 
-    const insertArtwork = await artworkRepository.create(newArtworks);
+    if (
+      newArtworks.address === null ||
+      newArtworks.image === null ||
+      newArtworks.latitude === null ||
+      newArtworks.longitude === null ||
+      newArtworks.picture_credit === null
+    ) {
+      res.status(400);
+    }
 
-    res.status(200).json({ insertArtwork });
+    const insertArtwork = await artworkRepository.create(newArtworks);
+    if (insertArtwork !== null) {
+      res.status(200).json({ insertArtwork });
+    } else {
+      res.status(404);
+    }
   } catch (err) {
     next(err);
   }
