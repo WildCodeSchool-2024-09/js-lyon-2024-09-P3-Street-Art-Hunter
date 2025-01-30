@@ -77,7 +77,12 @@ function SignIn() {
           className="form-input"
         />
       </label>
-      <input type="submit" className="submit-button" name="Send" />
+      <input
+        type="submit"
+        className="submit-button"
+        name="Send"
+        value="Envoyer"
+      />
     </form>
   );
 }

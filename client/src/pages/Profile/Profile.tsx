@@ -67,6 +67,7 @@ function Profile() {
           <div className="profile-detail">
             <h3>Pseudo</h3>
             <input
+              aria-label="modifie ton pseudo"
               id="profile-edit-pseudo"
               ref={pseudoRef}
               value={infoUser.pseudo}
@@ -78,6 +79,7 @@ function Profile() {
           <div className="profile-detail">
             <h3>Mail</h3>
             <input
+              aria-label="modifie ton adresse mail"
               id="profile-edit-pseudo"
               ref={mailRef}
               value={infoUser.email}

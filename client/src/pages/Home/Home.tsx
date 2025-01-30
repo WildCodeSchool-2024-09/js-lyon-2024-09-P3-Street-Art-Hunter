@@ -9,8 +9,16 @@ function Home() {
   return (
     <article>
       <section className="logo-sct">
-        <img src={Logo} alt="logoCC" className="big_logo" />
-        <img src={Logo} alt="logoCC" className="center-logo" />
+        <img
+          src={Logo}
+          alt="Logo Citycanvas - retour à la page d'accueil"
+          className="big_logo"
+        />
+        <img
+          src={Logo}
+          alt="Logo Citycanvas - retour à la page d'accueil"
+          className="center-logo"
+        />
       </section>
       <section className="home-sct">
         <Carousel />
