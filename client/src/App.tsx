@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <nav>
-        <Link to="/" className="link-logo">
-          <img src={Logo} alt="logoCC" className="logo" />
+        <Link to="/" className="link-logo" aria-label="Retour à l'accueil">
+          <img src={Logo} alt="CityCanvas logo" className="logo" />
         </Link>
         <Navbar />
       </nav>
