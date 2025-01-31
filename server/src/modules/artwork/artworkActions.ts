@@ -55,7 +55,7 @@ const add: RequestHandler = async (req, res, next) => {
       name: String(req.body.name),
       address: String(req.body.address),
       image: String(req.body.image),
-      picture_date: Number.parseInt(req.body.picture_date),
+      picture_date: String(req.body.picture_date),
       type_of_art: String(req.body.type_of_art),
       latitude: Number.parseFloat(req.body.latitude),
       longitude: Number.parseFloat(req.body.longitude),

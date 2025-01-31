@@ -27,7 +27,6 @@ const geocode: RequestHandler = async (req, res, next) => {
 
   //utilisation d'Axios pour faire une requête vers une API exterieur
   const queryString: string = `q=${submitedAddress}&format=json`;
-  console.info(queryString);
   try {
     const searchResponse: AxiosResponse = await client.get(
       `/search?${queryString}`,
@@ -37,7 +36,6 @@ const geocode: RequestHandler = async (req, res, next) => {
 
     // transmition via Express des infos recueilli par Axios.
     res.json(geocodedData);
-    console.info(geocodedData); //sécurité de visualisation 21/01/2025
   } catch (err) {
     next(err);
   }
