@@ -10,7 +10,6 @@ import Home from "./pages/Home/Home";
 import NewArtwork from "./pages/NewArtwork/NewArtwork";
 import Profile from "./pages/Profile/Profile";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
-// import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import StreetArt from "./pages/StreetArt/StreetArt";
@@ -66,7 +65,6 @@ createRoot(rootElement).render(
     <GeocodingProvider>
       <StrictMode>
         <RouterProvider router={router} />
-        {/* <ToastContainer position="bottom-right" theme="light" /> */}
       </StrictMode>
     </GeocodingProvider>
   </LoginProvider>,
