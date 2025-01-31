@@ -1,10 +1,7 @@
 .add_artwork {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  height: 85%;
   padding: 20% 10% 1% 10%;
+  overflow-y: auto;
 }
 
 .presentation_add {
@@ -20,6 +17,8 @@
 
 .thankyou {
   color: var(--mustard-color);
+  text-align: center;
+  margin-top: 1em;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

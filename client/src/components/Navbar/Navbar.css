@@ -9,7 +9,7 @@
 
 .navbar-icon img {
   height: 3.5vh;
-  display: block; /* Pour centrer verticalement */
+  display: block;
 }
 
 .box-divider {
@@ -40,7 +40,7 @@ hr {
 
 .dropdown {
   position: absolute;
-  z-index: 1000; /* Pour s'afficher par dessus la map */
+  z-index: 1000;
   bottom: 50px;
   background-color: var(--underside-color);
   border-radius: 5px;
@@ -62,7 +62,7 @@ hr {
 }
 #password,
 #email {
-  padding-left: 1em; /* Car sinon le texte tapé dans le champ est trop à gauche, utilisation de l'ID car le input modifie aussi les boutons !!! */
+  padding-left: 1em;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -79,10 +79,10 @@ hr {
   }
   .dropdown {
     position: absolute;
-    z-index: 1000; /* Pour s'afficher par dessus la map */
+    z-index: 1000;
     top: 50px;
     bottom: auto;
-    background-color: var(--underside-color); /*Remplacer par les couleurs de variables !!!!!*/
+    background-color: var(--underside-color);
     border-radius: 5px;
     padding: 10px;
     width: 200px;
@@ -103,10 +103,10 @@ hr {
   }
   .dropdown {
     position: absolute;
-    z-index: 1000; /* Pour s'afficher par dessus la map */
+    z-index: 1000;
     top: 50px;
     bottom: auto;
-    background-color: var(--underside-color); /*Remplacer par les couleurs de variables !!!!!*/
+    background-color: var(--underside-color);
     border-radius: 5px;
     padding: 10px;
     width: 200px;

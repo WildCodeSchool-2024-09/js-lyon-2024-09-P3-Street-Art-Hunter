@@ -39,8 +39,6 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  console.info(searchedLoc); //garder par sécurité. Nominatim est en train de faiblir !!!! 23/01/2025
-
   return (
     <GeocodingContext.Provider
       value={{
