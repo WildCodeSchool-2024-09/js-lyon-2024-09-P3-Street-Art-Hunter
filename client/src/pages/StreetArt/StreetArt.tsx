@@ -16,7 +16,6 @@ interface ArtworkProps {
 
 const StreetArt = () => {
   const [artwork, setArtwork] = useState<ArtworkProps | null>(null);
-
   const { id } = useParams();
 
   useEffect(() => {
