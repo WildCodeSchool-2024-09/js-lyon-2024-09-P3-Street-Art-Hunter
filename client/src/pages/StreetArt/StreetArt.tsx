@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./StreetArt.css";
 
 interface ArtworkProps {
   id: number;
@@ -16,7 +17,6 @@ interface ArtworkProps {
 
 const StreetArt = () => {
   const [artwork, setArtwork] = useState<ArtworkProps | null>(null);
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -29,10 +29,14 @@ const StreetArt = () => {
   return (
     <aside>
       {artwork !== null ? (
-        <article>
+        <article className="artwork-container">
           <section key={artwork.id}>
-            <h1>{artwork.name} </h1>
-            <img src={artwork.image} alt={artwork.name} />
+            <h1 className="artwork-title">{artwork.name} </h1>
+            <img
+              className="artwork-img"
+              src={artwork.image}
+              alt={artwork.name}
+            />
             <h2> Détail de l'oeuvre </h2>
             <div>
               <h3> Artiste </h3>
