@@ -4,11 +4,11 @@ import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import paintRollerIcon from "../../assets/icones/pin_brush_big.png";
-import paintBrushIcon from "../../assets/icones/pin_brush_small.png";
+import paintBrushIcon from "../../assets/icones/pin-black.png";
+import paintStickerIcon from "../../assets/icones/pin-chevalier.png";
+import paintRollerIcon from "../../assets/icones/pin-grey.png";
 import mustardIcon from "../../assets/icones/pin_mustard.png";
 import paintSprayIcon from "../../assets/icones/pin_spray.png";
-import paintStickerIcon from "../../assets/icones/pin_sticker.png";
 import plusIcon from "../../assets/icones/plus_icon_mustard.png";
 
 interface artwork {
@@ -60,8 +60,8 @@ function WorldMap({ searchedLoc }: LocProps) {
 
   const navigate = useNavigate();
 
-  const handleClickArt = () => {
-    navigate("/StreetArtMap/:id");
+  const handleClickArt = (id: number) => {
+    navigate(`/StreetArtMap/${id}`);
   };
 
   return (
@@ -97,7 +97,7 @@ function WorldMap({ searchedLoc }: LocProps) {
               <h3>{art.address}</h3>
               <button
                 type="button"
-                onClick={handleClickArt}
+                onClick={() => handleClickArt(art.id)}
                 className="plus_btn"
               >
                 <img src={plusIcon} alt="plus d'information" />

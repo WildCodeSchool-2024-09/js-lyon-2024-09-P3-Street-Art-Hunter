@@ -1,15 +1,16 @@
 import { useRef, useState } from "react";
 import type { ChangeEventHandler, FormEventHandler } from "react";
-import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+interface SignUpProps {
+  setIsRegistered: (boolean: boolean) => void;
+}
+
+function SignUp({ setIsRegistered }: SignUpProps) {
   const emailRef = useRef<HTMLInputElement>(null);
   const pseudoRef = useRef<HTMLInputElement>(null);
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const navigate = useNavigate();
 
   const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = (
     event,
@@ -41,7 +42,7 @@ function SignUp() {
       );
 
       if (response.status === 201) {
-        navigate("/StreetArtMap/authentication"); //redirection sur authentication car la redirection sur profile ne fonctionne pas tant qu'on ne s'est pas logués
+        setIsRegistered(false);
       } else {
         console.info(response);
       }

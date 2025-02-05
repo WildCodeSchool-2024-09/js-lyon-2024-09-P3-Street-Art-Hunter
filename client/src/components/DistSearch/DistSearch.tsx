@@ -1,6 +1,6 @@
 import "./DistSearch.css";
 import { useState } from "react";
-import searchGlass from "../../assets/icones/glass_mustard.png";
+import SearchGlass from "../../assets/icones/glass_mustard.png";
 import Geocoding from "../Geocoding/Geocoding";
 import Geolocalisation from "../Geolocalisation/Geolocalisation";
 
@@ -23,7 +23,7 @@ export default function DistSearch({ componentLoc }: styleProps) {
     <section className={componentLoc}>
       <button type="button" className="button_search" onClick={handleClick}>
         <img
-          src={searchGlass}
+          src={SearchGlass}
           alt="search for position"
           className="image_search"
         />

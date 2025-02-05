@@ -8,6 +8,7 @@ interface UserProps {
   hashed_password: string;
   inscription_date: string;
   profile_picture: string;
+  // token: string; laissé pour semaine pro uniquement
 }
 
 interface NewUserProps {

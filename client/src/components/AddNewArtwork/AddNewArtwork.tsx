@@ -111,6 +111,8 @@ export default function AddNewArtwork() {
     }
   };
 
+  const currentDate = new Date().toISOString().split("T")[0];
+
   return (
     <form action="add" className="artworkForm" onSubmit={handleSubmit}>
       <label>
@@ -163,9 +165,9 @@ export default function AddNewArtwork() {
         Date de la prise :
         <input
           name="picture_date"
-          type="number"
+          type="date"
           className="addArt"
-          defaultValue={20250130}
+          defaultValue={currentDate}
         />
       </label>
       <label>
