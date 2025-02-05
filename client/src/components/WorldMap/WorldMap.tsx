@@ -94,7 +94,7 @@ function WorldMap({ searchedLoc }: LocProps) {
             <Popup className="popup-card">
               <h1>{art.name}</h1>
               <img className="popup-image" src={art.image} alt="streetart" />
-              <h3>{art.address}</h3>
+              <p>{art.address}</p>
               <button
                 type="button"
                 onClick={() => handleClickArt(art.id)}

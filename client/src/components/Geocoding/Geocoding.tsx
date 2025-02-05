@@ -14,9 +14,7 @@ export default function Geocoding() {
 
   const handleSearchClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if (location.pathname === "/StreetArtMap") {
-      setSearchedLoc(undefined);
-    }
+    setSearchedLoc(undefined);
     // permet de récupérer les informations de localisation via le context qui utilise l'Api dans le serveur.
     getCoord();
     // si le composant est sur la page Home alors navigate to, sinon, aller nulle part ?
