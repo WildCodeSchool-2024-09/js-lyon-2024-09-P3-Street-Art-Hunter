@@ -19,22 +19,29 @@ function AuthPage() {
       </Link>
       <section className="authpage">
         <h1>{isRegistered ? "Inscription" : "Connexion"}</h1>
-        {isRegistered ? <SignUp /> : <SignIn />}
+        {isRegistered ? (
+          <SignUp setIsRegistered={setIsRegistered} />
+        ) : (
+          <SignIn />
+        )}
         <article className="btn-section">
-          <button
-            type="button"
-            className="signup-btn"
-            onClick={() => setIsRegistered(true)}
-          >
-            S'inscrire
-          </button>
-          <button
-            type="button"
-            className="signin-btn"
-            onClick={() => setIsRegistered(false)}
-          >
-            J'ai déjà un compte
-          </button>
+          {isRegistered ? (
+            <button
+              type="button"
+              className="signin-btn"
+              onClick={() => setIsRegistered(false)}
+            >
+              J'ai déjà un compte
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="signup-btn"
+              onClick={() => setIsRegistered(true)}
+            >
+              S'inscrire
+            </button>
+          )}
         </article>
       </section>
     </>

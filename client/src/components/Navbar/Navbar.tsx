@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import AjoutArt from "../../assets/images/add_picture.png";
 import Connexion from "../../assets/images/connec_ash.png";
-import Leadboard from "../../assets/images/lead_ash.png";
 import LoginContext from "../../contexts/LoginContext";
 
 export default function Navbar() {
@@ -20,13 +19,17 @@ export default function Navbar() {
       position: window.innerWidth < 768 ? "top-left" : "bottom-right",
     });
 
+  const handleClickLogOut = () => {
+    setUser(undefined); //logout
+    notify();
+    setIsOpenMenu(false); //fermer le menu au changement de page
+  };
+
   return (
     <>
       {user === undefined ? (
         <div className="navbar-icon box-divider">
           <hr className="vertical-divider" />
-          <img src={Leadboard} alt="leadboard" />
-          <hr />
           <Link to="/StreetArtMap/authentication">
             <img
               src={Connexion}
@@ -39,8 +42,6 @@ export default function Navbar() {
       ) : (
         <div className="navbar-icon box-divider">
           <hr className="vertical-divider" />
-          <img src={Leadboard} alt="leadboard" />
-          <hr />
           <Link to="/StreetArtMap/NewArtwork">
             <img src={AjoutArt} alt="ajout d'une oeuvre" />
           </Link>
@@ -80,12 +81,9 @@ export default function Navbar() {
                     Carte Street Art
                   </li>
                 </Link>
-                <Link onClick={notify} to="/StreetArtMap/authentication">
+                <Link to="/StreetArtMap/authentication">
                   <li
-                    onClick={() => {
-                      setUser(undefined); //logout
-                      setIsOpenMenu(false); //fermer le menu au changement de page
-                    }}
+                    onClick={handleClickLogOut}
                     onKeyUp={() => {
                       setUser(undefined);
                       setIsOpenMenu(false);

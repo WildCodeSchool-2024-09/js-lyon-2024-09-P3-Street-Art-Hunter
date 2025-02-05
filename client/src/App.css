@@ -22,6 +22,9 @@
   --big_title-font: "Meaglez", sans-serif;
   --color: white;
   --main-text-size: 0.8em;
+}
+
+#root {
   min-height: 100vh;
   background-color: var(--jet-color);
 }
@@ -82,6 +85,7 @@ main {
   height: 92vh;
   width: 100%;
   padding: 0;
+  justify-items: center;
 }
 
 .narrow-nav {
@@ -115,7 +119,7 @@ main {
     display: none;
   }
   main {
-    min-height: 87vh;
+    height: 87vh;
     padding-left: 0.6em;
   }
   footer {

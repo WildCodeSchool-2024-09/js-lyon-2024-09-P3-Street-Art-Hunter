@@ -5,7 +5,8 @@
   justify-content: center;
   align-items: center;
   gap: 2em;
-  padding: 20% 10%;
+  padding: 20% 0%;
+  width: 60vw;
 }
 .btn-section {
   display: flex;
@@ -15,7 +16,12 @@
 .signup-btn,
 .signin-btn {
   display: flex;
-  border: transparent;
+  border: 1px solid var(--mustard-color);
+  border-radius: 12px;
+  height: 2.5em;
+  width: 8em;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   color: var(--mustard-color);
 }
@@ -26,11 +32,13 @@
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .authpage {
-    padding: 7% 20% 3% 20%;
+    padding: 7% 0% 3% 0%;
+    width: 50vw;
   }
 }
 @media screen and (min-width: 1024px) {
   .authpage {
     padding: 0;
+    width: 45vw;
   }
 }
