@@ -27,7 +27,7 @@ export default function Geocoding() {
     <div className="searchBar">
       <section className="searchGeo">
         <input
-          aria-label="recherche une ville"
+          aria-label="rechercher une ville"
           className={location.pathname === "/" ? "citySearch" : "artSearch"}
           type="search"
           name="searchBar"
@@ -35,7 +35,7 @@ export default function Geocoding() {
           required
           onChange={(e) => {
             setSubmitedAddress(e.target.value);
-          }} //Stocker le texte saisie dans une variable pour la donner
+          }}
         />
       </section>
       <button

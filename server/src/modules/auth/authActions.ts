@@ -41,6 +41,7 @@ const login: RequestHandler = async (req, res, next) => {
       //ajout d'un token pour l'identification de l'utilisateur
       const myPayload: MyPayload = {
         id: user.id.toString(),
+        mail: user.email,
       };
 
       const token = await jwt.sign(
