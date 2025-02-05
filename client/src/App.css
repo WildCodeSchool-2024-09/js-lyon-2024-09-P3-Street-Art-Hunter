@@ -22,9 +22,6 @@
   --big_title-font: "Meaglez", sans-serif;
   --color: white;
   --main-text-size: 0.8em;
-}
-
-#root {
   min-height: 100vh;
   background-color: var(--jet-color);
 }

@@ -60,8 +60,8 @@ function WorldMap({ searchedLoc }: LocProps) {
 
   const navigate = useNavigate();
 
-  const handleClickArt = () => {
-    navigate("/StreetArtMap/:id");
+  const handleClickArt = (id: number) => {
+    navigate(`/StreetArtMap/${id}`);
   };
 
   return (
@@ -97,7 +97,7 @@ function WorldMap({ searchedLoc }: LocProps) {
               <h3>{art.address}</h3>
               <button
                 type="button"
-                onClick={handleClickArt}
+                onClick={() => handleClickArt(art.id)}
                 className="plus_btn"
               >
                 <img src={plusIcon} alt="plus d'information" />
