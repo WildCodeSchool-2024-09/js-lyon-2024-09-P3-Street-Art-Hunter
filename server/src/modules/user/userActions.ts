@@ -17,7 +17,7 @@ interface UpdateUserProps extends Omit<UserProps, "id"> {
 
 const read: RequestHandler = async (req, res, next) => {
   try {
-    const userId = Number(req.params.id);
+    const userId = Number(req.body.auth.id);
     const user = await userRepository.read(userId);
 
     if (user == null) {
@@ -51,25 +51,15 @@ const add: RequestHandler = async (req, res, next) => {
 
 const edit: RequestHandler = async (req, res, next) => {
   try {
-    const userId = Number(req.body.auth.id);
-    const existingUser = await userRepository.read(userId);
-
-    if (!existingUser) {
-      res.sendStatus(404);
-      return;
-    }
-
-    const user: UpdateUserProps = {
-      id: userId,
-      email: req.body.email,
-      pseudo: req.body.pseudo,
-      hashed_password: req.body.hashed_password,
-      inscription_date: existingUser.inscription_date,
-      profile_picture: req.body.image,
+    const user = {
+      id: Number(req.body.auth.id),
+      email: String(req.body.email),
+      pseudo: String(req.body.pseudo),
     };
 
-    const affectedRows = await userRepository.update(user);
-    res.json({ affectedRows });
+    const userUpdated = await userRepository.update(user);
+
+    res.sendStatus(204);
   } catch (err) {
     next(err);
   }
