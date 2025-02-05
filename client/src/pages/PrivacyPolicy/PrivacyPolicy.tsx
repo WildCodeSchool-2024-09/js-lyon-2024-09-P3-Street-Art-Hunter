@@ -1,8 +1,17 @@
 import "./PrivacyPolicy.css";
+import { Link } from "react-router-dom";
+import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 
 function PrivacyPolicy() {
   return (
     <>
+      <Link
+        to="/"
+        className="link-logo"
+        aria-label="Retour à la page d'accueil"
+      >
+        <img src={Logo} alt="Logo Citycanvas" className="narrow-logo" />
+      </Link>
       <h1 className="privacy-title">Protection des données</h1>
       <article className="privacy-container">
         <h2>1. Introduction</h2>
@@ -12,49 +21,42 @@ function PrivacyPolicy() {
           collectons, comment nous les utilisons et quels sont vos droits.
         </p>
         <h2>2. Données collectées</h2>
-        <p>
-          Nous collectons les types de données suivants :
-          <ul>
-            <li>
-              - Informations fournies directement par l'utilisateur (nom, email,
-              photo de profil lors de la création d'un compte).
-            </li>
-            <li> - Données de navigation et cookies.</li>
-            <li>
-              - Données de géolocalisation lorsque l'utilisateur utilise la
-              fonctionnalité de localisation des œuvres.
-            </li>
-          </ul>
-        </p>
+        <p>Nous collectons les types de données suivants :</p>
+        <ul>
+          <li>
+            - Informations fournies directement par l'utilisateur (nom, email,
+            photo de profil lors de la création d'un compte).
+          </li>
+          <li> - Données de navigation et cookies.</li>
+          <li>
+            - Données de géolocalisation lorsque l'utilisateur utilise la
+            fonctionnalité de localisation des œuvres.
+          </li>
+        </ul>
         <h2>3. Utilisation des données</h2>
-        <p>
-          Vos données sont utilisées pour :
-          <ul>
-            <li> - Fournir et améliorer les services de CityCanvas. </li>
-            <li>
-              {" "}
-              - Afficher les œuvres de street art proches de l'utilisateur.
-            </li>
-            <li>
-              - Permettre l'ajout de nouvelles œuvres via la géolocalisation.
-            </li>
-            <li> - Assurer la sécurité du site et prévenir les abus.</li>
-            <li> - Répondre aux demandes des utilisateurs.</li>
-          </ul>
-        </p>
+        <p>Vos données sont utilisées pour :</p>
+        <ul>
+          <li> - Fournir et améliorer les services de CityCanvas. </li>
+          <li>- Afficher les œuvres de street art proches de l'utilisateur.</li>
+          <li>
+            - Permettre l'ajout de nouvelles œuvres via la géolocalisation.
+          </li>
+          <li> - Assurer la sécurité du site et prévenir les abus.</li>
+          <li> - Répondre aux demandes des utilisateurs.</li>
+        </ul>
         <h2>4. Partage des données</h2>
         <p>
           Nous ne partageons pas vos données avec des tiers, sauf dans les cas
           suivants :
-          <ul>
-            <li>
-              - Lorsque vous publiez une œuvre, certaines informations (ex.
-              pseudonyme, photo de l'œuvre, localisation approximative) peuvent
-              être accessibles aux autres utilisateurs.{" "}
-            </li>
-            <li> - En cas d'obligation légale ou sur demande des autorités.</li>
-          </ul>
         </p>
+        <ul>
+          <li>
+            - Lorsque vous publiez une œuvre, certaines informations (ex.
+            pseudonyme, photo de l'œuvre, localisation approximative) peuvent
+            être accessibles aux autres utilisateurs.{" "}
+          </li>
+          <li> - En cas d'obligation légale ou sur demande des autorités.</li>
+        </ul>
         <h2>5. Conservation des données</h2>
         <p>
           Vos données sont conservées aussi longtemps que nécessaire pour

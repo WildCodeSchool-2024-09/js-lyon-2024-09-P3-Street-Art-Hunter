@@ -1,8 +1,17 @@
 import "./TermsAndConditions.css";
+import { Link } from "react-router-dom";
+import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 
 function TermsAndConditions() {
   return (
     <>
+      <Link
+        to="/"
+        className="link-logo"
+        aria-label="Retour à la page d'accueil"
+      >
+        <img src={Logo} alt="Logo Citycanvas" className="narrow-logo" />
+      </Link>
       <h1 className="cgu-title">Conditions Générales d'Utilisations (CGU)</h1>
       <article className="cgu-container">
         <h2>1. Objet</h2>

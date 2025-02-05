@@ -91,7 +91,7 @@ hr {
 }
 @media screen and (min-width: 1024px) {
   .navbar-icon {
-    width: 20%;
+    width: 15%;
   }
   .vertical-divider {
     display: block;
