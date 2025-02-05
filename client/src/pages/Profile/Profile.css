@@ -9,9 +9,21 @@
   width: 100px;
   height: auto;
 }
-.profile-sct h3 {
-  margin-left: 1em;
+
+.profile-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-top: 2em;
+}
+
+.user_label {
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
 .profile-sct p {
   height: 3em;
@@ -24,7 +36,9 @@
   text-align: left;
   color: var(--mustard-color);
 }
-#profile-edit-pseudo {
+
+#profile-edit-pseudo,
+#profile-edit-mail {
   height: 3em;
   width: 320px;
   padding: .5em;
@@ -36,6 +50,7 @@
   color: var(--mustard-color);
   border-width: 0;
 }
+
 .save-btn {
   height: 2.5em;
   width: 8em;
@@ -45,6 +60,20 @@
   background-color: var(--mustard-color);
   border-radius: 12px;
   cursor: pointer;
+  margin-top: 2em;
+}
+
+.password-input {
+  height: 3em;
+  width: 320px;
+  padding: .5em;
+  margin: .5em;
+  border-radius: 12px;
+  font-family: var(--text-font);
+  background-color: #202221;
+  text-align: left;
+  color: var(--mustard-color);
+  border-width: 0;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -63,8 +92,13 @@
     text-align: left;
     color: var(--mustard-color);
   }
-  #profile-edit-pseudo {
+  .password-input,
+  #profile-edit-pseudo,
+  #profile-edit-mail {
     width: 384px;
+  }
+  .user_label {
+    text-align: start;
   }
 }
 
@@ -84,7 +118,12 @@
     text-align: left;
     color: var(--mustard-color);
   }
-  #profile-edit-pseudo {
+  .password-input,
+  #profile-edit-pseudo,
+  #profile-edit-mail {
     width: 384px;
+  }
+  .user_label {
+    text-align: start;
   }
 }

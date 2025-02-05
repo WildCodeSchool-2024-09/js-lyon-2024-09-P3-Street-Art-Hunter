@@ -10,6 +10,12 @@ interface UserProps {
   profile_picture: string;
 }
 
+interface NewUserProps {
+  id: number;
+  pseudo: string;
+  email: string;
+}
+
 class UserRepository {
   async read(id: number) {
     const [rows] = await databaseClient.query<Rows>(
@@ -34,10 +40,10 @@ class UserRepository {
     return result.insertId;
   }
 
-  async update(user: UserProps) {
+  async update(user: NewUserProps) {
     const [result] = await databaseClient.query<Result>(
-      "update user set pseudo = ?, email = ?, hashed_password = ? where id = ?",
-      [user.pseudo, user.email, user.hashed_password, user.id],
+      "update user set pseudo = ?, email = ? where id = ?",
+      [user.pseudo, user.email, user.id],
     );
     return result.affectedRows;
   }
