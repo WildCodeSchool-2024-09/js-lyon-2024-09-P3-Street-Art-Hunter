@@ -14,9 +14,7 @@ export default function Geocoding() {
 
   const handleSearchClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if (location.pathname === "/StreetArtMap") {
-      setSearchedLoc(undefined);
-    }
+    setSearchedLoc(undefined);
     // permet de récupérer les informations de localisation via le context qui utilise l'Api dans le serveur.
     getCoord();
     // si le composant est sur la page Home alors navigate to, sinon, aller nulle part ?
@@ -29,7 +27,7 @@ export default function Geocoding() {
     <div className="searchBar">
       <section className="searchGeo">
         <input
-          aria-label="recherche une ville"
+          aria-label="rechercher une ville"
           className={location.pathname === "/" ? "citySearch" : "artSearch"}
           type="search"
           name="searchBar"
@@ -37,7 +35,7 @@ export default function Geocoding() {
           required
           onChange={(e) => {
             setSubmitedAddress(e.target.value);
-          }} //Stocker le texte saisie dans une variable pour la donner
+          }}
         />
       </section>
       <button

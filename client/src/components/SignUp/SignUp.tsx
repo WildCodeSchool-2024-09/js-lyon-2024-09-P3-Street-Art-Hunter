@@ -1,15 +1,17 @@
 import { useRef, useState } from "react";
 import type { ChangeEventHandler, FormEventHandler } from "react";
-import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-function SignUp() {
+interface SignUpProps {
+  setIsRegistered: (boolean: boolean) => void;
+}
+
+function SignUp({ setIsRegistered }: SignUpProps) {
   const emailRef = useRef<HTMLInputElement>(null);
   const pseudoRef = useRef<HTMLInputElement>(null);
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const navigate = useNavigate();
 
   const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = (
     event,
@@ -41,7 +43,13 @@ function SignUp() {
       );
 
       if (response.status === 201) {
-        navigate("/StreetArtMap/");
+        setIsRegistered(false);
+        const loggedUser = await response.json();
+        setIsRegistered(loggedUser);
+        toast.success("Inscription réussie, bienvenue parmi nous ! ", {
+          className: "toast-message",
+          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
+        });
       } else {
         console.info(response);
       }

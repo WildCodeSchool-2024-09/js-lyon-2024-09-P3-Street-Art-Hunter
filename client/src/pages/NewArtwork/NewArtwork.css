@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.presentation_add p {
+  padding-bottom: 10px;
+}
+
 .error_add {
   text-align: center;
   padding-bottom: 20em;
@@ -19,20 +23,21 @@
   color: var(--mustard-color);
   text-align: center;
   margin-top: 1em;
+  font-size: 16px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .add_artwork {
-    padding: 7% 15% 3% 15%;
+    padding: 7% 0% 3% 0%;
+    width: 65vw;
+    height: 90%;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .add_artwork {
     padding: 7% 0% 3% 0%;
-  }
-
-  .presentation_add p {
-    font-size: 1em;
+    width: 55vw;
+    height: 100%;
   }
 }

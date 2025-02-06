@@ -13,6 +13,7 @@
   flex-direction: column;
   justify-content: left;
   width: 100%;
+  font-size: 14px;
 }
 
 /* Champs input */
@@ -24,6 +25,7 @@
   text-align: left;
   color: var(--mustard-color);
   padding-left: 10px;
+  margin-top: 5px;
 }
 
 .addArt:focus {
@@ -41,6 +43,7 @@
   text-align: center;
   color: var(--mustard-color);
   margin-bottom: 0.5em;
+  margin-top: 5px;
 }
 
 .artSearch:focus {
@@ -55,11 +58,6 @@
   border-radius: 12px;
   background-color: var(--mustard-color);
   text-align: center;
-}
-
-.addFile {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
