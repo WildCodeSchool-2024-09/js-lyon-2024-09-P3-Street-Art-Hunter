@@ -111,7 +111,9 @@ function Profile() {
             </label>
             <div className="user_label profile_label">
               Date d'inscription
-              <p>{new Date(infoUser.inscription_date).toLocaleDateString()}</p>
+              <p id="profile-date">
+                {new Date(infoUser.inscription_date).toLocaleDateString()}
+              </p>
             </div>
             <button className="save-btn" type="submit">
               Enregistrer

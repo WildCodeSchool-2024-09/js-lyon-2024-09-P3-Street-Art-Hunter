@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 7em;
+  padding-top: 5em;
 }
 .profile-sct img {
   width: 100px;
@@ -38,7 +38,8 @@
 }
 
 #profile-edit-pseudo,
-#profile-edit-mail {
+#profile-edit-mail,
+#profile-date {
   height: 3em;
   width: 320px;
   padding: .5em;
@@ -98,7 +99,8 @@
   }
   .password-input,
   #profile-edit-pseudo,
-  #profile-edit-mail {
+  #profile-edit-mail,
+  #profile-date {
     width: 384px;
   }
   .user_label {
@@ -128,7 +130,8 @@
   }
   .password-input,
   #profile-edit-pseudo,
-  #profile-edit-mail {
+  #profile-edit-mail,
+  #profile-date {
     width: 384px;
   }
   .user_label {
