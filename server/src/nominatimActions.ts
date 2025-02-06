@@ -31,11 +31,17 @@ const geocode: RequestHandler = async (req, res, next) => {
     const searchResponse: AxiosResponse = await client.get(
       `/search?${queryString}`,
     );
+
     // important : il faut bien garder le /search? à ce niveau d'AxiosResponse et non dans la const client ou la queryString.
     const geocodedData: geolocData[] = searchResponse.data;
 
     // transmition via Express des infos recueilli par Axios.
-    res.json(geocodedData);
+
+    if (geocodedData !== undefined || geocodedData !== null) {
+      res.json(geocodedData);
+    } else {
+      res.sendStatus(404);
+    }
   } catch (err) {
     next(err);
   }

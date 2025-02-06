@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const GeocodingContext = createContext<valueProps>({
   setSubmitedAddress: () => {},
@@ -22,19 +22,35 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
   const [submitedAddress, setSubmitedAddress] = useState<string | undefined>(
     undefined,
   );
-  const [searchedLoc, setSearchedLoc] = useState<[number, number]>();
+  const [searchedLoc, setSearchedLoc] = useState<
+    [number, number] | undefined
+  >();
+
+  useEffect(() => {
+    const storedArray = localStorage.getItem("last_coord");
+    const storedCoords: number[] = storedArray
+      ? JSON.parse(storedArray)
+      : [0, 0];
+    setSearchedLoc(storedCoords as [number, number]);
+  }, []);
 
   const getCoord = () => {
     if (submitedAddress !== undefined) {
       fetch(
         `${import.meta.env.VITE_API_URL}/api/geolocalisation?submitedAddress=${submitedAddress}`,
       )
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.status === 404) {
+            throw new Error("aucune coordonée trouvée à cette addresse");
+          }
+          return res.json();
+        })
         .then((data) => {
           const lat = Number(data[0].lat);
           const lon = Number(data[0].lon);
           const geoloc: [number, number] = [lat, lon];
           setSearchedLoc(geoloc);
+          localStorage.setItem("last_coord", JSON.stringify(geoloc));
         });
     }
   };
