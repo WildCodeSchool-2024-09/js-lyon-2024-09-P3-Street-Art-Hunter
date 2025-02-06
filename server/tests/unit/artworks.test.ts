@@ -2,11 +2,11 @@
 import supertest from "supertest";
 
 // Import the Express application
-import app from "../src/app";
+import app from "../../src/app";
 
 // Import databaseClient
-import databaseClient from "../database/client";
-import type { Result, Rows } from "../database/client";
+import databaseClient from "../../database/client";
+import type { Result, Rows } from "../../database/client";
 
 // Test suite for the GET /api/items route
 describe("GET /api/artworks", () => {

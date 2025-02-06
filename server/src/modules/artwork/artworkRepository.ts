@@ -47,24 +47,9 @@ class artworkRepository {
         artwork.id_artist,
       ],
     );
+
     return result.insertId;
   }
-
-  // // The Rs of CRUD - Read operations
-
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
-
-  // async update(item: Item) {
-  //   ...
-  // }
-
-  // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
-
-  // async delete(id: number) {
-  //   ...
-  // }
 }
 
 export default new artworkRepository();
