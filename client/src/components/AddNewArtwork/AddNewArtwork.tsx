@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AddNewArtwork.css";
 import { toast } from "react-toastify";
 import GeocodingContext from "../../contexts/GeocodingContext";
@@ -11,21 +11,10 @@ export default function AddNewArtwork() {
   const [selectedType, setSelectedType] = useState("");
 
   //Récupérer les informations contenus dans les contexts = geo et user
-  const { submitedAddress, searchedLoc, setSearchedLoc } =
-    useContext(GeocodingContext);
+  const { submitedAddress, searchedLoc } = useContext(GeocodingContext);
   const { user } = useContext(LoginContext);
 
   const navigate = useNavigate();
-
-  const location = useLocation();
-
-  useEffect(() => {
-    return () => {
-      if (location.pathname === "/StreetArtMap/NewArtwork") {
-        setSearchedLoc(undefined);
-      }
-    };
-  }, [location.pathname, setSearchedLoc]);
 
   const handleSubmit = async (event: {
     preventDefault: () => void;
