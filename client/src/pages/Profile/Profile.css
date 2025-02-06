@@ -41,7 +41,7 @@
 #profile-edit-mail,
 #profile-date {
   height: 3em;
-  width: 320px;
+  width: 20em;
   padding: .5em;
   margin: .5em;
   border-radius: 12px;
@@ -50,6 +50,7 @@
   text-align: left;
   color: var(--mustard-color);
   border-width: 0;
+  font-size: 14px;
 }
 
 .save-btn {
@@ -66,7 +67,7 @@
 
 .password-input {
   height: 3em;
-  width: 320px;
+  width: 20em;
   padding: .5em;
   margin: .5em;
   border-radius: 12px;
@@ -75,6 +76,7 @@
   text-align: left;
   color: var(--mustard-color);
   border-width: 0;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -111,7 +113,7 @@
 @media screen and (min-width: 1024px) {
   .profile-sct {
     width: 65vw;
-    padding-top: 2em;
+    padding-top: 1em;
   }
   .profile-sct img {
     width: 125px;
