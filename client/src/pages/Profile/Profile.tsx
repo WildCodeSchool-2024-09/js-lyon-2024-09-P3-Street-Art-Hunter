@@ -1,6 +1,8 @@
 import "./Profile.css";
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 import LoginContext from "../../contexts/LoginContext";
 
 interface UserProps {
@@ -70,58 +72,69 @@ function Profile() {
   };
 
   return (
-    <section className="profile-sct">
-      {infoUser ? (
-        <>
-          <h1>Profil</h1>
-          <img
-            src={
-              infoUser?.profile_picture ||
-              "https://avatar.iran.liara.run/public"
-            }
-            alt="avatar d'une fille"
-          />
-          <form className="profile-detail" onSubmit={updateUserProfile}>
-            <label className="user_label">
-              Pseudo
-              <input
-                aria-label="modifie ton pseudo"
-                id="profile-edit-pseudo"
-                name="pseudo"
-                defaultValue={infoUser.pseudo}
-              />
-            </label>
-            <label className="user_label profile_label">
-              Mail
-              <input
-                aria-label="modifie ton adresse mail"
-                id="profile-edit-mail"
-                name="mail"
-                defaultValue={infoUser.email}
-              />
-            </label>
-            <label className="user_label profile_label">
-              Mot de passe
-              <input
-                className="password-input"
-                type="password"
-                value="password"
-                disabled
-              />
-            </label>
-            <div className="user_label profile_label">
-              Date d'inscription
-              <p>{new Date(infoUser.inscription_date).toLocaleDateString()}</p>
-            </div>
-            <button className="save-btn" type="submit">
-              Enregistrer
-            </button>
-          </form>
-        </>
-      ) : (
-        <p>Chargement des données...</p>
-      )}
-    </section>
+    <>
+      <Link
+        to="/"
+        className="link-logo"
+        aria-label="Retour à la page d'accueil"
+      >
+        <img src={Logo} alt="Logo Citycanvas" className="narrow-logo" />
+      </Link>
+      <section className="profile-sct">
+        {infoUser ? (
+          <>
+            <h1>Profil</h1>
+            <img
+              src={
+                infoUser?.profile_picture ||
+                "https://avatar.iran.liara.run/public"
+              }
+              alt="avatar d'une fille"
+            />
+            <form className="profile-detail" onSubmit={updateUserProfile}>
+              <label className="user_label">
+                Pseudo
+                <input
+                  aria-label="modifie ton pseudo"
+                  id="profile-edit-pseudo"
+                  name="pseudo"
+                  defaultValue={infoUser.pseudo}
+                />
+              </label>
+              <label className="user_label profile_label">
+                Mail
+                <input
+                  aria-label="modifie ton adresse mail"
+                  id="profile-edit-mail"
+                  name="mail"
+                  defaultValue={infoUser.email}
+                />
+              </label>
+              <label className="user_label profile_label">
+                Mot de passe
+                <input
+                  className="password-input"
+                  type="password"
+                  value="password"
+                  disabled
+                />
+              </label>
+              <div className="user_label profile_label">
+                Date d'inscription
+                <p id="profile-date">
+                  {new Date(infoUser.inscription_date).toLocaleDateString()}
+                </p>
+              </div>
+              <button className="save-btn" type="submit">
+                Enregistrer
+              </button>
+            </form>
+          </>
+        ) : (
+          <p>Chargement des données...</p>
+        )}
+      </section>
+    </>
   );
 }
 

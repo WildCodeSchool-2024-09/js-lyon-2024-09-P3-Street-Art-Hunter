@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 7em;
+  padding-top: 5em;
 }
 .profile-sct img {
   width: 100px;
@@ -38,9 +38,10 @@
 }
 
 #profile-edit-pseudo,
-#profile-edit-mail {
+#profile-edit-mail,
+#profile-date {
   height: 3em;
-  width: 320px;
+  width: 20em;
   padding: .5em;
   margin: .5em;
   border-radius: 12px;
@@ -49,6 +50,7 @@
   text-align: left;
   color: var(--mustard-color);
   border-width: 0;
+  font-size: 14px;
 }
 
 .save-btn {
@@ -65,7 +67,7 @@
 
 .password-input {
   height: 3em;
-  width: 320px;
+  width: 20em;
   padding: .5em;
   margin: .5em;
   border-radius: 12px;
@@ -74,6 +76,7 @@
   text-align: left;
   color: var(--mustard-color);
   border-width: 0;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -98,7 +101,8 @@
   }
   .password-input,
   #profile-edit-pseudo,
-  #profile-edit-mail {
+  #profile-edit-mail,
+  #profile-date {
     width: 384px;
   }
   .user_label {
@@ -109,7 +113,7 @@
 @media screen and (min-width: 1024px) {
   .profile-sct {
     width: 65vw;
-    padding-top: 2em;
+    padding-top: 1em;
   }
   .profile-sct img {
     width: 125px;
@@ -128,7 +132,8 @@
   }
   .password-input,
   #profile-edit-pseudo,
-  #profile-edit-mail {
+  #profile-edit-mail,
+  #profile-date {
     width: 384px;
   }
   .user_label {
