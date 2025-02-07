@@ -30,15 +30,12 @@
   background-color: dark;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
+  scale: calc(1.02);
 }
 
 .search-btn:active {
   transform: translateY(0);
   box-shadow: none;
-}
-
-.search-btn:hover {
-  scale: calc(1.02);
 }
 
 .searchBar {

@@ -11,6 +11,7 @@ import NewArtwork from "./pages/NewArtwork/NewArtwork";
 import Profile from "./pages/Profile/Profile";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 import "react-toastify/dist/ReactToastify.css";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import StreetArt from "./pages/StreetArt/StreetArt";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
         path: "/StreetArtMap/PrivacyPolicy",
         element: <PrivacyPolicy />,
       },
+      { path: "/StreetArtMap/Error", element: <ErrorPage /> },
     ],
   },
 ]);
