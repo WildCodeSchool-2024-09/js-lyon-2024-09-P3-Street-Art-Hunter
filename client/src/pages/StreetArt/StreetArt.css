@@ -1,7 +1,32 @@
+.back-btn {
+  height: 2.5em;
+  width: 8em;
+  align-self: center;
+  font-family: var(--text-font);
+  font-size: 1em;
+  background-color: var(--mustard-color);
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 8em;
+  /* position: relative; */
+}
+
+.back-btn:hover {
+  background-color: dark;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
+  scale: calc(1.02);
+}
+
+.back-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 .artwork-section {
   padding: 20% 10% 1% 10%;
   min-width: 90%;
-  max-height: 95%;
+  max-height: 80%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -29,8 +54,12 @@ img.artwork-img {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+  .back-btn {
+    margin-top: 2em;
+  }
   .artwork-section {
     padding: 7% 0% 3% 0%;
+    max-height: 90%;
   }
   img.artwork-img {
     height: 20rem;
@@ -38,8 +67,12 @@ img.artwork-img {
 }
 
 @media screen and (min-width: 1024px) {
+  .back-btn {
+    margin-top: 2em;
+  }
   .artwork-section {
     padding: 7% 0% 3% 0%;
+    max-height: 90%;
   }
   img.artwork-img {
     height: 25rem;
