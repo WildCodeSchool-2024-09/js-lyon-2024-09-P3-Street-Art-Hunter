@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Geocoding.css";
 import GeocodingContext from "../../contexts/GeocodingContext";
+import { useTheme } from "../../contexts/ThemeContext";
 import { ToasterError } from "../../services/ToasterFunctions";
 
 export default function Geocoding() {
   const { setSubmitedAddress, getCoord, setSearchedLoc, searchedLoc } =
     useContext(GeocodingContext);
+  const { theme } = useTheme();
 
   const navigate = useNavigate();
 
@@ -23,7 +25,10 @@ export default function Geocoding() {
       if (location.pathname !== "/StreetArtMap/NewArtwork") {
         navigate("/StreetArtMap/Error");
       }
-      ToasterError("L'adresse soit incorrect, veuillez réessayer");
+      ToasterError(
+        "Hmm… on dirait que cette adresse fait du cache-cache. Réessaie ! 🏠❌",
+        theme,
+      );
     } else {
       // si le composant n'est pas sur la page d'ajout d'oeuvre alors navigate à la carte
       if (location.pathname !== "/StreetArtMap/NewArtwork") {

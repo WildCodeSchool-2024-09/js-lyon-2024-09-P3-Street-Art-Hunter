@@ -44,7 +44,8 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
         .then((res) => {
           if (res.status === 404) {
             ToasterError(
-              "Il semble que l'adresse soit incorrect, veuillez réessayer",
+              "Hmm… on dirait que cette adresse fait du cache-cache. Réessaie ! 🏠❌",
+              "light",
             );
             //récupération de l'information stocker si il y en a une afin que l'utilisateur puisse retrouver son point d'origine sur la map
             const storedArray = localStorage.getItem("last_coord");

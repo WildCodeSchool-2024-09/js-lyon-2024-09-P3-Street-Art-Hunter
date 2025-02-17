@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import type { ChangeEventHandler, FormEventHandler } from "react";
+import { useTheme } from "../../contexts/ThemeContext";
 import { ToasterSucess } from "../../services/ToasterFunctions";
 
 interface SignUpProps {
@@ -10,6 +11,7 @@ interface SignUpProps {
 function SignUp({ setIsRegistered }: SignUpProps) {
   const emailRef = useRef<HTMLInputElement>(null);
   const pseudoRef = useRef<HTMLInputElement>(null);
+  const { theme } = useTheme();
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -47,7 +49,10 @@ function SignUp({ setIsRegistered }: SignUpProps) {
         setIsRegistered(true);
         const loggedUser = await response.json();
         setIsRegistered(loggedUser);
-        ToasterSucess("Inscription réussie, bienvenue parmi nous ! ");
+        ToasterSucess(
+          `Bienvenue à bord, ${loggedUser.user.pseudo} ! L’aventure Street Art commence maintenant ! 🌟`,
+          theme,
+        );
       } else {
         console.info(response);
       }

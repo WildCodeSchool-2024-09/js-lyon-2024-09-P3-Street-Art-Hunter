@@ -45,6 +45,29 @@
   min-height: 100vh;
   background-color: var(--bg-color);
 }
+
+.Toastify__toast.toast-light {
+  background-color: var(--jet-color);
+  color: white;
+  font-family: var(--little_title-font);
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.Toastify__toast.toast-dark {
+  background-color: var(--ash-grey-color);
+  color: var(--jet-color);
+  font-family: var(--little_title-font);
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/* Pour la barre de progression */
+.Toastify__toast.toast-light .Toastify__progress-bar,
+.Toastify__toast.toast-dark .Toastify__progress-bar {
+  background-color: var(--mustard-color);
+}
+
 body {
   font-family: var(--text-font);
   font-size: var(--main-text-size);

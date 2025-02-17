@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./AddNewArtwork.css";
 import GeocodingContext from "../../contexts/GeocodingContext";
 import LoginContext from "../../contexts/LoginContext";
+import { useTheme } from "../../contexts/ThemeContext";
 import {
   ToasterError,
   ToasterSucess,
@@ -19,6 +20,8 @@ export default function AddNewArtwork() {
   const { user } = useContext(LoginContext);
 
   const navigate = useNavigate();
+
+  const { theme } = useTheme();
 
   const handleSubmit = async (event: {
     preventDefault: () => void;
@@ -48,13 +51,17 @@ export default function AddNewArtwork() {
         longitude === null ||
         picture_credit === null
       ) {
-        ToasterWarning("Veuillez remplir tous les champs !");
+        ToasterWarning(
+          "Oups ! Il manque des infos… Remplis tous les champs pour continuer ! 😬✍️",
+          theme,
+        );
         return Error;
       }
 
       if (picture_date === null) {
         ToasterWarning(
-          "Veuillez remplir le champ avec une date au format AAAAMMJJ",
+          "Petit bug temporel ! Ajoute une date valide (AAAAMMJJ) pour avancer. 🚀",
+          theme,
         );
         return Error;
       }
@@ -81,11 +88,17 @@ export default function AddNewArtwork() {
         },
       );
       if (response.status === 200) {
-        ToasterSucess(`Merci d'avoir ajouter le street art ${name} ! 😍`);
+        ToasterSucess(
+          `Boom ! ${name} 😍 est maintenant sur la carte ! T’es un vrai chasseur de Street Art ! 🚀`,
+          theme,
+        );
 
         navigate("/StreetArtMap");
       } else {
-        ToasterError("Une erreur s'est produite, veuillez réessayer");
+        ToasterError(
+          "Oups… petit hic ! Une erreur s’est glissée. Réessaie et tout devrait rouler ! 🤞😬",
+          theme,
+        );
         console.info(response);
       }
     } catch (error) {

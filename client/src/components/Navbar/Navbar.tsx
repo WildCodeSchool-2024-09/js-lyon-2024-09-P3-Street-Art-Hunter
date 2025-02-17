@@ -19,9 +19,12 @@ export default function Navbar() {
   };
 
   const handleClickLogOut = () => {
-    setUser(undefined); //logout
-    ToasterInformation("Reviens vite !");
-    setIsOpenMenu(false); //fermer le menu au changement de page
+    setUser(undefined);
+    ToasterInformation(
+      "Hey, ne reste pas trop loin ! Le Street Art t’attend ! 🎨✨",
+      theme,
+    );
+    setIsOpenMenu(false);
   };
 
   return (

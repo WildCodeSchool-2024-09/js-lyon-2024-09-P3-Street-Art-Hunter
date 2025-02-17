@@ -1,27 +1,29 @@
 import { toast } from "react-toastify";
 
-export function ToasterSucess(message: string) {
+export function ToasterSucess(message: string, theme: "light" | "dark") {
   toast.success(message, {
-    className: "toast-message",
+    className: theme === "light" ? "toast-light" : "toast-dark",
     position: window.innerWidth < 768 ? "top-left" : "bottom-right",
   });
 }
 
-export function ToasterWarning(message: string) {
+export function ToasterWarning(message: string, theme: "light" | "dark") {
   toast.warn(message, {
+    className: theme === "light" ? "toast-light" : "toast-dark",
     position: window.innerWidth < 768 ? "top-left" : "bottom-right",
   });
 }
 
-export function ToasterInformation(message: string) {
+export function ToasterInformation(message: string, theme: "light" | "dark") {
   toast.info(message, {
-    className: "toast-message",
+    className: theme === "light" ? "toast-light" : "toast-dark",
     position: window.innerWidth < 768 ? "top-left" : "bottom-right",
   });
 }
 
-export function ToasterError(message: string) {
+export function ToasterError(message: string, theme: "light" | "dark") {
   toast.error(message, {
+    className: theme === "light" ? "toast-light" : "toast-dark",
     position: window.innerWidth < 768 ? "top-left" : "bottom-right",
   });
 }
