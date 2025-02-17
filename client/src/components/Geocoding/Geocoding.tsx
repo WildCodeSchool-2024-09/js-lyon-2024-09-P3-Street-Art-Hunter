@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Geocoding.css";
+import { toast } from "react-toastify";
 import GeocodingContext from "../../contexts/GeocodingContext";
 
 export default function Geocoding() {
@@ -17,8 +18,17 @@ export default function Geocoding() {
     setSearchedLoc(undefined);
     // permet de récupérer les informations de localisation via le context qui utilise l'Api dans le serveur.
     getCoord();
+    // gére les erreurs de saisie et le fait de perdre son historique de recherche
     if (searchedLoc === undefined) {
-      navigate("/StreetArtMap/Error");
+      if (location.pathname !== "/StreetArtMap/NewArtwork") {
+        navigate("/StreetArtMap/Error");
+      }
+      toast.error(
+        "Il semble que l'adresse soit incorrect, veuillez réessayer",
+        {
+          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
+        },
+      );
     } else {
       // si le composant est sur la page Home alors navigate to, sinon, aller nulle part ?
       if (location.pathname !== "/StreetArtMap/NewArtwork") {

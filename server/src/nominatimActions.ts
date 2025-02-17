@@ -37,7 +37,11 @@ const geocode: RequestHandler = async (req, res, next) => {
 
     // transmition via Express des infos recueilli par Axios.
 
-    if (geocodedData !== undefined || geocodedData !== null) {
+    if (
+      geocodedData !== undefined &&
+      geocodedData !== null &&
+      geocodedData.length > 0
+    ) {
       res.json(geocodedData);
     } else {
       res.sendStatus(404);
