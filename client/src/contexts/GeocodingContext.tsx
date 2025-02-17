@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { ToasterError } from "../services/ToasterFunctions";
 
 const GeocodingContext = createContext<valueProps>({
   setSubmitedAddress: () => {},
@@ -42,11 +42,8 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
       )
         .then((res) => {
           if (res.status === 404) {
-            toast.error(
+            ToasterError(
               "Il semble que l'adresse soit incorrect, veuillez réessayer",
-              {
-                position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-              },
             );
             const storedArray = localStorage.getItem("last_coord");
             if (storedArray) {

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Geocoding.css";
-import { toast } from "react-toastify";
 import GeocodingContext from "../../contexts/GeocodingContext";
+import { ToasterError } from "../../services/ToasterFunctions";
 
 export default function Geocoding() {
   const { setSubmitedAddress, getCoord, setSearchedLoc, searchedLoc } =
@@ -23,12 +23,7 @@ export default function Geocoding() {
       if (location.pathname !== "/StreetArtMap/NewArtwork") {
         navigate("/StreetArtMap/Error");
       }
-      toast.error(
-        "Il semble que l'adresse soit incorrect, veuillez réessayer",
-        {
-          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-        },
-      );
+      ToasterError("L'adresse soit incorrect, veuillez réessayer");
     } else {
       // si le composant est sur la page Home alors navigate to, sinon, aller nulle part ?
       if (location.pathname !== "/StreetArtMap/NewArtwork") {

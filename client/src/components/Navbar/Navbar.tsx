@@ -1,10 +1,10 @@
 import "./Navbar.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import AjoutArt from "../../assets/images/add_picture.png";
 import Connexion from "../../assets/images/connec_ash.png";
 import LoginContext from "../../contexts/LoginContext";
+import { ToasterInformation } from "../../services/ToasterFunctions";
 
 export default function Navbar() {
   const { user, setUser } = useContext(LoginContext);
@@ -13,11 +13,7 @@ export default function Navbar() {
   const handleOpeningMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
-  const notify = () =>
-    toast.success("Reviens vite !", {
-      className: "toast-message",
-      position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-    });
+  const notify = () => ToasterInformation("Reviens vite !");
 
   const handleClickLogOut = () => {
     setUser(undefined); //logout

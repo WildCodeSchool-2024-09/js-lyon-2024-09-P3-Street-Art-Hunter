@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import type { ChangeEventHandler, FormEventHandler } from "react";
-import { toast } from "react-toastify";
+import { ToasterSucess } from "../../services/ToasterFunctions";
 
 interface SignUpProps {
   setIsRegistered: (boolean: boolean) => void;
@@ -46,10 +46,7 @@ function SignUp({ setIsRegistered }: SignUpProps) {
         setIsRegistered(false);
         const loggedUser = await response.json();
         setIsRegistered(loggedUser);
-        toast.success("Inscription réussie, bienvenue parmi nous ! ", {
-          className: "toast-message",
-          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-        });
+        ToasterSucess("Inscription réussie, bienvenue parmi nous ! ");
       } else {
         console.info(response);
       }

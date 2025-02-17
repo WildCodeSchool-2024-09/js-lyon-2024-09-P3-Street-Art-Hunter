@@ -1,9 +1,9 @@
 import "./Profile.css";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 import LoginContext from "../../contexts/LoginContext";
+import { ToasterError, ToasterSucess } from "../../services/ToasterFunctions";
 
 interface UserProps {
   id: number | null;
@@ -62,12 +62,12 @@ function Profile() {
         body: JSON.stringify({ email, pseudo }),
       }).then((response) => {
         if (response.status === 204) {
-          toast.success("Modifications enregistrées ! 🙂");
+          ToasterSucess("Modifications enregistrées ! 🙂");
           response.json();
         }
       });
     } else {
-      toast.error("Un problème est survenu");
+      ToasterError("Un problème est survenu");
     }
   };
 
