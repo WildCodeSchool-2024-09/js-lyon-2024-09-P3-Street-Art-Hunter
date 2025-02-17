@@ -15,6 +15,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import StreetArt from "./pages/StreetArt/StreetArt";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([
@@ -63,11 +64,14 @@ if (rootElement == null) {
 }
 
 createRoot(rootElement).render(
-  <LoginProvider>
-    <GeocodingProvider>
-      <StrictMode>
-        <RouterProvider router={router} />
-      </StrictMode>
-    </GeocodingProvider>
-  </LoginProvider>,
+  <ThemeProvider>
+    <LoginProvider>
+      <GeocodingProvider>
+        <StrictMode>
+          <RouterProvider router={router} />
+        </StrictMode>
+      </GeocodingProvider>
+    </LoginProvider>
+    ,
+  </ThemeProvider>,
 );

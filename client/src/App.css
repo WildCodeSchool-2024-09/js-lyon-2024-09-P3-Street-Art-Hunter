@@ -22,31 +22,61 @@
   --big_title-font: "Meaglez", sans-serif;
   --color: white;
   --main-text-size: 0.8em;
+
+  /* Light theme  */
+  --bg-light: #fdd648;
+  --text-light: #313332;
+  --button-light: #313332;
+  --form-light: white;
+  --footer-light: #fdd648;
+
+  /* Dark theme */
+  --bg-dark: #313332;
+  --text-dark: #d9d9d9;
+  --button-dark: #fdd648;
+  --form-dark: var(--underside-color);
+  --footer-dark: #313332;
+}
+
+/* Gérer le "dark-mode" - "light-mode" */
+.theme.light {
+  --bg-color: var(--bg-light);
+  --text-color: var(--text-light);
+  --button-color: var(--button-light);
+  --form-color: var(--form-light);
+  --footer-color: var(--footer-light);
+}
+
+.theme.dark {
+  --bg-color: var(--bg-dark);
+  --text-color: var(--text-dark);
+  --button-color: var(--button-dark);
+  --form-color: var(--form-dark);
+  --footer-color: var(--footer-dark);
 }
 
 #root {
   min-height: 100vh;
-  background-color: var(--jet-color);
+  background-color: var(--bg-color);
 }
-
 body {
   font-family: var(--text-font);
   font-size: var(--main-text-size);
   line-height: 1.7;
-  color: white;
+  color: var(--text-color);
   margin: 0;
 }
 
 h1,
 h2 {
   font-family: var(--big_title-font);
-  color: var(--mustard-color);
+  color: var(--button-color);
 }
 
 h3,
 h4 {
   font-family: var(--little_title-font);
-  color: var(--mustard-color);
+  color: var(--button-color);
 }
 
 h1 {
@@ -96,7 +126,7 @@ main {
 }
 
 .logout-btn {
-  color: white;
+  color: var(--text-color);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -126,6 +156,7 @@ main {
   footer {
     height: 5vh;
     width: 100%;
+    background-color: var(--bg-color);
   }
 }
 

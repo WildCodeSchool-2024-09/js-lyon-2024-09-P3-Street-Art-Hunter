@@ -32,10 +32,11 @@
   height: 3em;
   border-radius: 12px;
   font-family: var(--text-font);
-  background-color: var(--underside-color);
+  background-color: var(--form-color);
   text-align: left;
   color: var(--mustard-color);
   transition: all 0.3s ease;
+  border: none;
 }
 
 .form-input:focus {

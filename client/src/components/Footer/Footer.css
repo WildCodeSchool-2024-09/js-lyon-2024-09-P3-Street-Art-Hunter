@@ -1,9 +1,11 @@
 .footer {
   display: none;
   gap: 5em;
+  background-color: var(--footer-color);
+  color: var(--text-color);
 }
 .footer a {
-  color: var(--color);
+  color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
 }
