@@ -11,11 +11,11 @@ import NewArtwork from "./pages/NewArtwork/NewArtwork";
 import Profile from "./pages/Profile/Profile";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import StreetArt from "./pages/StreetArt/StreetArt";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
-import { ThemeProvider } from "./contexts/ThemeContext";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([

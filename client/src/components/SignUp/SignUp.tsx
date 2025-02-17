@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 
 interface SignUpProps {
   setIsRegistered: (boolean: boolean) => void;
+  isRegistered: boolean;
 }
 
 function SignUp({ setIsRegistered }: SignUpProps) {
@@ -43,7 +44,7 @@ function SignUp({ setIsRegistered }: SignUpProps) {
       );
 
       if (response.status === 201) {
-        setIsRegistered(false);
+        setIsRegistered(true);
         const loggedUser = await response.json();
         setIsRegistered(loggedUser);
         toast.success("Inscription réussie, bienvenue parmi nous ! ", {

@@ -1,6 +1,6 @@
-import { useTheme } from "../../contexts/ThemeContext";
 import JetMoon from "../../assets/images/jet-moon.png";
 import YellowSun from "../../assets/images/yellow-sun.png";
+import { useTheme } from "../../contexts/ThemeContext";
 import "./ThemeToggle.css";
 
 function ThemeToggle() {

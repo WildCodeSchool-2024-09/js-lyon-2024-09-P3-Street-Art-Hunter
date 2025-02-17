@@ -15,7 +15,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  margin-top: 2em;
 }
 
 .user_label {
@@ -24,6 +23,7 @@
   flex-direction: column;
   justify-content: flex-end;
   text-align: center;
+  color: var(--text-color);
 }
 .profile-sct p {
   height: 3em;
@@ -46,9 +46,9 @@
   margin: .5em;
   border-radius: 12px;
   font-family: var(--text-font);
-  background-color: #202221;
+  background-color: var(--form-color);
   text-align: left;
-  color: var(--mustard-color);
+  color: var(--button-color);
   border-width: 0;
   font-size: 14px;
 }
@@ -72,9 +72,9 @@
   margin: .5em;
   border-radius: 12px;
   font-family: var(--text-font);
-  background-color: #202221;
+  background-color: var(--form-color);
   text-align: left;
-  color: var(--mustard-color);
+  color: var(--button-color);
   border-width: 0;
   font-size: 14px;
 }

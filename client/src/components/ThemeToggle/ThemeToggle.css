@@ -7,7 +7,7 @@
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  background-color: var(--ash-grey-color);
+  background-color: var(--form-color);
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
@@ -20,4 +20,20 @@
 .icon-theme {
   width: 30px;
   height: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .theme-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
 }

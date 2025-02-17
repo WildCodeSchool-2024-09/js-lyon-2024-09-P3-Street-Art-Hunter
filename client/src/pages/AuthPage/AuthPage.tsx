@@ -20,7 +20,10 @@ function AuthPage() {
       <section className="authpage">
         <h1>{isRegistered ? "Inscription" : "Connexion"}</h1>
         {isRegistered ? (
-          <SignUp setIsRegistered={setIsRegistered} />
+          <SignUp
+            setIsRegistered={setIsRegistered}
+            isRegistered={isRegistered}
+          />
         ) : (
           <SignIn />
         )}

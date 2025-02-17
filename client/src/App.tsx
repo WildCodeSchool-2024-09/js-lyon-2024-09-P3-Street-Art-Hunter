@@ -4,8 +4,8 @@ import { ToastContainer } from "react-toastify";
 import Logo from "./assets/images/cc_logo_spotless_mustard.png";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import { ThemeProvider } from "./contexts/ThemeContext";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 function App() {
   return (
