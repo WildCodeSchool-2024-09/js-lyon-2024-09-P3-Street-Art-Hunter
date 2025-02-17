@@ -22,8 +22,9 @@
   align-self: center;
   font-family: var(--text-font);
   font-size: 1em;
-  background-color: var(--button-color);
-  color: var(--bg-color);
+  background-color: var(--button-yellow);
+  color: var(--jet-color);
+  border: none;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -58,10 +59,11 @@
     align-items: center;
   }
   .search-btn {
-    background-color: var(--button-color);
-    color: var(--bg-color);
+    background-color: var(--button-yellow);
+    color: var(--jet-color);
     align-self: baseline;
     margin-left: 2em;
+    border: none;
   }
   .searchGeo {
     display: flex;
@@ -83,8 +85,8 @@
     align-items: center;
   }
   .search-btn {
-    background-color: var(--button-color);
-    color: var(--bg-color);
+    background-color: var(--button-yellow);
+    color: var(--jet-color);
     align-self: baseline;
     margin: 0 2em;
   }
