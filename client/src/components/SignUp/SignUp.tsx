@@ -4,6 +4,7 @@ import { ToasterSucess } from "../../services/ToasterFunctions";
 
 interface SignUpProps {
   setIsRegistered: (boolean: boolean) => void;
+  isRegistered: boolean;
 }
 
 function SignUp({ setIsRegistered }: SignUpProps) {
@@ -43,7 +44,7 @@ function SignUp({ setIsRegistered }: SignUpProps) {
       );
 
       if (response.status === 201) {
-        setIsRegistered(false);
+        setIsRegistered(true);
         const loggedUser = await response.json();
         setIsRegistered(loggedUser);
         ToasterSucess("Inscription réussie, bienvenue parmi nous ! ");

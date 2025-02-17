@@ -1,7 +1,7 @@
 .geo-btn {
   border: transparent;
   background-color: transparent;
-  color: var(--mustard-color);
+  color: var(--text-color);
   font-family: var(--text-font);
   font-size: 1em;
   margin-top: 0.5em;

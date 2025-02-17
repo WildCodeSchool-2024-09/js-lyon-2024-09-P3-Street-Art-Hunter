@@ -4,6 +4,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import "../../App.css";
 import "../Home/Home.css";
 import Carousel from "../../components/Carousel/Carousel";
+import ThemeToggle from "../../components/ThemeToggle/ThemeToggle";
 
 function Home() {
   return (
@@ -24,6 +25,7 @@ function Home() {
         <Carousel />
         <SearchBar />
       </section>
+      <ThemeToggle />
       <footer>
         <Footer />
       </footer>

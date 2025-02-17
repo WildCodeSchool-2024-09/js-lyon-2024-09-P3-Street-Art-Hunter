@@ -2,22 +2,25 @@ import "./Navbar.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AjoutArt from "../../assets/images/add_picture.png";
+import AjoutArtDark from "../../assets/images/add_picture_dark.png";
 import Connexion from "../../assets/images/connec_ash.png";
+import ConnexionDark from "../../assets/images/connec_dark.png";
 import LoginContext from "../../contexts/LoginContext";
+import { useTheme } from "../../contexts/ThemeContext";
 import { ToasterInformation } from "../../services/ToasterFunctions";
 
 export default function Navbar() {
   const { user, setUser } = useContext(LoginContext);
+  const { theme } = useTheme();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const handleOpeningMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
-  const notify = () => ToasterInformation("Reviens vite !");
 
   const handleClickLogOut = () => {
     setUser(undefined); //logout
-    notify();
+    ToasterInformation("Reviens vite !");
     setIsOpenMenu(false); //fermer le menu au changement de page
   };
 
@@ -28,7 +31,7 @@ export default function Navbar() {
           <hr className="vertical-divider" />
           <Link to="/StreetArtMap/authentication">
             <img
-              src={Connexion}
+              src={theme === "light" ? ConnexionDark : Connexion}
               alt="connection"
               className="disconnected_user"
             />
@@ -38,8 +41,15 @@ export default function Navbar() {
       ) : (
         <div className="navbar-icon box-divider">
           <hr className="vertical-divider" />
-          <Link to="/StreetArtMap/NewArtwork">
-            <img src={AjoutArt} alt="ajout d'une oeuvre" />
+          <Link
+            to="/StreetArtMap/NewArtwork"
+            onClick={() => setIsOpenMenu(false)}
+            // au cas où l'utilisateur ne ferme pas le menu et appuie sur une autre icône
+          >
+            <img
+              src={theme === "light" ? AjoutArtDark : AjoutArt}
+              alt="ajout d'une oeuvre"
+            />
           </Link>
           <hr />
           <button
@@ -47,7 +57,10 @@ export default function Navbar() {
             className="dropdown-btn"
             onClick={handleOpeningMenu}
           >
-            <img src={Connexion} alt="connection" />
+            <img
+              src={theme === "light" ? ConnexionDark : Connexion}
+              alt="connection"
+            />
           </button>
           <hr className="vertical-divider" />
           {isOpenMenu && (

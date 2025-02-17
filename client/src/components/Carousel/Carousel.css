@@ -19,9 +19,15 @@
 }
 
 .carousel-card p {
-  font-size: .8em;
+  font-size: 1em;
   font-family: var(--little_title-font);
   text-align: center;
+  color: var(--text-color);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: var(--text-color) !important;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

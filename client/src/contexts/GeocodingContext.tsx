@@ -28,6 +28,7 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
   >();
 
   useEffect(() => {
+    //a pour but de stocker la geolocalisation dans la page de l'utilisateur web
     const storedArray = localStorage.getItem("last_coord");
     const storedCoords: number[] = storedArray
       ? JSON.parse(storedArray)
@@ -45,6 +46,7 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
             ToasterError(
               "Il semble que l'adresse soit incorrect, veuillez réessayer",
             );
+            //récupération de l'information stocker si il y en a une afin que l'utilisateur puisse retrouver son point d'origine sur la map
             const storedArray = localStorage.getItem("last_coord");
             if (storedArray) {
               const storedCoords: number[] = JSON.parse(storedArray);

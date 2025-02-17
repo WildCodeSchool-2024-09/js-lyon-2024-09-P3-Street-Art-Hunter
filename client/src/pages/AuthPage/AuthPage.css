@@ -16,14 +16,15 @@
 .signup-btn,
 .signin-btn {
   display: flex;
-  border: 1px solid var(--mustard-color);
+  border: 1px solid var(--text-color);
+  font-family: var(--text-font);
   border-radius: 12px;
   height: 2.5em;
   width: 8em;
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: var(--mustard-color);
+  color: var(--text-color);
 }
 .signup-btn:hover,
 .signin-btn:hover {
