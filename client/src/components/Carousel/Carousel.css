@@ -19,7 +19,7 @@
 }
 
 .carousel-card p {
-  font-size: .8em;
+  font-size: 1em;
   font-family: var(--little_title-font);
   text-align: center;
   color: var(--text-color);
