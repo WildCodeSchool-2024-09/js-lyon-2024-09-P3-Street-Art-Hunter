@@ -28,7 +28,7 @@ export default function DistSearch({ componentLoc }: styleProps) {
           className="image_search"
         />
       </button>
-      {/* clicking on the button change the state to make options appear and allow the search of a location */}
+      {/* clicker sur le boutton change le state pour faire apparaitre les options et permettre la recherche d'une nouvelle localisation */}
       {deploySearch && (
         <article className="search_tools">
           <Geocoding />

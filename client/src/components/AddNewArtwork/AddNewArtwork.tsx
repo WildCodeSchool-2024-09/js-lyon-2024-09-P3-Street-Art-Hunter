@@ -35,7 +35,7 @@ export default function AddNewArtwork() {
       const longitude = formData.get("longitude") as string;
       const picture_credit = formData.get("picture_credit") as string;
 
-      //gestion des erreurs sur l'import d'une nouvelle oeuvre
+      //gestion des erreurs de saisie sur l'import d'une nouvelle oeuvre
       if (
         name.length < 5 ||
         address.length < 5 ||
