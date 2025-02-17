@@ -42,7 +42,11 @@ export default function Navbar() {
       ) : (
         <div className="navbar-icon box-divider">
           <hr className="vertical-divider" />
-          <Link to="/StreetArtMap/NewArtwork">
+          <Link
+            to="/StreetArtMap/NewArtwork"
+            onClick={() => setIsOpenMenu(false)}
+            // au cas où l'utilisateur ne ferme pas le menu et appuie sur une autre icône
+          >
             <img src={AjoutArt} alt="ajout d'une oeuvre" />
           </Link>
           <hr />
