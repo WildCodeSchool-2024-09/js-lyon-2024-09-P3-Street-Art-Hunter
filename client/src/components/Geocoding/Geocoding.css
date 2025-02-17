@@ -2,10 +2,11 @@
   height: 3em;
   min-width: 20em;
   font-family: var(--text-font);
+  border: none;
   border-radius: 12px;
-  background-color: var(--underside-color);
+  background-color: var(--form-color);
   text-align: center;
-  color: var(--mustard-color);
+  color: var(--text-color);
   margin-bottom: 1em;
 }
 
@@ -21,7 +22,10 @@
   align-self: center;
   font-family: var(--text-font);
   font-size: 1em;
-  background-color: var(--mustard-color);
+  font-weight: 600;
+  background-color: var(--button-yellow);
+  color: var(--jet-color);
+  border: none;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -56,10 +60,11 @@
     align-items: center;
   }
   .search-btn {
-    background-color: var(--mustard-color);
+    background-color: var(--button-yellow);
     color: var(--jet-color);
     align-self: baseline;
     margin-left: 2em;
+    border: none;
   }
   .searchGeo {
     display: flex;
@@ -81,7 +86,7 @@
     align-items: center;
   }
   .search-btn {
-    background-color: var(--mustard-color);
+    background-color: var(--button-yellow);
     color: var(--jet-color);
     align-self: baseline;
     margin: 0 2em;

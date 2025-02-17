@@ -3,11 +3,15 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import AjoutArt from "../../assets/images/add_picture.png";
+import AjoutArtDark from "../../assets/images/add_picture_dark.png";
 import Connexion from "../../assets/images/connec_ash.png";
+import ConnexionDark from "../../assets/images/connec_dark.png";
 import LoginContext from "../../contexts/LoginContext";
+import { useTheme } from "../../contexts/ThemeContext";
 
 export default function Navbar() {
   const { user, setUser } = useContext(LoginContext);
+  const { theme } = useTheme();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const handleOpeningMenu = () => {
@@ -32,7 +36,7 @@ export default function Navbar() {
           <hr className="vertical-divider" />
           <Link to="/StreetArtMap/authentication">
             <img
-              src={Connexion}
+              src={theme === "light" ? ConnexionDark : Connexion}
               alt="connection"
               className="disconnected_user"
             />
@@ -47,7 +51,10 @@ export default function Navbar() {
             onClick={() => setIsOpenMenu(false)}
             // au cas où l'utilisateur ne ferme pas le menu et appuie sur une autre icône
           >
-            <img src={AjoutArt} alt="ajout d'une oeuvre" />
+            <img
+              src={theme === "light" ? AjoutArtDark : AjoutArt}
+              alt="ajout d'une oeuvre"
+            />
           </Link>
           <hr />
           <button
@@ -55,7 +62,10 @@ export default function Navbar() {
             className="dropdown-btn"
             onClick={handleOpeningMenu}
           >
-            <img src={Connexion} alt="connection" />
+            <img
+              src={theme === "light" ? ConnexionDark : Connexion}
+              alt="connection"
+            />
           </button>
           <hr className="vertical-divider" />
           {isOpenMenu && (

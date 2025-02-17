@@ -12,6 +12,7 @@
 
 .presentation_add p {
   padding-bottom: 10px;
+  color: var(--text-color);
 }
 
 .error_add {
@@ -20,7 +21,7 @@
 }
 
 .thankyou {
-  color: var(--mustard-color);
+  color: var(--button-color);
   text-align: center;
   margin-top: 1em;
   font-size: 16px;

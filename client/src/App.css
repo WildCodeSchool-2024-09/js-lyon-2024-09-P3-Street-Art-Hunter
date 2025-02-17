@@ -23,30 +23,46 @@
   --color: white;
   --main-text-size: 0.8em;
 }
+/* Je déclare mes variables pour le light mode/dark mode */
+.theme.light {
+  --bg-color: var(--ash-grey-color);
+  --text-color: var(--jet-color);
+  --button-color: var(--jet-color);
+  --button-yellow: var(--mustard-color);
+  --form-color: white;
+  --footer-color: var(--ash-grey-color);
+}
+.theme.dark {
+  --bg-color: var(--jet-color);
+  --text-color: var(--ash-grey-color);
+  --button-color: var(--mustard-color);
+  --button-yellow: var(--mustard-color);
+  --form-color: var(--underside-color);
+  --footer-color: var(--jet-color);
+}
 
 #root {
   min-height: 100vh;
-  background-color: var(--jet-color);
+  background-color: var(--bg-color);
 }
-
 body {
   font-family: var(--text-font);
   font-size: var(--main-text-size);
   line-height: 1.7;
-  color: white;
+  color: var(--text-color);
   margin: 0;
 }
 
 h1,
 h2 {
   font-family: var(--big_title-font);
-  color: var(--mustard-color);
+  color: var(--button-color);
 }
 
 h3,
 h4 {
   font-family: var(--little_title-font);
-  color: var(--mustard-color);
+  color: var(--button-color);
 }
 
 h1 {
@@ -96,7 +112,7 @@ main {
 }
 
 .logout-btn {
-  color: white;
+  color: var(--text-color);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -126,6 +142,7 @@ main {
   footer {
     height: 5vh;
     width: 100%;
+    background-color: var(--bg-color);
   }
 }
 
