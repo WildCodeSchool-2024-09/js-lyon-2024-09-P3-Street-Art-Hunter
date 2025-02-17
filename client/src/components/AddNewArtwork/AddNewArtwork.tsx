@@ -1,9 +1,13 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddNewArtwork.css";
-import { toast } from "react-toastify";
 import GeocodingContext from "../../contexts/GeocodingContext";
 import LoginContext from "../../contexts/LoginContext";
+import {
+  ToasterError,
+  ToasterSucess,
+  ToasterWarning,
+} from "../../services/ToasterFunctions";
 import Geocoding from "../Geocoding/Geocoding";
 import Geolocalisation from "../Geolocalisation/Geolocalisation";
 
@@ -44,21 +48,13 @@ export default function AddNewArtwork() {
         longitude === null ||
         picture_credit === null
       ) {
-        toast.error(
-          "Une erreur s'est produite, veuillez remplir tous les champs !",
-          {
-            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-          },
-        );
+        ToasterWarning("Veuillez remplir tous les champs !");
         return Error;
       }
 
       if (picture_date === null) {
-        toast.error(
+        ToasterWarning(
           "Veuillez remplir le champ avec une date au format AAAAMMJJ",
-          {
-            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-          },
         );
         return Error;
       }
@@ -85,14 +81,11 @@ export default function AddNewArtwork() {
         },
       );
       if (response.status === 200) {
-        toast.success(`Merci d'avoir ajouter le street art ${name} ! 😍`, {
-          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-        });
+        ToasterSucess(`Merci d'avoir ajouter le street art ${name} ! 😍`);
+
         navigate("/StreetArtMap");
       } else {
-        toast.error("Une erreur s'est produite, veuillez réessayer", {
-          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-        });
+        ToasterError("Une erreur s'est produite, veuillez réessayer");
         console.info(response);
       }
     } catch (error) {

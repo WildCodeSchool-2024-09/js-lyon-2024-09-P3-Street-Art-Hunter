@@ -1,13 +1,13 @@
 import "./Navbar.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import AjoutArt from "../../assets/images/add_picture.png";
 import AjoutArtDark from "../../assets/images/add_picture_dark.png";
 import Connexion from "../../assets/images/connec_ash.png";
 import ConnexionDark from "../../assets/images/connec_dark.png";
 import LoginContext from "../../contexts/LoginContext";
 import { useTheme } from "../../contexts/ThemeContext";
+import { ToasterInformation } from "../../services/ToasterFunctions";
 
 export default function Navbar() {
   const { user, setUser } = useContext(LoginContext);
@@ -17,15 +17,10 @@ export default function Navbar() {
   const handleOpeningMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
-  const notify = () =>
-    toast.success("Reviens vite !", {
-      className: "toast-message",
-      position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-    });
 
   const handleClickLogOut = () => {
     setUser(undefined); //logout
-    notify();
+    ToasterInformation("Reviens vite !");
     setIsOpenMenu(false); //fermer le menu au changement de page
   };
 
