@@ -18,7 +18,7 @@ export default function Geocoding() {
     setSearchedLoc(undefined);
     // permet de récupérer les informations de localisation via le context qui utilise l'Api dans le serveur.
     getCoord();
-    // gére les erreurs de saisie et le fait de perdre son historique de recherche
+    // gére les erreurs de saisie qui ont donné une erreur :
     if (searchedLoc === undefined) {
       if (location.pathname !== "/StreetArtMap/NewArtwork") {
         navigate("/StreetArtMap/Error");
@@ -30,7 +30,7 @@ export default function Geocoding() {
         },
       );
     } else {
-      // si le composant est sur la page Home alors navigate to, sinon, aller nulle part ?
+      // si le composant n'est pas sur la page d'ajout d'oeuvre alors navigate à la carte
       if (location.pathname !== "/StreetArtMap/NewArtwork") {
         navigate("/StreetArtMap");
       }
@@ -55,7 +55,7 @@ export default function Geocoding() {
       <button
         className="search-btn"
         type="submit"
-        onClick={handleSearchClick} //Confirmer l'envoi de l'adresse à l'API
+        onClick={handleSearchClick} //Confirmer l'envoi de l'adresse "submitedAddress" à l'API
       >
         Rechercher
       </button>
