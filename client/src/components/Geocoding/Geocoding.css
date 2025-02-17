@@ -22,19 +22,18 @@
   align-self: center;
   font-family: var(--text-font);
   font-size: 1em;
-  font-weight: 600;
+  font-weight: 400;
   background-color: var(--button-yellow);
   color: var(--jet-color);
-  border: none;
+  border: solid .5px var(--jet-color);
   border-radius: 12px;
   cursor: pointer;
 }
 
 .search-btn:hover {
-  background-color: dark;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
+  transition: all ease-in-out .25s;
   scale: calc(1.02);
+  box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
 }
 
 .search-btn:active {
@@ -61,10 +60,11 @@
   }
   .search-btn {
     background-color: var(--button-yellow);
+    border: solid .5px var(--jet-color);
     color: var(--jet-color);
     align-self: baseline;
     margin-left: 2em;
-    border: none;
+    border: solid .5px var(--jet-color);
   }
   .searchGeo {
     display: flex;
@@ -87,6 +87,7 @@
   }
   .search-btn {
     background-color: var(--button-yellow);
+    border: solid .5px var(--jet-color);
     color: var(--jet-color);
     align-self: baseline;
     margin: 0 2em;

@@ -42,7 +42,6 @@ function SignIn() {
       if (response.status === 200) {
         const loggedUser = await response.json();
         setUser(loggedUser);
-
         ToasterSucess(
           `Bienvenue, ${loggedUser.user.pseudo} ! City Canvas n’attendait plus que toi ! 😍🔥`,
           theme,

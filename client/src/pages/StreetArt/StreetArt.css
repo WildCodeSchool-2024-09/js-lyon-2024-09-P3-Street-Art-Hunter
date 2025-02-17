@@ -8,6 +8,9 @@
   border-radius: 12px;
   cursor: pointer;
   margin-top: 8em;
+  border: solid .5px var(--jet-color);
+  transition: all ease-in-out 0.25s;
+  scale: 1.02;
   /* position: relative; */
 }
 

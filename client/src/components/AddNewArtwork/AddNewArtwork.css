@@ -76,9 +76,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 1em;
   background-color: var(--mustard-color);
   border-radius: 12px;
-  transition: all 0.3s ease;
   cursor: pointer;
   margin-top: 1em;
+  border: solid .5px var(--jet-color);
+  transition: all 0.3s ease;
+  scale: 1.02;
 }
 
 .add-btn:hover {

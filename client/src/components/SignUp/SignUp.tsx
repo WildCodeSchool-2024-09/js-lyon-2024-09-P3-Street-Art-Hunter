@@ -47,12 +47,11 @@ function SignUp({ setIsRegistered }: SignUpProps) {
 
       if (response.status === 201) {
         setIsRegistered(true);
-        const loggedUser = await response.json();
-        setIsRegistered(loggedUser);
         ToasterSucess(
-          `Bienvenue à bord, ${loggedUser.user.pseudo} ! L’aventure Street Art commence maintenant ! 🌟`,
+          `Bienvenue à bord, ${pseudoRef.current?.value} ! L'aventure Street Art commence maintenant ! 🌟`,
           theme,
         );
+        // navigate("/StreetArtMap");
       } else {
         console.info(response);
       }
