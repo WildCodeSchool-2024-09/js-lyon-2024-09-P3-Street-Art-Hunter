@@ -41,9 +41,9 @@
   min-width: 100%;
   font-family: var(--text-font);
   border-radius: 12px;
-  background-color: var(--underside-color);
+  background-color: var(--form-color);
   text-align: center;
-  color: var(--mustard-color);
+  color: var(--text-color);
   margin-bottom: 0.5em;
   margin-top: 5px;
 }

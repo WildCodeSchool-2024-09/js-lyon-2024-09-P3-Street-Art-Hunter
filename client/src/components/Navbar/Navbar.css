@@ -58,7 +58,7 @@ hr {
   font-weight: 400;
 }
 .dropdown li:hover {
-  color: var(--ash-grey-color);
+  color: var(--mustard-color);
 }
 #password,
 #email,
