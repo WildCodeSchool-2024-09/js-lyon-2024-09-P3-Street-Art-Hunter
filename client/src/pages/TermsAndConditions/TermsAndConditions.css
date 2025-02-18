@@ -9,12 +9,11 @@
 }
 .cgu-container h2 {
   font-family: var(--text-font);
-  color: white;
   font-size: 1.5em;
 }
 .cgu-container p {
   font-family: var(--text-font);
-  color: white;
+  color: var(--text-color);
   font-size: 1.25em;
   font-weight: 300;
 }
@@ -24,16 +23,6 @@
   width: 5px;
 }
 
-*::-webkit-scrollbar-track {
-  background: var(--jet-color);
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--ash-grey-color);
-  border-radius: 20px;
-  border: 3px solid var(--ash-grey-color);
-}
-
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .cgu-title {
     padding-top: 0;
@@ -41,7 +30,7 @@
   .cgu-container {
     margin-top: 2em;
     width: 70vw;
-    height: 80%;
+    height: 78%;
   }
 }
 
@@ -52,6 +41,6 @@
   .cgu-container {
     margin-top: 3em;
     width: 70vw;
-    height: 80%;
+    height: 78%;
   }
 }

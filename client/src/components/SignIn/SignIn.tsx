@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../../contexts/LoginContext";
 import LoginContext from "../../contexts/LoginContext";
 import { useTheme } from "../../contexts/ThemeContext";
-import { ToasterError, ToasterSucess } from "../../services/ToasterFunctions";
+import { ToasterError, ToasterSuccess } from "../../services/ToasterFunctions";
 
 function SignIn() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -42,7 +42,7 @@ function SignIn() {
       if (response.status === 200) {
         const loggedUser = await response.json();
         setUser(loggedUser);
-        ToasterSucess(
+        ToasterSuccess(
           `Bienvenue, ${loggedUser.user.pseudo} ! City Canvas n’attendait plus que toi ! 😍🔥`,
           theme,
         );

@@ -6,7 +6,7 @@ import LoginContext from "../../contexts/LoginContext";
 import { useTheme } from "../../contexts/ThemeContext";
 import {
   ToasterError,
-  ToasterSucess,
+  ToasterSuccess,
   ToasterWarning,
 } from "../../services/ToasterFunctions";
 import Geocoding from "../Geocoding/Geocoding";
@@ -88,7 +88,7 @@ export default function AddNewArtwork() {
         },
       );
       if (response.status === 200) {
-        ToasterSucess(
+        ToasterSuccess(
           `Boom ! ${name} 😍 est maintenant sur la carte ! T’es un vrai chasseur de Street Art ! 🚀`,
           theme,
         );

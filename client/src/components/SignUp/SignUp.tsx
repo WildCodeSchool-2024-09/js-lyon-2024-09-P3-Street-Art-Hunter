@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import type { ChangeEventHandler, FormEventHandler } from "react";
 import { useTheme } from "../../contexts/ThemeContext";
-import { ToasterSucess } from "../../services/ToasterFunctions";
+import { ToasterSuccess } from "../../services/ToasterFunctions";
 
 interface SignUpProps {
   setIsRegistered: (boolean: boolean) => void;
@@ -47,7 +47,7 @@ function SignUp({ setIsRegistered }: SignUpProps) {
 
       if (response.status === 201) {
         setIsRegistered(true);
-        ToasterSucess(
+        ToasterSuccess(
           `Bienvenue à bord, ${pseudoRef.current?.value} ! L'aventure Street Art commence maintenant ! 🌟`,
           theme,
         );
