@@ -25,6 +25,7 @@
   flex-direction: column;
   margin-bottom: 0.5rem;
   width: 100%;
+  color: var(--text-color);
 }
 
 /* Champs input */
@@ -32,10 +33,11 @@
   height: 3em;
   border-radius: 12px;
   font-family: var(--text-font);
-  background-color: var(--underside-color);
+  background-color: var(--form-color);
   text-align: left;
-  color: var(--mustard-color);
+  color: var(--text-color);
   transition: all 0.3s ease;
+  border: none;
 }
 
 .form-input:focus {
@@ -55,6 +57,7 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   cursor: pointer;
+  border: none;
 }
 
 .submit-button:hover {

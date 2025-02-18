@@ -1,14 +1,17 @@
 import { useRef, useState } from "react";
 import type { ChangeEventHandler, FormEventHandler } from "react";
-import { toast } from "react-toastify";
+import { useTheme } from "../../contexts/ThemeContext";
+import { ToasterSuccess } from "../../services/ToasterFunctions";
 
 interface SignUpProps {
   setIsRegistered: (boolean: boolean) => void;
+  isRegistered: boolean;
 }
 
 function SignUp({ setIsRegistered }: SignUpProps) {
   const emailRef = useRef<HTMLInputElement>(null);
   const pseudoRef = useRef<HTMLInputElement>(null);
+  const { theme } = useTheme();
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -43,13 +46,12 @@ function SignUp({ setIsRegistered }: SignUpProps) {
       );
 
       if (response.status === 201) {
-        setIsRegistered(false);
-        const loggedUser = await response.json();
-        setIsRegistered(loggedUser);
-        toast.success("Inscription réussie, bienvenue parmi nous ! ", {
-          className: "toast-message",
-          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-        });
+        setIsRegistered(true);
+        ToasterSuccess(
+          `Bienvenue à bord, ${pseudoRef.current?.value} ! L'aventure Street Art commence maintenant ! 🌟`,
+          theme,
+        );
+        // navigate("/StreetArtMap");
       } else {
         console.info(response);
       }

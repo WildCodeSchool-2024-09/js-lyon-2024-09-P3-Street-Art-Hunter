@@ -3,13 +3,15 @@ import { useContext, useRef } from "react";
 import type { FormEventHandler } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../contexts/LoginContext";
-import { toast } from "react-toastify";
 import LoginContext from "../../contexts/LoginContext";
+import { useTheme } from "../../contexts/ThemeContext";
+import { ToasterError, ToasterSuccess } from "../../services/ToasterFunctions";
 
 function SignIn() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const { setUser } = useContext(LoginContext);
+  const { theme } = useTheme();
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -40,19 +42,17 @@ function SignIn() {
       if (response.status === 200) {
         const loggedUser = await response.json();
         setUser(loggedUser);
-        toast.success(
-          `Hello ${loggedUser.user.pseudo}, bienvenue à City Canvas ! 😊`,
-          {
-            className: "toast-message",
-            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-          },
+        ToasterSuccess(
+          `Bienvenue, ${loggedUser.user.pseudo} ! City Canvas n’attendait plus que toi ! 😍🔥`,
+          theme,
         );
 
         navigate("/StreetArtMap");
       } else {
-        toast.error("Une erreur s'est produite, veuillez réessayer", {
-          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-        });
+        ToasterError(
+          "Aïe ! Un hic technique… mais pas de panique, réessaye ! 💻🔥",
+          theme,
+        );
         // Log des détails de la réponse en cas d'échec
         console.info(response);
       }

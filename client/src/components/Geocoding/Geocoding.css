@@ -2,10 +2,11 @@
   height: 3em;
   min-width: 20em;
   font-family: var(--text-font);
+  border: none;
   border-radius: 12px;
-  background-color: var(--underside-color);
+  background-color: var(--form-color);
   text-align: center;
-  color: var(--mustard-color);
+  color: var(--text-color);
   margin-bottom: 1em;
 }
 
@@ -21,24 +22,23 @@
   align-self: center;
   font-family: var(--text-font);
   font-size: 1em;
-  background-color: var(--mustard-color);
+  font-weight: 400;
+  background-color: var(--button-yellow);
+  color: var(--jet-color);
+  border: solid .5px var(--jet-color);
   border-radius: 12px;
   cursor: pointer;
 }
 
 .search-btn:hover {
-  background-color: dark;
-  transform: translateY(-2px);
+  transition: all ease-in-out .25s;
+  scale: calc(1.02);
   box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
 }
 
 .search-btn:active {
   transform: translateY(0);
   box-shadow: none;
-}
-
-.search-btn:hover {
-  scale: calc(1.02);
 }
 
 .searchBar {
@@ -59,10 +59,12 @@
     align-items: center;
   }
   .search-btn {
-    background-color: var(--mustard-color);
+    background-color: var(--button-yellow);
+    border: solid .5px var(--jet-color);
     color: var(--jet-color);
     align-self: baseline;
     margin-left: 2em;
+    border: solid .5px var(--jet-color);
   }
   .searchGeo {
     display: flex;
@@ -84,7 +86,8 @@
     align-items: center;
   }
   .search-btn {
-    background-color: var(--mustard-color);
+    background-color: var(--button-yellow);
+    border: solid .5px var(--jet-color);
     color: var(--jet-color);
     align-self: baseline;
     margin: 0 2em;

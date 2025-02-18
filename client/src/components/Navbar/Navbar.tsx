@@ -1,28 +1,43 @@
 import "./Navbar.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import AjoutArt from "../../assets/images/add_picture.png";
+import AjoutArtDark from "../../assets/images/add_picture_dark.png";
 import Connexion from "../../assets/images/connec_ash.png";
+import ConnexionDark from "../../assets/images/connec_dark.png";
 import LoginContext from "../../contexts/LoginContext";
+import { useTheme } from "../../contexts/ThemeContext";
+import { ToasterInformation } from "../../services/ToasterFunctions";
 
 export default function Navbar() {
   const { user, setUser } = useContext(LoginContext);
+  const { theme } = useTheme();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
-  const handleOpeningMenu = () => {
+  const handleClick = () => {
     setIsOpenMenu(!isOpenMenu);
   };
-  const notify = () =>
-    toast.success("Reviens vite !", {
-      className: "toast-message",
-      position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-    });
+
+  // Burger menu qui s'ouvre au survol surement en grand écran
+  const handleMouseEnter = () => {
+    if (window.innerWidth >= 768) {
+      setIsOpenMenu(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth >= 768) {
+      setIsOpenMenu(false);
+    }
+  };
 
   const handleClickLogOut = () => {
-    setUser(undefined); //logout
-    notify();
-    setIsOpenMenu(false); //fermer le menu au changement de page
+    setUser(undefined);
+    ToasterInformation(
+      "Hey, ne reste pas trop loin ! Le Street Art t'attend ! 🎨✨",
+      theme,
+    );
+    setIsOpenMenu(false);
   };
 
   return (
@@ -32,7 +47,7 @@ export default function Navbar() {
           <hr className="vertical-divider" />
           <Link to="/StreetArtMap/authentication">
             <img
-              src={Connexion}
+              src={theme === "light" ? ConnexionDark : Connexion}
               alt="connection"
               className="disconnected_user"
             />
@@ -42,20 +57,32 @@ export default function Navbar() {
       ) : (
         <div className="navbar-icon box-divider">
           <hr className="vertical-divider" />
-          <Link to="/StreetArtMap/NewArtwork">
-            <img src={AjoutArt} alt="ajout d'une oeuvre" />
+          <Link
+            to="/StreetArtMap/NewArtwork"
+            onClick={() => setIsOpenMenu(false)}
+            // au cas où l'utilisateur ne ferme pas le menu et appuie sur une autre icône
+          >
+            <img
+              src={theme === "light" ? AjoutArtDark : AjoutArt}
+              alt="ajout d'une oeuvre"
+            />
           </Link>
           <hr />
           <button
             type="button"
             className="dropdown-btn"
-            onClick={handleOpeningMenu}
+            onClick={handleClick}
+            onMouseEnter={handleMouseEnter}
+            onFocus={handleMouseEnter}
           >
-            <img src={Connexion} alt="connection" />
+            <img
+              src={theme === "light" ? ConnexionDark : Connexion}
+              alt="connection"
+            />
           </button>
           <hr className="vertical-divider" />
           {isOpenMenu && (
-            <div className="dropdown">
+            <div className="dropdown" onMouseLeave={handleMouseLeave}>
               <ul>
                 <Link to="/StreetArtMap/Profile">
                   <li

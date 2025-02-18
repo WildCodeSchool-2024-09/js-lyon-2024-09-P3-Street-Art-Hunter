@@ -13,13 +13,13 @@
 }
 
 .box-divider {
-  border: 1px solid var(--mustard-color);
+  border: 1px solid var(--button-color);
   border-radius: 5px;
 }
 
 hr {
   display: block;
-  border: 1px solid var(--mustard-color);
+  border: 1px solid var(--button-color);
   height: 4vh;
 }
 
@@ -35,7 +35,7 @@ hr {
 .dropdown-btn {
   border-radius: 50%;
   border: 0.5px solid var(--ash-grey-color);
-  background-color: var(--jet-color);
+  background-color: var(--bg-color);
 }
 
 .dropdown {
@@ -44,7 +44,7 @@ hr {
   bottom: 50px;
   background-color: var(--underside-color);
   border-radius: 5px;
-  padding: 10px;
+  padding: 2em;
   width: 90%;
   margin-bottom: 1.5em;
 }
@@ -57,11 +57,13 @@ hr {
   font-size: 1.5em;
   font-weight: 400;
 }
-.dropdown a:hover {
+.dropdown li:hover {
   color: var(--mustard-color);
 }
 #password,
-#email {
+#email,
+#pseudo,
+#confirm-password {
   padding-left: 1em;
 }
 
@@ -71,7 +73,7 @@ hr {
   }
   .vertical-divider {
     display: block;
-    border: 1px solid var(--mustard-color);
+    border: 1px solid var(--button-color);
     height: 4vh;
   }
   .box-divider {
@@ -87,6 +89,7 @@ hr {
     padding: 10px;
     width: 200px;
     margin-top: 0.7em;
+    padding: 2em;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -95,7 +98,7 @@ hr {
   }
   .vertical-divider {
     display: block;
-    border: 1px solid var(--mustard-color);
+    border: 1px solid var(--button-color);
     height: 4vh;
   }
   .box-divider {
@@ -111,5 +114,6 @@ hr {
     padding: 10px;
     width: 200px;
     margin-top: 0.7em;
+    padding: 2em;
   }
 }

@@ -1,9 +1,14 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddNewArtwork.css";
-import { toast } from "react-toastify";
 import GeocodingContext from "../../contexts/GeocodingContext";
 import LoginContext from "../../contexts/LoginContext";
+import { useTheme } from "../../contexts/ThemeContext";
+import {
+  ToasterError,
+  ToasterSuccess,
+  ToasterWarning,
+} from "../../services/ToasterFunctions";
 import Geocoding from "../Geocoding/Geocoding";
 import Geolocalisation from "../Geolocalisation/Geolocalisation";
 
@@ -15,6 +20,8 @@ export default function AddNewArtwork() {
   const { user } = useContext(LoginContext);
 
   const navigate = useNavigate();
+
+  const { theme } = useTheme();
 
   const handleSubmit = async (event: {
     preventDefault: () => void;
@@ -35,7 +42,7 @@ export default function AddNewArtwork() {
       const longitude = formData.get("longitude") as string;
       const picture_credit = formData.get("picture_credit") as string;
 
-      //gestion des erreurs sur l'import d'une nouvelle oeuvre
+      //gestion des erreurs de saisie sur l'import d'une nouvelle oeuvre
       if (
         name.length < 5 ||
         address.length < 5 ||
@@ -44,21 +51,17 @@ export default function AddNewArtwork() {
         longitude === null ||
         picture_credit === null
       ) {
-        toast.error(
-          "Une erreur s'est produite, veuillez remplir tous les champs !",
-          {
-            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-          },
+        ToasterWarning(
+          "Oups ! Il manque des infos… Remplis tous les champs pour continuer ! 😬✍️",
+          theme,
         );
         return Error;
       }
 
       if (picture_date === null) {
-        toast.error(
-          "Veuillez remplir le champ avec une date au format AAAAMMJJ",
-          {
-            position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-          },
+        ToasterWarning(
+          "Petit bug temporel ! Ajoute une date valide (AAAAMMJJ) pour avancer. 🚀",
+          theme,
         );
         return Error;
       }
@@ -85,14 +88,17 @@ export default function AddNewArtwork() {
         },
       );
       if (response.status === 200) {
-        toast.success(`Merci d'avoir ajouter le street art ${name} ! 😍`, {
-          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-        });
+        ToasterSuccess(
+          `Boom ! ${name} 😍 est maintenant sur la carte ! T’es un vrai chasseur de Street Art ! 🚀`,
+          theme,
+        );
+
         navigate("/StreetArtMap");
       } else {
-        toast.error("Une erreur s'est produite, veuillez réessayer", {
-          position: window.innerWidth < 768 ? "top-left" : "bottom-right",
-        });
+        ToasterError(
+          "Oups… petit hic ! Une erreur s’est glissée. Réessaie et tout devrait rouler ! 🤞😬",
+          theme,
+        );
         console.info(response);
       }
     } catch (error) {

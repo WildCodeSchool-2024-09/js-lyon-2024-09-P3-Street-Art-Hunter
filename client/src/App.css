@@ -23,30 +23,69 @@
   --color: white;
   --main-text-size: 0.8em;
 }
+/* Je déclare mes variables pour le light mode/dark mode */
+.theme.light {
+  --bg-color: var(--ash-grey-color);
+  --text-color: var(--jet-color);
+  --button-color: var(--jet-color);
+  --button-yellow: var(--mustard-color);
+  --form-color: white;
+  --footer-color: var(--ash-grey-color);
+}
+.theme.dark {
+  --bg-color: var(--jet-color);
+  --text-color: var(--ash-grey-color);
+  --button-color: var(--mustard-color);
+  --button-yellow: var(--mustard-color);
+  --form-color: var(--underside-color);
+  --footer-color: var(--jet-color);
+}
 
 #root {
   min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.Toastify__toast.toast-light {
   background-color: var(--jet-color);
+  color: white;
+  font-family: var(--little_title-font);
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.Toastify__toast.toast-dark {
+  background-color: var(--ash-grey-color);
+  color: var(--jet-color);
+  font-family: var(--little_title-font);
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/* Pour la barre de progression */
+.Toastify__toast.toast-light .Toastify__progress-bar,
+.Toastify__toast.toast-dark .Toastify__progress-bar {
+  background-color: var(--mustard-color);
 }
 
 body {
   font-family: var(--text-font);
   font-size: var(--main-text-size);
   line-height: 1.7;
-  color: white;
+  color: var(--text-color);
   margin: 0;
 }
 
 h1,
 h2 {
   font-family: var(--big_title-font);
-  color: var(--mustard-color);
+  color: var(--button-color);
 }
 
 h3,
 h4 {
   font-family: var(--little_title-font);
-  color: var(--mustard-color);
+  color: var(--button-color);
 }
 
 h1 {
@@ -96,7 +135,7 @@ main {
 }
 
 .logout-btn {
-  color: white;
+  color: var(--text-color);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -126,6 +165,7 @@ main {
   footer {
     height: 5vh;
     width: 100%;
+    background-color: var(--bg-color);
   }
 }
 
@@ -157,6 +197,5 @@ main {
   footer {
     height: 5vh;
     width: 100%;
-    top: 10px;
   }
 }

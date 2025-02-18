@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./StreetArt.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
@@ -28,6 +28,13 @@ const StreetArt = () => {
       .catch((err) => console.error(err));
   }, [id]);
 
+  const navigate = useNavigate();
+
+  const handleClickBack = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    navigate("/StreetArtMap");
+  };
+
   return (
     <>
       <Link
@@ -37,6 +44,9 @@ const StreetArt = () => {
       >
         <img src={Logo} alt="Logo Citycanvas" className="narrow-logo" />
       </Link>
+      <button type="button" onClick={handleClickBack} className="back-btn">
+        Revenir à la carte
+      </button>
       <section className="artwork-section">
         <h1 className="artwork_details"> Détail de l'oeuvre </h1>
         {artwork !== null ? (

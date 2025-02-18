@@ -22,7 +22,6 @@ export const LoginProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState();
-  console.info(user);
   return (
     <LoginContext.Provider value={{ user, setUser }}>
       {children}
