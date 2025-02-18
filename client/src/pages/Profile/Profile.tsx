@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 import LoginContext from "../../contexts/LoginContext";
 import { useTheme } from "../../contexts/ThemeContext";
-import { ToasterError, ToasterSucess } from "../../services/ToasterFunctions";
+import { ToasterError, ToasterSuccess } from "../../services/ToasterFunctions";
 
 interface UserProps {
   id: number | null;
@@ -64,7 +64,7 @@ function Profile() {
         body: JSON.stringify({ email, pseudo }),
       }).then((response) => {
         if (response.status === 204) {
-          ToasterSucess(
+          ToasterSuccess(
             "Modifications réussies ! Tout est mis à jour, prêt(e) à explorer ! 😎✨",
             theme,
           );
