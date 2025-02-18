@@ -81,7 +81,7 @@ function SignIn() {
         type="submit"
         className="submit-button"
         name="Send"
-        value="Envoyer"
+        value="Connexion"
       />
     </form>
   );

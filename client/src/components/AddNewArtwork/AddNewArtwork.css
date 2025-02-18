@@ -32,24 +32,7 @@
 
 .addArt:focus {
   outline: none;
-  border-color: var(--mustard-color);
-  box-shadow: 0 0 0 3px rgba(183, 227, 204, 0.2);
-}
-
-.artSearch {
-  height: 2.5em;
-  min-width: 100%;
-  font-family: var(--text-font);
-  border-radius: 12px;
-  background-color: var(--form-color);
-  text-align: center;
-  color: var(--text-color);
-  margin-bottom: 0.5em;
-  margin-top: 5px;
-}
-
-.artSearch:focus {
-  outline: none;
+  border: 1px solid;
   border-color: var(--mustard-color);
   box-shadow: 0 0 0 3px rgba(183, 227, 204, 0.2);
 }
@@ -57,9 +40,16 @@
 .addType {
   height: 2.5em;
   font-family: var(--text-font);
+  color: var(--footer-color);
   border-radius: 12px;
-  background-color: var(--mustard-color);
+  background-color: var(--text-color);
   text-align: center;
+  cursor: pointer;
+}
+
+.addType:focus {
+  outline: none;
+  border-color: var(--mustard-color);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -92,15 +82,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .add-btn:active {
   transform: translateY(0);
   box-shadow: none;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .artSearch {
-    width: 30em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .artSearch {
-    width: 30em;
-  }
 }

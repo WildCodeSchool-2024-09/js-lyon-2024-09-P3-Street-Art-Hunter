@@ -99,7 +99,7 @@ function SignUp({ setIsRegistered }: SignUpProps) {
         className="submit-button"
         type="submit"
         name="Send"
-        value="Envoyer"
+        value="S'inscrire"
       />
     </form>
   );

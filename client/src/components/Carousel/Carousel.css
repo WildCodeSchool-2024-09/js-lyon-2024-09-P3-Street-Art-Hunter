@@ -36,4 +36,17 @@
     width: 15em;
     height: 15em;
   }
+  .carousel-card p {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .carousel-card {
+    width: 15em;
+    height: 15em;
+  }
+  .carousel-card p {
+    font-size: 0.9em;
+  }
 }

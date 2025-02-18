@@ -20,7 +20,7 @@
   font-family: var(--text-font);
   border-radius: 12px;
   height: 2.5em;
-  width: 8em;
+  width: 7.5em;
   justify-content: center;
   align-items: center;
   background-color: transparent;
@@ -36,10 +36,20 @@
     padding: 7% 0% 3% 0%;
     width: 50vw;
   }
+  .signin-btn,
+  .signup-btn {
+    width: 8.5em;
+    font-size: 1.2em;
+  }
 }
 @media screen and (min-width: 1024px) {
   .authpage {
     padding: 0;
     width: 45vw;
+  }
+  .signin-btn,
+  .signup-btn {
+    width: 9em;
+    font-size: 1.3em;
   }
 }

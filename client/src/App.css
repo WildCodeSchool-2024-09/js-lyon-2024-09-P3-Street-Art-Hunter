@@ -100,9 +100,9 @@ h3 {
   font-size: 2em;
 }
 
-p {
-  font-weight: 500;
-  font-size: 14px;
+p,
+a {
+  font-size: 1.2em;
 }
 
 nav {

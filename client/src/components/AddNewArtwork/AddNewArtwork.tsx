@@ -154,7 +154,7 @@ export default function AddNewArtwork() {
       </label>
       <label>
         Photo de l'oeuvre :
-        <input name="image" type="text" className="addArt" />
+        <input name="image" type="url" className="addArt" />
       </label>
       <label>
         Date de la prise :

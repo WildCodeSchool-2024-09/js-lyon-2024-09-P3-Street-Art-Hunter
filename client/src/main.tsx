@@ -64,13 +64,13 @@ if (rootElement == null) {
 }
 
 createRoot(rootElement).render(
-  <ThemeProvider>
-    <LoginProvider>
-      <GeocodingProvider>
-        <StrictMode>
+  <StrictMode>
+    <ThemeProvider>
+      <LoginProvider>
+        <GeocodingProvider>
           <RouterProvider router={router} />
-        </StrictMode>
-      </GeocodingProvider>
-    </LoginProvider>
-  </ThemeProvider>,
+        </GeocodingProvider>
+      </LoginProvider>
+    </ThemeProvider>
+  </StrictMode>,
 );
