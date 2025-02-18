@@ -2,6 +2,7 @@
   padding: 1em;
   height: 300px;
   text-align: center;
+  text-decoration: none;
 }
 .carousel-card img {
   width: 100%;

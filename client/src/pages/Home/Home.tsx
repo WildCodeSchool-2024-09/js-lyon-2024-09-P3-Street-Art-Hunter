@@ -1,4 +1,4 @@
-import Logo from "../../assets/images/cc_logo_spotless.png";
+import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 import Footer from "../../components/Footer/Footer";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import "../../App.css";

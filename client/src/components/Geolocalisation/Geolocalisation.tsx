@@ -40,7 +40,13 @@ function Geolocalisation() {
 
   const navigate = useNavigate();
   return (
-    <button onClick={getLocation} className="geo-btn" type="button">
+    <button
+      onClick={getLocation}
+      className={
+        location.pathname !== "/StreetArtMap" ? "geo-btn" : "geo-btn-map"
+      }
+      type="button"
+    >
       Autoriser la géolocalisation
     </button>
   );
