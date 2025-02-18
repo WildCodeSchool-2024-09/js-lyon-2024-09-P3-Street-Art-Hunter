@@ -47,7 +47,9 @@ function Geolocalisation() {
       }
       type="button"
     >
-      Autoriser la géolocalisation
+      {location.pathname !== "/StreetArtMap/NewArtwork"
+        ? "Autorise la géolocalisation et nous te dirigerons vers elle"
+        : "Autorise la géolocalisation pour que nous trouvions ton oeuvre"}
     </button>
   );
 }

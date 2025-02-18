@@ -12,11 +12,9 @@
   font-family: var(--text-font);
   font-size: 1.5em;
 }
-.privacy-container p,
-li {
+.privacy-container p li {
   font-family: var(--text-font);
   color: var(--text-color);
-  font-size: 1.25em;
   font-weight: 300;
 }
 .privacy-container ul li {

@@ -54,7 +54,7 @@ hr {
   text-decoration: none;
   color: var(--ash-grey-color);
   font-family: var(--text-font);
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: 400;
 }
 .dropdown li:hover {
