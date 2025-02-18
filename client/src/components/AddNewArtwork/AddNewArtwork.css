@@ -41,9 +41,9 @@
   min-width: 100%;
   font-family: var(--text-font);
   border-radius: 12px;
-  background-color: var(--underside-color);
+  background-color: var(--form-color);
   text-align: center;
-  color: var(--mustard-color);
+  color: var(--text-color);
   margin-bottom: 0.5em;
   margin-top: 5px;
 }
@@ -76,9 +76,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 1em;
   background-color: var(--mustard-color);
   border-radius: 12px;
-  transition: all 0.3s ease;
   cursor: pointer;
   margin-top: 1em;
+  border: solid .5px var(--jet-color);
+  transition: all 0.3s ease;
+  scale: 1.02;
 }
 
 .add-btn:hover {

@@ -63,6 +63,11 @@
   border-radius: 12px;
   cursor: pointer;
   margin-top: 2em;
+  border: solid .5px var(--jet-color);
+}
+.save-btn:hover {
+  transition: all ease-in-out .25s;
+  scale: calc(1.02);
 }
 
 .password-input {

@@ -14,14 +14,30 @@ export default function Navbar() {
   const { theme } = useTheme();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
-  const handleOpeningMenu = () => {
+  const handleClick = () => {
     setIsOpenMenu(!isOpenMenu);
   };
 
+  // Burger menu qui s'ouvre au survol surement en grand écran
+  const handleMouseEnter = () => {
+    if (window.innerWidth >= 768) {
+      setIsOpenMenu(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth >= 768) {
+      setIsOpenMenu(false);
+    }
+  };
+
   const handleClickLogOut = () => {
-    setUser(undefined); //logout
-    ToasterInformation("Reviens vite !");
-    setIsOpenMenu(false); //fermer le menu au changement de page
+    setUser(undefined);
+    ToasterInformation(
+      "Hey, ne reste pas trop loin ! Le Street Art t'attend ! 🎨✨",
+      theme,
+    );
+    setIsOpenMenu(false);
   };
 
   return (
@@ -55,7 +71,9 @@ export default function Navbar() {
           <button
             type="button"
             className="dropdown-btn"
-            onClick={handleOpeningMenu}
+            onClick={handleClick}
+            onMouseEnter={handleMouseEnter}
+            onFocus={handleMouseEnter}
           >
             <img
               src={theme === "light" ? ConnexionDark : Connexion}
@@ -64,7 +82,7 @@ export default function Navbar() {
           </button>
           <hr className="vertical-divider" />
           {isOpenMenu && (
-            <div className="dropdown">
+            <div className="dropdown" onMouseLeave={handleMouseLeave}>
               <ul>
                 <Link to="/StreetArtMap/Profile">
                   <li

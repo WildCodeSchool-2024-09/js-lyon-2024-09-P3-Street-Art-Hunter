@@ -57,7 +57,7 @@ hr {
   font-size: 1.5em;
   font-weight: 400;
 }
-.dropdown a:hover {
+.dropdown li:hover {
   color: var(--mustard-color);
 }
 #password,
