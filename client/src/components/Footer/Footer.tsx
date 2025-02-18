@@ -7,20 +7,18 @@ export default function Footer() {
     <section className="footer">
       <p>Créé par City Canvas </p>
       <Link to="/StreetArtMap/TermsAndConditions">
-        <p>Condition Générales Utilisation</p>
+        Condition Générales Utilisation
       </Link>
-      <Link to="/StreetArtMap/PrivacyPolicy">
-        <p>Protection des Données</p>
-      </Link>
-      <p>
+      <Link to="/StreetArtMap/PrivacyPolicy">Protection des Données</Link>
+      <a
+        href="https://github.com/WildCodeSchool-2024-09/js-lyon-2024-09-P3-Street-Art-Hunter"
+        className="github"
+        target="_blank"
+        rel="noreferrer"
+      >
         Retrouvez nous sur
-        <a
-          href="https://github.com/WildCodeSchool-2024-09/js-lyon-2024-09-P3-Street-Art-Hunter"
-          className="github"
-        >
-          <img src={gitHub} alt="gitHub" className="logoGitHub" />
-        </a>
-      </p>
+        <img src={gitHub} alt="gitHub" className="logoGitHub" />
+      </a>
     </section>
   );
 }

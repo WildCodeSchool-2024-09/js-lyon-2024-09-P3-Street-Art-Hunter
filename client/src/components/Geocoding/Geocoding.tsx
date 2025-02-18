@@ -37,12 +37,44 @@ export default function Geocoding() {
     }
   };
 
+  let searchStyle = "";
+  if (location.pathname === "/") {
+    searchStyle = "citySearch";
+  } else if (location.pathname === "/StreetArtMap/NewArtwork") {
+    searchStyle = "artSearch";
+  } else {
+    searchStyle = "locSearch";
+  }
+
+  let buttonStyle = "";
+  if (location.pathname === "/") {
+    buttonStyle = "search-btn";
+  } else if (location.pathname === "/StreetArtMap/NewArtwork") {
+    buttonStyle = "search-art-btn";
+  } else {
+    buttonStyle = "search-loc-btn";
+  }
+
+  let searchBarStyle = "";
+  if (location.pathname !== "/StreetArtMap/NewArtwork") {
+    searchBarStyle = "searchBar";
+  } else {
+    searchBarStyle = "searchBar-art";
+  }
+
+  let GeoStyle = "";
+  if (location.pathname !== "/StreetArtMap/NewArtwork") {
+    GeoStyle = "searchGeo";
+  } else {
+    GeoStyle = "searchGeo-art";
+  }
+
   return (
-    <div className="searchBar">
-      <section className="searchGeo">
+    <div className={searchBarStyle}>
+      <section className={GeoStyle}>
         <input
           aria-label="rechercher une ville"
-          className={location.pathname === "/" ? "citySearch" : "artSearch"}
+          className={searchStyle}
           type="search"
           name="searchBar"
           placeholder="Recherchez une ville..."
@@ -53,7 +85,7 @@ export default function Geocoding() {
         />
       </section>
       <button
-        className="search-btn"
+        className={buttonStyle}
         type="submit"
         onClick={handleSearchClick} //Confirmer l'envoi de l'adresse "submitedAddress" à l'API
       >

@@ -4,15 +4,19 @@
   background-color: var(--footer-color);
   color: var(--text-color);
 }
+
 .footer a {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
+  font-size: 1.2em;
 }
 
 .github {
   color: var(--mustard-color);
   text-decoration: none;
+  display: flex;
+  align-content: center;
 }
 
 .logoGitHub {

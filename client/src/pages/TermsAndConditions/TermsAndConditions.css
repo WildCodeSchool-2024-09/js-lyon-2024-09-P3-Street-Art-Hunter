@@ -14,7 +14,6 @@
 .cgu-container p {
   font-family: var(--text-font);
   color: var(--text-color);
-  font-size: 1.25em;
   font-weight: 300;
 }
 
