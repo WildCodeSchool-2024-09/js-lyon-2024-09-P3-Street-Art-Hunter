@@ -48,8 +48,8 @@ function Geolocalisation() {
       type="button"
     >
       {location.pathname !== "/StreetArtMap/NewArtwork"
-        ? "Autorise la géolocalisation et nous te dirigerons vers elle"
-        : "Autorise la géolocalisation pour que nous trouvions ton oeuvre"}
+        ? "Autorise la géolocalisation et nous viendrons à toi"
+        : "Autorise la géolocalisation pour nous mener à ton oeuvre"}
     </button>
   );
 }
