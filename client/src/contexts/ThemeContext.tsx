@@ -18,10 +18,19 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  // Récupérer le thème initial depuis localStorage ou utiliser "dark" par défaut
+  const [theme, setTheme] = useState<Theme>(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return (savedTheme as Theme) || "dark";
+  });
 
   const toggleTheme = () => {
-    setTheme((curr) => (curr === "dark" ? "light" : "dark"));
+    setTheme((curr) => {
+      const newTheme = curr === "dark" ? "light" : "dark";
+      // Sauvegarder le nouveau thème dans localStorage
+      localStorage.setItem("theme", newTheme);
+      return newTheme;
+    });
   };
 
   useEffect(() => {
@@ -30,6 +39,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       root.className = `theme ${theme}`;
     }
   }, [theme]);
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
