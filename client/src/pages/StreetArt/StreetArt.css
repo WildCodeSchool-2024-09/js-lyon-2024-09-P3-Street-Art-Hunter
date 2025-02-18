@@ -80,8 +80,18 @@ img.artwork-img {
   .artwork-section {
     padding: 7% 0% 3% 0%;
     max-height: 90%;
+    flex-direction: column;
+    width: 90vw;
   }
   img.artwork-img {
     height: 25rem;
+  }
+  .artwork-container {
+    flex-direction: row;
+    gap: 15px;
+    width: 85vw;
+  }
+  .container-details {
+    flex-direction: column;
   }
 }

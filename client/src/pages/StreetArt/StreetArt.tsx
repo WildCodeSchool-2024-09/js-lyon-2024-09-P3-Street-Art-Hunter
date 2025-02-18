@@ -24,7 +24,9 @@ const StreetArt = () => {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/artwork/${id}`)
       .then((res) => res.json())
-      .then((data) => setArtwork(data))
+      .then((data) => {
+        setArtwork(data);
+      })
       .catch((err) => console.error(err));
   }, [id]);
 
@@ -51,39 +53,41 @@ const StreetArt = () => {
         <h1 className="artwork_details"> Détail de l'oeuvre </h1>
         {artwork !== null ? (
           <article key={artwork.id} className="artwork-container">
-            <h2>{artwork.name} </h2>
             <img
               className="artwork-img"
               src={artwork.image}
               alt={artwork.name}
             />
-            <div className="infos">
-              <h3> Artiste </h3>
-              <p> {artwork.artist} </p>
-            </div>
-            <div className="infos">
-              <h3> Date de création </h3>
-              <p> {artwork.creation_date} </p>
-            </div>
-            <div className="infos">
-              <h3> Adresse </h3>
-              <p> {artwork.address} </p>
-            </div>
-            <div className="infos">
-              <h3> Coordonnées géographique </h3>
-              <p> {artwork.coordinates} </p>
-            </div>
-            <div className="infos">
-              <h3> Type de l'oeuvre </h3>
-              <p> {artwork.type_of_art} </p>
-            </div>
-            <div className="infos">
-              <h3> Photographe </h3>
-              <p> {artwork.picture_credit} </p>
-            </div>
-            <div className="infos">
-              <h3> Date </h3>
-              <p> {artwork.picture_date} </p>
+            <div className="container-details">
+              <h2>{artwork.name} </h2>
+              <div className="infos">
+                <h3> Artiste </h3>
+                <p> {artwork.artist} </p>
+              </div>
+              <div className="infos">
+                <h3> Date de création </h3>
+                <p> {artwork.creation_date} </p>
+              </div>
+              <div className="infos">
+                <h3> Adresse </h3>
+                <p> {artwork.address} </p>
+              </div>
+              <div className="infos">
+                <h3> Coordonnées géographique </h3>
+                <p> {artwork.coordinates} </p>
+              </div>
+              <div className="infos">
+                <h3> Type de l'oeuvre </h3>
+                <p> {artwork.type_of_art} </p>
+              </div>
+              <div className="infos">
+                <h3> Photographe </h3>
+                <p> {artwork.picture_credit} </p>
+              </div>
+              <div className="infos">
+                <h3> Date </h3>
+                <p> {artwork.picture_date} </p>
+              </div>
             </div>
           </article>
         ) : (

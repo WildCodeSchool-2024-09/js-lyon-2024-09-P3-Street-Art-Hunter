@@ -138,14 +138,6 @@ CREATE TABLE artwork
     (99, "UnityIsPower", "Hausmanns gate 42, 0182 Oslo, Norge", "https://www.street-artwork.com/uploads/document/5c5cdb2d280d2627035049.jpeg", "sticker", 59.919403, 10.751578, "Inconnue", 1),
     (100, "Maison fleurie", "1/871(A), KB Jacob Rd, Fort Kochi, Kochi, Kerala 682001, India", "https://www.street-artwork.com/uploads/document/5c60fc4feb6cb316702502.jpg", "stencil", 9.962593, 76.241937, "Inconnue", 1),
     (101, "Les pépites", "Alleyway of St. 240 1/2, No. 82 E0 St 244, Phnom Phen City,, Phnom Penh, Cambodia", "https://www.street-artwork.com/uploads/document/5fc8b7429676d397501737.JPG", "wall painting", 11.560285, 104.930269, "Jinks Kunst", 2);
-    
-
-
-
-
-
-
-
 
 CREATE TABLE user
 (id INT AUTO_INCREMENT PRIMARY KEY,
