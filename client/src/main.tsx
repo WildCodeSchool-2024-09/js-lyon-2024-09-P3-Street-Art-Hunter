@@ -72,6 +72,5 @@ createRoot(rootElement).render(
         </StrictMode>
       </GeocodingProvider>
     </LoginProvider>
-    ,
   </ThemeProvider>,
 );
