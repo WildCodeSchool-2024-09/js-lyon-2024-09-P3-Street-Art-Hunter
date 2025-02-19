@@ -1,0 +1,43 @@
+.theme-button {
+  position: fixed;
+  top: 92px;
+  left: 20px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  background-color: var(--form-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  width: 3.5em;
+  height: 3.5em;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .theme-button {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-button {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+  }
+}
+
+.icon-theme {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.theme-button:hover .icon-theme {
+  transform: scale(1.1);
+}

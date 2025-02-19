@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { ToasterError } from "../services/ToasterFunctions";
 
 const GeocodingContext = createContext<valueProps>({
   setSubmitedAddress: () => {},
@@ -27,6 +28,7 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
   >();
 
   useEffect(() => {
+    //a pour but de stocker la geolocalisation dans la page de l'utilisateur web
     const storedArray = localStorage.getItem("last_coord");
     const storedCoords: number[] = storedArray
       ? JSON.parse(storedArray)
@@ -41,7 +43,16 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
       )
         .then((res) => {
           if (res.status === 404) {
-            throw new Error("aucune coordonée trouvée à cette addresse");
+            ToasterError(
+              "Hmm… on dirait que cette adresse fait du cache-cache. Réessaie ! 🏠❌",
+              "light",
+            );
+            //récupération de l'information stocker si il y en a une afin que l'utilisateur puisse retrouver son point d'origine sur la map
+            const storedArray = localStorage.getItem("last_coord");
+            if (storedArray) {
+              const storedCoords: number[] = JSON.parse(storedArray);
+              setSearchedLoc(storedCoords as [number, number]);
+            }
           }
           return res.json();
         })
@@ -51,7 +62,8 @@ export const GeocodingProvider: React.FC<{ children: React.ReactNode }> = ({
           const geoloc: [number, number] = [lat, lon];
           setSearchedLoc(geoloc);
           localStorage.setItem("last_coord", JSON.stringify(geoloc));
-        });
+        })
+        .catch((error) => console.error(error));
     }
   };
 

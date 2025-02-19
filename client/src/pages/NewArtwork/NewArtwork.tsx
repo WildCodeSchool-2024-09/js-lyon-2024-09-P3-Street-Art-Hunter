@@ -22,20 +22,24 @@ export default function NewArtwork() {
           <h1>Trésor trouvé !</h1>
           <p>
             La rue regorge de trésors et nous sommes toujours heureux de pouvoir
-            en recommander un de plus à notre communauté. Remplissez le
-            formulaire ci-dessous pour l'ajouter à notre répertoire et en faire
-            profiter tous les autres curieux.
+            en recommander un de plus à notre communauté.
           </p>
         </article>
         {user ? (
-          <AddNewArtwork />
+          <>
+            <p className="welcome_add">
+              Remplis le formulaire ci-dessous pour l'ajouter à notre répertoire
+              et en faire profiter tous les autres curieux.
+            </p>
+            <AddNewArtwork />
+            <p className="thankyou">Merci pour ta contribution.</p>
+          </>
         ) : (
           <article className="error_add">
             <h2>Oups ...</h2>
             <h3>Connectez vous pour pouvoir ajouter un Street Art !</h3>
           </article>
         )}
-        <p className="thankyou">Merci pour votre contribution.</p>
       </section>
     </>
   );

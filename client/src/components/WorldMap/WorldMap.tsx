@@ -26,6 +26,7 @@ interface LocProps {
   searchedLoc?: [number, number];
 }
 
+// définition des différents Pin pour les oeuvres de type différents.
 function WorldMap({ searchedLoc }: LocProps) {
   const mustardPin = new Icon({
     iconUrl: `${mustardIcon}`,

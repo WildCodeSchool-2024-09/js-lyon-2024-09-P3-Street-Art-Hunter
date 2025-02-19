@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 
 function AuthPage() {
-  const [isRegistered, setIsRegistered] = useState(false);
+  const [isRegistered, setIsRegistered] = useState<boolean>(true);
 
   return (
     <>
@@ -18,18 +18,21 @@ function AuthPage() {
         <img src={Logo} alt="Logo Citycanvas" className="narrow-logo" />
       </Link>
       <section className="authpage">
-        <h1>{isRegistered ? "Inscription" : "Connexion"}</h1>
-        {isRegistered ? (
-          <SignUp setIsRegistered={setIsRegistered} />
+        <h1>{!isRegistered ? "Inscription" : "Connexion"}</h1>
+        {!isRegistered ? (
+          <SignUp
+            setIsRegistered={setIsRegistered}
+            isRegistered={isRegistered}
+          />
         ) : (
           <SignIn />
         )}
         <article className="btn-section">
-          {isRegistered ? (
+          {!isRegistered ? (
             <button
               type="button"
               className="signin-btn"
-              onClick={() => setIsRegistered(false)}
+              onClick={() => setIsRegistered(true)}
             >
               J'ai déjà un compte
             </button>
@@ -37,7 +40,7 @@ function AuthPage() {
             <button
               type="button"
               className="signup-btn"
-              onClick={() => setIsRegistered(true)}
+              onClick={() => setIsRegistered(false)}
             >
               S'inscrire
             </button>

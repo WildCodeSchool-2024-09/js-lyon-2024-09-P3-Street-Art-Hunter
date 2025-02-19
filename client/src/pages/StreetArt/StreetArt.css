@@ -8,6 +8,9 @@
   border-radius: 12px;
   cursor: pointer;
   margin-top: 8em;
+  border: solid .5px var(--jet-color);
+  transition: all ease-in-out 0.25s;
+  scale: 1.02;
   /* position: relative; */
 }
 
@@ -53,6 +56,10 @@ img.artwork-img {
   gap: 10px;
 }
 
+.infos p {
+  color: var(--text-color);
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .back-btn {
     margin-top: 2em;
@@ -73,8 +80,18 @@ img.artwork-img {
   .artwork-section {
     padding: 7% 0% 3% 0%;
     max-height: 90%;
+    flex-direction: column;
+    width: 90vw;
   }
   img.artwork-img {
     height: 25rem;
+  }
+  .artwork-container {
+    flex-direction: row;
+    gap: 15px;
+    width: 85vw;
+  }
+  .container-details {
+    flex-direction: column;
   }
 }

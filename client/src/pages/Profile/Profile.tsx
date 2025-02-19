@@ -1,9 +1,10 @@
 import "./Profile.css";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import Logo from "../../assets/images/cc_logo_spotless_mustard.png";
 import LoginContext from "../../contexts/LoginContext";
+import { useTheme } from "../../contexts/ThemeContext";
+import { ToasterError, ToasterSuccess } from "../../services/ToasterFunctions";
 
 interface UserProps {
   id: number | null;
@@ -18,6 +19,7 @@ interface UserProps {
 function Profile() {
   const [infoUser, setInfoUser] = useState<UserProps | null>(null);
   const { user } = useContext(LoginContext);
+  const { theme } = useTheme();
 
   // Fetch du profil en fonction de l'ID de l'utilisateur qui est connecté
   useEffect(() => {
@@ -62,12 +64,23 @@ function Profile() {
         body: JSON.stringify({ email, pseudo }),
       }).then((response) => {
         if (response.status === 204) {
-          toast.success("Modifications enregistrées ! 🙂");
+          ToasterSuccess(
+            "Modifications réussies ! Tout est mis à jour, prêt(e) à explorer ! 😎✨",
+            theme,
+          );
           response.json();
+        } else {
+          ToasterError(
+            "Oups, il y a eu un petit hic ! Un problème est survenu, réessaie un peu plus tard. 😬🔄",
+            theme,
+          );
         }
       });
     } else {
-      toast.error("Un problème est survenu");
+      ToasterError(
+        "Aïe ! Un imprévu est arrivé. Pas de panique, on va régler ça ! 🔧",
+        theme,
+      );
     }
   };
 
@@ -108,15 +121,6 @@ function Profile() {
                   id="profile-edit-mail"
                   name="mail"
                   defaultValue={infoUser.email}
-                />
-              </label>
-              <label className="user_label profile_label">
-                Mot de passe
-                <input
-                  className="password-input"
-                  type="password"
-                  value="password"
-                  disabled
                 />
               </label>
               <div className="user_label profile_label">

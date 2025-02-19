@@ -11,6 +11,7 @@ import NewArtwork from "./pages/NewArtwork/NewArtwork";
 import Profile from "./pages/Profile/Profile";
 import StreetArtMap from "./pages/StreetArtMap/StreetArtMap";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import StreetArt from "./pages/StreetArt/StreetArt";
@@ -63,11 +64,13 @@ if (rootElement == null) {
 }
 
 createRoot(rootElement).render(
-  <LoginProvider>
-    <GeocodingProvider>
-      <StrictMode>
-        <RouterProvider router={router} />
-      </StrictMode>
-    </GeocodingProvider>
-  </LoginProvider>,
+  <StrictMode>
+    <ThemeProvider>
+      <LoginProvider>
+        <GeocodingProvider>
+          <RouterProvider router={router} />
+        </GeocodingProvider>
+      </LoginProvider>
+    </ThemeProvider>
+  </StrictMode>,
 );

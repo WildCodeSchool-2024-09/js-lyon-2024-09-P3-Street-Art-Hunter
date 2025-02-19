@@ -26,7 +26,7 @@ class artworkRepository {
 
   async read(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT aw.name, aw.address, aw.image, aw.picture_date, aw.type_of_art, aw.latitude, aw.longitude, aw.picture_credit, at.name FROM artwork AS aw JOIN artist AS at ON at.id=aw.id_artist WHERE aw.id=?",
+      "SELECT aw.name, aw.address, aw.image, aw.picture_date, aw.type_of_art, aw.latitude, aw.longitude, aw.picture_credit, at.name as artist FROM artwork AS aw JOIN artist AS at ON at.id=aw.id_artist WHERE aw.id=?",
       [id],
     );
     return rows[0] as artwork;

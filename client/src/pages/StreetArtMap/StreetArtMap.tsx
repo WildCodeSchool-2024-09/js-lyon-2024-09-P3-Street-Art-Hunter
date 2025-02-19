@@ -23,7 +23,7 @@ function StreetArtMap() {
         <img src={Logo} alt="Logo Citycanvas" className="narrow-logo" />
       </Link>
       {searchedLoc !== undefined ? (
-        // déclenche le navigate uniquement si on a les coordonnées géographique.
+        // déclenche le navigate uniquement si on a les coordonnées géographique, sinon cela dirige vers le Loader.
         <>
           <DistSearch componentLoc={worldmapLoc} />
           <WorldMap searchedLoc={searchedLoc} />
