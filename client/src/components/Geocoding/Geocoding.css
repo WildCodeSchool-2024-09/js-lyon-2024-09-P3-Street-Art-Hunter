@@ -132,7 +132,7 @@
     background-color: var(--button-yellow);
     border: solid .5px var(--jet-color);
     color: var(--jet-color);
-    align-self: baseline;
+    align-self: center;
     margin-left: 2em;
     border: solid .5px var(--jet-color);
   }
