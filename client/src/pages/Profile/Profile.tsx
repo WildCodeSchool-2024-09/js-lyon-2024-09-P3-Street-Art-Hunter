@@ -123,15 +123,6 @@ function Profile() {
                   defaultValue={infoUser.email}
                 />
               </label>
-              <label className="user_label profile_label">
-                Mot de passe
-                <input
-                  className="password-input"
-                  type="password"
-                  value="password"
-                  disabled
-                />
-              </label>
               <div className="user_label profile_label">
                 Date d'inscription
                 <p id="profile-date">

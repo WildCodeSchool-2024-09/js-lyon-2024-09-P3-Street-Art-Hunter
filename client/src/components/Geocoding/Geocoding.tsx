@@ -88,6 +88,7 @@ export default function Geocoding() {
         className={buttonStyle}
         type="submit"
         onClick={handleSearchClick} //Confirmer l'envoi de l'adresse "submitedAddress" à l'API
+        onKeyDown={handleSearchClick}
       >
         Rechercher
       </button>
