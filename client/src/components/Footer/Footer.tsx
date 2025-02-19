@@ -1,8 +1,11 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import gitHub from "../../assets/icones/github-mark-white.svg";
+import GitHub from "../../assets/icones/github-mark-white.svg";
+import GithubBlack from "../../assets/icones/github_black.png";
+import { useTheme } from "../../contexts/ThemeContext";
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
     <section className="footer">
       <p>Créé par City Canvas </p>
@@ -17,7 +20,11 @@ export default function Footer() {
         rel="noreferrer"
       >
         Retrouvez nous sur
-        <img src={gitHub} alt="gitHub" className="logoGitHub" />
+        <img
+          src={theme === "light" ? GithubBlack : GitHub}
+          alt="gitHub"
+          className="logoGitHub"
+        />
       </a>
     </section>
   );
