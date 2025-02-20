@@ -44,9 +44,9 @@ export default function AddNewArtwork() {
 
       //gestion des erreurs de saisie sur l'import d'une nouvelle oeuvre
       if (
-        name.length < 5 ||
-        address.length < 5 ||
-        image.length < 10 ||
+        name.length < 4 ||
+        address.length < 4 ||
+        image.length < 15 ||
         latitude === null ||
         longitude === null ||
         picture_credit === null
