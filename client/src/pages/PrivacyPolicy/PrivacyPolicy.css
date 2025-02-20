@@ -12,12 +12,14 @@
   font-family: var(--text-font);
   font-size: 1.5em;
 }
-.privacy-container p li {
+.privacy-container p,
+.privacy-container li {
   font-family: var(--text-font);
   color: var(--text-color);
   font-weight: 300;
 }
-.privacy-container ul li {
+.privacy-container ul,
+.privacy-container li {
   list-style-type: disc;
   margin: 0.5em 0;
   padding-left: 0.5em;
