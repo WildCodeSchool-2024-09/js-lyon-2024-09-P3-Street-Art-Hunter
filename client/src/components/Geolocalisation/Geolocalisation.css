@@ -1,0 +1,26 @@
+.geo-btn {
+  border: transparent;
+  background-color: transparent;
+  color: var(--button-color);
+  font-family: var(--text-font);
+  font-size: 1em;
+  margin-top: 0.5em;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.geo-btn:hover,
+geo-btn-map:hover {
+  scale: calc(1.02);
+}
+
+.geo-btn-map {
+  border: transparent;
+  background-color: transparent;
+  color: var(--jet-color);
+  font-family: var(--text-font);
+  font-size: 1em;
+  margin-top: 0.5em;
+  font-weight: 500;
+  cursor: pointer;
+}

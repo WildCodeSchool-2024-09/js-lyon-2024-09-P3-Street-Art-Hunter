@@ -1,0 +1,194 @@
+.citySearch {
+  height: 2.8em;
+  min-width: 20em;
+  font-family: var(--text-font);
+  border: none;
+  border-radius: 12px;
+  background-color: var(--form-color);
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 1em;
+  font-size: 1.1em;
+}
+
+.locSearch {
+  height: 2.4em;
+  min-width: 15em;
+  font-family: var(--text-font);
+  border-radius: 12px;
+  background-color: var(--form-color);
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 1em;
+  font-size: 1.1em;
+  border: 1px solid;
+}
+
+.artSearch {
+  height: 2.5em;
+  min-width: 100%;
+  font-family: var(--text-font);
+  border-radius: 12px;
+  background-color: var(--form-color);
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+  margin-top: 5px;
+  border: none;
+}
+
+.citySearch:focus,
+.locSearch:focus,
+.artSearch:focus {
+  outline: none;
+  border: 1px solid;
+  border-color: var(--mustard-color);
+  box-shadow: 0 0 0 3px rgba(183, 227, 204, 0.2);
+}
+
+.search-btn {
+  height: 3em;
+  width: 8em;
+  align-self: center;
+  font-family: var(--text-font);
+  font-size: 1em;
+  font-weight: 400;
+  background-color: var(--button-yellow);
+  color: var(--jet-color);
+  border: solid .5px var(--jet-color);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.search-loc-btn {
+  height: 2.4em;
+  width: 8em;
+  align-self: center;
+  font-family: var(--text-font);
+  font-size: 1em;
+  font-weight: 400;
+  background-color: var(--button-yellow);
+  color: var(--jet-color);
+  border: solid .5px var(--jet-color);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.search-art-btn {
+  height: 2.4em;
+  width: 8em;
+  align-self: center;
+  font-family: var(--text-font);
+  font-size: 1em;
+  font-weight: 400;
+  background-color: var(--button-yellow);
+  color: var(--jet-color);
+  border: solid .5px var(--jet-color);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.search-btn:hover,
+.search-loc-btn:hover,
+.search-art-btn:hover {
+  transition: all ease-in-out .25s;
+  scale: calc(1.02);
+  box-shadow: 0 4px 12px rgba(72, 77, 109, 0.2);
+}
+
+.search-btn:active,
+.search-loc-btn:active,
+.search-art-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.searchBar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.searchBar-art {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.searchGeo {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchGeo-art {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .search-btn {
+    background-color: var(--button-yellow);
+    border: solid .5px var(--jet-color);
+    color: var(--jet-color);
+    align-self: center;
+    margin-left: 2em;
+    border: solid .5px var(--jet-color);
+  }
+  .searchGeo {
+    display: flex;
+    flex-direction: column;
+  }
+  .citySearch {
+    width: 30em;
+  }
+  .artSearch {
+    width: 29em;
+  }
+  .searchBar-art {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .searchGeo-art {
+    width: 49vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .citySearch {
+    width: 40em;
+  }
+  .searchBar {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    margin-left: 1vw;
+  }
+  .searchBar-art {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .search-btn {
+    background-color: var(--button-yellow);
+    border: solid .5px var(--jet-color);
+    color: var(--jet-color);
+    align-self: baseline;
+    margin: 0 2em;
+  }
+  .searchGeo {
+    display: flex;
+    flex-direction: column;
+  }
+  .searchGeo-art {
+    width: 41vw;
+  }
+  .locSearch {
+    min-width: 24em;
+    margin-bottom: 0;
+  }
+  .artSearch {
+    width: 46em;
+  }
+}

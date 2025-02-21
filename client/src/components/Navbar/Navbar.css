@@ -1,0 +1,119 @@
+.navbar-icon {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 6vh;
+  width: 92%;
+  margin-top: 0.5em;
+}
+
+.navbar-icon img {
+  height: 3.5vh;
+  display: block;
+}
+
+.box-divider {
+  border: 1px solid var(--button-color);
+  border-radius: 5px;
+}
+
+hr {
+  display: block;
+  border: 1px solid var(--button-color);
+  height: 4vh;
+}
+
+.vertical-divider {
+  display: none;
+}
+
+.disconnected_user {
+  border-radius: 50%;
+  border: 0.5px solid var(--ash-grey-color);
+}
+
+.dropdown-btn {
+  border-radius: 50%;
+  border: 0.5px solid var(--ash-grey-color);
+  background-color: var(--bg-color);
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 1000;
+  bottom: 50px;
+  background-color: var(--underside-color);
+  border-radius: 5px;
+  padding: 2em;
+  width: 90%;
+  margin-bottom: 1.5em;
+}
+
+.dropdown a {
+  list-style: none;
+  text-decoration: none;
+  color: var(--ash-grey-color);
+  font-family: var(--text-font);
+  font-size: 1.8em;
+  font-weight: 400;
+}
+.dropdown li:hover {
+  color: var(--mustard-color);
+}
+#password,
+#email,
+#pseudo,
+#confirm-password {
+  padding-left: 1em;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .navbar-icon {
+    width: 25%;
+  }
+  .vertical-divider {
+    display: block;
+    border: 1px solid var(--button-color);
+    height: 4vh;
+  }
+  .box-divider {
+    border: none;
+  }
+  .dropdown {
+    position: absolute;
+    z-index: 1000;
+    top: 50px;
+    bottom: auto;
+    background-color: var(--underside-color);
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    margin-top: 0.7em;
+    padding: 2em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .navbar-icon {
+    width: 15%;
+  }
+  .vertical-divider {
+    display: block;
+    border: 1px solid var(--button-color);
+    height: 4vh;
+  }
+  .box-divider {
+    border: none;
+  }
+  .dropdown {
+    position: absolute;
+    z-index: 1000;
+    top: 50px;
+    bottom: auto;
+    background-color: var(--underside-color);
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    margin-top: 0.7em;
+    padding: 2em;
+  }
+}

@@ -1,0 +1,22 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  animation: slide 1.6s infinite alternate;
+  text-align: center;
+}
+
+.loading-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20%;
+  height: 90%;
+  gap: 4em;
+}
+
+@keyframes slide {
+  100% {
+    translate: 50px 0;
+  }
+}

@@ -1,0 +1,45 @@
+.cgu-title {
+  text-align: center;
+  padding-top: 2em;
+}
+.cgu-container {
+  height: 65%;
+  overflow-y: auto;
+  margin: 2em 2em;
+}
+.cgu-container h2 {
+  font-family: var(--text-font);
+  font-size: 1.5em;
+}
+.cgu-container p {
+  font-family: var(--text-font);
+  color: var(--text-color);
+  font-weight: 300;
+}
+
+/* Styles pour la scrollbar */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .cgu-title {
+    padding-top: 0;
+  }
+  .cgu-container {
+    margin-top: 2em;
+    width: 70vw;
+    height: 78%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cgu-title {
+    padding-top: 0;
+  }
+  .cgu-container {
+    margin-top: 3em;
+    width: 70vw;
+    height: 78%;
+  }
+}

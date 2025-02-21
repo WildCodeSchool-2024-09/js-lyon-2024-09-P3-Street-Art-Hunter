@@ -1,0 +1,58 @@
+.add_artwork {
+  height: 95%;
+  padding: 20% 10% 1% 10%;
+  overflow-y: auto;
+}
+
+.presentation_add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.presentation_add p,
+.welcome_add {
+  color: var(--text-color);
+  text-align: center;
+}
+
+.welcome_add {
+  padding-bottom: 10px;
+}
+
+.error_add {
+  text-align: center;
+  padding-bottom: 20em;
+}
+
+.thankyou {
+  color: var(--button-color);
+  text-align: center;
+  margin-top: 1em;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .add_artwork {
+    padding: 7% 2% 3% 2%;
+    width: 73vw;
+  }
+  .presentation_add p,
+  .welcome_add {
+    font-size: 1.3em;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .add_artwork {
+    padding: 7% 2% 3% 2%;
+    width: 73vw;
+    height: 99%;
+  }
+  .presentation_add p,
+  .welcome_add {
+    font-size: 1.4em;
+    text-align: center;
+  }
+}
